@@ -1,8 +1,3 @@
-<?php
-    include('/api/connection.php');
-    include('/api/service.data.php');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>

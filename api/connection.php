@@ -8,7 +8,5 @@ $dbconnect = new mysqli($dbhost, $dbuser, $password, $dbname);
 
 if($dbconnect->connect_error){          
     die("Server bermasalah");
-}else{
-    echo "koneksi berhasil";
 }
 ?>

@@ -14,6 +14,8 @@
     $tegangan = $row_desc['tegangan'];
     $arus = $row_desc['arus'];
     $suhuPanel = $row_desc['suhuPanel'];
+    $suhuLingkungan = $row_desc['suhuLingkungan'];
+    $iradiasi = $row_desc['iradiasi'];
 
     // Initialize two arrays to hold the result of our iteration over the asc ordered dataset
     $arrayID = [];

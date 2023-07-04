@@ -1,11 +1,5 @@
-﻿<?php
-    include ('api/connection.php');
-    include ('api/service.data.php');
-?>
-
-<!DOCTYPE html>
-    <html lang="en">
-
+﻿<!DOCTYPE html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <title>Performance Tester</title>
@@ -33,7 +27,7 @@
             <div class="leftside-menu">
     
                 <!-- LOGO -->
-                <a href="index.php" class="logo text-center logo-light">
+                <a href="index.html" class="logo text-center logo-light">
                     <span class="logo-lg">
                         <img src="assets/images/pnup.png" alt="" height="55">
                     </span>
@@ -43,7 +37,7 @@
                 </a>
 
                 <!-- LOGO -->
-                <a href="index.php" class="logo text-center logo-dark">
+                <a href="index.html" class="logo text-center logo-dark">
                     <span class="logo-lg">
                         <img src="assets/images/pnup.png" alt="" height="16">
                     </span>
@@ -68,10 +62,10 @@
                             <div class="collapse" id="sidebarDashboards">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="dashboard-grafik.php">Data Grafik</a>
+                                        <a href="dashboard-analytics.html">Data Grafik</a>
                                     </li>
                                     <li>
-                                        <a href="dashboard-tabel.php">Data Tabel</a>
+                                        <a href="dashboard-crm.html">Data Tabel</a>
                                     </li>
                                 </ul>
                             </div>
@@ -251,279 +245,161 @@
                         </div>
                     </div>
                     <!-- end Topbar -->
-                    
+
                     <!-- Start Content-->
                     <div class="container-fluid">
-
+                        
                         <!-- start page title -->
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box">
                                     <div class="page-title-right">
-                                        <form class="d-flex">
-                                            <div class="input-group">
-                                                <input type="text" class="form-control form-control-light" id="dash-daterange">
-                                                <span class="input-group-text bg-primary border-primary text-white">
-                                                    <i class="mdi mdi-calendar-range font-13"></i>
-                                                </span>
-                                            </div>
-                                            <a href="javascript: void(0);" class="btn btn-primary ms-2">
-                                                <i class="mdi mdi-autorenew"></i>
-                                            </a>
-                                            <a href="javascript: void(0);" class="btn btn-primary ms-1">
-                                                <i class="mdi mdi-filter-variant"></i>
-                                            </a>
-                                        </form>
+                                        <ol class="breadcrumb m-0">
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Hyper</a></li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Maps</a></li>
+                                            <li class="breadcrumb-item active">Vector Maps</li>
+                                        </ol>
                                     </div>
-                                    <h4 class="page-title">Dashboard</h4>
+                                    <h4 class="page-title">Vector Maps</h4>
                                 </div>
                             </div>
-                        </div>
-                        <!-- end page title -->
+                        </div>     
+                        <!-- end page title --> 
 
                         <div class="row">
-                            <div class="col-lg-6 col-xl-3">
+                            <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <h4 class="text-muted fw-normal mt-0 text-truncate" title="Campaign Sent">Tegangan (Voc)</h4>
-                                                <h3 class="my-2 py-1"><?=$tegangan;?> V</h3>
-                                                <p class="mb-0 text-muted">
-                                                    <span class="text-success me-2"><i class="mdi mdi-arrow-up-bold"></i> Volt</span>
-                                                </p>
-                                            </div>
-                                        </div> <!-- end row-->
-                                    </div> <!-- end card-body -->
-                                </div> <!-- end card -->
-                            </div> <!-- end col -->
-        
-                            <div class="col-lg-6 col-xl-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <h4 class="text-muted fw-normal mt-0 text-truncate" title="New Leads">Arus</h4>
-                                                <h3 class="my-2 py-1"><?=$arus;?> A</h3>
-                                                <p class="mb-0 text-muted">
-                                                    <span class="text-success me-2"><i class="mdi mdi-arrow-up-bold"></i> Ampere</span>
-                                                </p>
-                                            </div>
-                                        </div> <!-- end row-->
-                                    </div> <!-- end card-body -->
-                                </div> <!-- end card -->
-                            </div> <!-- end col -->
-
-                            
-                            <div class="col-lg-6 col-xl-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <h4 class="text-muted fw-normal mt-0 text-truncate" title="Deals">Suhu Panel</h4>
-                                                <h3 class="my-2 py-1"><?=$suhuPanel;?> C</h3>
-                                                <p class="mb-0 text-muted">
-                                                    <span class="text-danger me-2"><i class="mdi mdi-arrow-up-bold"></i> Celcius</span>
-                                                </p>
-                                            </div>
-                                        </div> <!-- end row-->
-                                    </div> <!-- end card-body -->
-                                </div> <!-- end card -->
-                            </div> <!-- end col -->
-                            
-                            <div class="col-lg-6 col-xl-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <h4 class="text-muted fw-normal mt-0 text-truncate" title="Booked Revenue">Suhu Lingkungan</h4>
-                                                <h3 class="my-2 py-1"><?=$tegangan;?> C</h3>
-                                                <p class="mb-0 text-muted">
-                                                    <span class="text-danger me-2"><i class="mdi mdi-arrow-up-bold"></i> Celcius</span>
-                                                </p>
-                                            </div>
-                                        </div> <!-- end row-->
-                                    </div> <!-- end card-body -->
-                                </div> <!-- end card -->
-                            </div> <!-- end col -->
-                        </div>
-                        <!-- end row -->
-                        
-                        <div class="col-lg-6 col-xl-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="row align-items-center">
-                                        <div class="col-6">
-                                            <h4 class="text-muted fw-normal mt-0 text-truncate" title="New Leads">Iradiasi</h4>
-                                            <h3 class="my-2 py-1"><?=$iradiasi;?> w/m2</h3>
-                                            <p class="mb-0 text-muted">
-                                                <span class="text-success me-2"><i class="mdi mdi-arrow-up-bold"></i> w/m2</span>
-                                            </p>
-                                        </div>
-                                    </div> <!-- end row-->
-                                </div> <!-- end card-body -->
-                            </div> <!-- end card -->
-                        </div> <!-- end col -->
-                        
-                        <div class="row">
-                            
-
-                            <div class="col-xl-7 col-lg-6">
-                                <div class="card card-h-100">
-                                    <div class="card-body">
-                                        <div class="dropdown float-end">
-                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="mdi mdi-dots-vertical"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Arus</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Tegangan</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Suhu Panel</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Suhu Lingkungan</a>
-                                                <a href="javascript:void(0);" class="dropdown-item">Iradiasi</a>
-                                            </div>
-                                        </div>
-                                        <h4 class="header-title mb-3">Charts Data</h4>
-
-                                        <div dir="ltr">
-                                            <div id="high-performing-product" class="apex-charts" data-colors="#727cf5,#e3eaef"></div>
-                                        </div>
-                                            
-                                    </div> <!-- end card-body-->
-                                </div> <!-- end card-->
-
-                            </div> <!-- end col -->
-                        </div>
-                        <!-- end row -->
-
-                        <div class="row">
-                            <div class="col-lg-8">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="dropdown float-end">
-                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="mdi mdi-dots-vertical"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Arus</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Tegangan</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Suhu Panel</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Suhu Lingkungan</a>
-                                                <a href="javascript:void(0);" class="dropdown-item">Iradiasi</a>
-                                            </div>
-                                        </div>
-                                        <h4 class="header-title mb-3">Revenue</h4>
-
-                                       <div class="dash-item-overlay d-none d-md-block" dir="ltr">
-                                            <h5>Today's Earning: $2,562.30</h5>
-                                            <p class="text-muted font-13 mb-3 mt-2">Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.
-                                                Etiam rhoncus...</p>
-                                            <a href="javascript: void(0);" class="btn btn-outline-primary">View Statements
-                                                <i class="mdi mdi-arrow-right ms-2"></i>
-                                            </a>
-                                        </div>
-                                        <div dir="ltr">
-                                            <div id="revenue-chart" class="apex-charts mt-3" data-colors="#727cf5,#0acf97"></div>
-                                        </div>
-                                    </div> <!-- end card-body-->
-                                </div> <!-- end card-->
-                            </div> <!-- end col-->
-
-                            <div class="col-lg-4">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="dropdown float-end">
-                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="mdi mdi-dots-vertical"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                            </div>
-                                        </div>
-                                        <h4 class="header-title">Revenue By Location</h4>
-                                        <div class="mb-4 mt-4">
-                                            <div id="world-map-markers" style="height: 224px"></div>
-                                        </div>
-
-                                        <h5 class="mb-1 mt-0 fw-normal">New York</h5>
-                                        <div class="progress-w-percent">
-                                            <span class="progress-value fw-bold">72k </span>
-                                            <div class="progress progress-sm">
-                                                <div class="progress-bar" role="progressbar" style="width: 72%;" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-
-                                        <h5 class="mb-1 mt-0 fw-normal">San Francisco</h5>
-                                        <div class="progress-w-percent">
-                                            <span class="progress-value fw-bold">39k </span>
-                                            <div class="progress progress-sm">
-                                                <div class="progress-bar" role="progressbar" style="width: 39%;" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-
-                                        <h5 class="mb-1 mt-0 fw-normal">Sydney</h5>
-                                        <div class="progress-w-percent">
-                                            <span class="progress-value fw-bold">25k </span>
-                                            <div class="progress progress-sm">
-                                                <div class="progress-bar" role="progressbar" style="width: 39%;" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-
-                                        <h5 class="mb-1 mt-0 fw-normal">Singapore</h5>
-                                        <div class="progress-w-percent mb-0">
-                                            <span class="progress-value fw-bold">61k </span>
-                                            <div class="progress progress-sm">
-                                                <div class="progress-bar" role="progressbar" style="width: 61%;" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
+                                        <h4 class="header-title mb-3">World Vector Map</h4>
+                                        <div id="world-map-markers" style="height: 360px"></div>
                                     </div> <!-- end card-body-->
                                 </div> <!-- end card-->
                             </div> <!-- end col-->
                         </div>
-                        <!-- end row -->
+                        <!-- end row-->
 
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="header-title mb-3">USA Vector Map</h4>
+                                        <div id="usa-vectormap" style="height: 300px"></div>
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col-->
+                            <div class="col-xl-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="header-title mb-3">India Vector Map</h4>
+                                        <div id="india-vectormap" style="height: 300px"></div>
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col-->
+                        </div>
+                        <!-- end row-->
 
-                        <!-- end row -->
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="header-title mb-3">Australia Vector Map</h4>
+                                        <div id="australia-vectormap" style="height: 300px"></div>
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col-->
+                            <div class="col-xl-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="header-title mb-3">Chicago Vector Map</h4>
+                                        <div id="chicago-vectormap" style="height: 300px"></div>
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col-->
+                        </div>
+                        <!-- end row-->
 
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="header-title mb-3">UK Vector Map</h4>
+                                        <div id="uk-vectormap" style="height: 300px"></div>
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col-->
+                            <div class="col-xl-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="header-title mb-3">Canada Vector Map</h4>
+                                        <div id="canada-vectormap" style="height: 300px"></div>
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col-->
+                        </div>
+                        <!-- end row-->
+
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="header-title mb-3">Europe Vector Map</h4>
+                                        <div id="europe-vectormap" style="height: 300px"></div>
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col-->
+                            <div class="col-xl-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="header-title mb-3">France Vector Map</h4>
+                                        <div id="france-vectormap" style="height: 300px"></div>
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col-->
+                        </div>
+                        <!-- end row-->
+
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="header-title mb-3">Spain Vector Map</h4>
+                                        <div id="spain-vectormap" style="height: 300px"></div>
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col-->
+                            <div class="col-xl-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="header-title mb-3">Spain Vector Map</h4>
+                                        <div id="spain2-vectormap" style="height: 300px"></div>
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col-->
+                        </div>
+                        <!-- end row-->
+                        
+                    </div> <!-- container -->
+
+                </div> <!-- content -->
+
+               <!-- Footer Start -->
+               <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <script>document.write(new Date().getFullYear())</script> © Politeknik Negeri Ujung Pandang
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-md-end footer-links d-none d-md-block">
+                                <a href="javascript: void(0);">About</a>
+                                <a href="javascript: void(0);">Support</a>
+                                <a href="javascript: void(0);">Contact Us</a>
+                            </div>
+                        </div>
                     </div>
-                    <!-- container -->
-
                 </div>
-                <!-- content -->
-
-                <!-- Footer Start -->
-                <footer class="footer">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <script>document.write(new Date().getFullYear())</script> © Politeknik Negeri Ujung Pandang
-                            </div>
-                            <div class="col-md-6">
-                                <div class="text-md-end footer-links d-none d-md-block">
-                                    <a href="javascript: void(0);">About</a>
-                                    <a href="javascript: void(0);">Support</a>
-                                    <a href="javascript: void(0);">Contact Us</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-                <!-- end Footer -->
+            </footer>
+            <!-- end Footer -->
 
             </div>
 
@@ -534,6 +410,7 @@
 
         </div>
         <!-- END wrapper -->
+
 
         <!-- Right Sidebar -->
         <div class="end-bar">
@@ -627,18 +504,28 @@
         <div class="rightbar-overlay"></div>
         <!-- /End-bar -->
 
+
         <!-- bundle -->
         <script src="assets/js/vendor.min.js"></script>
         <script src="assets/js/app.min.js"></script>
 
         <!-- third party js -->
-        <script src="assets/js/vendor/apexcharts.min.js"></script>
         <script src="assets/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
         <script src="assets/js/vendor/jquery-jvectormap-world-mill-en.js"></script>
+        <script src="assets/js/vendor/jquery-jvectormap-us-merc-en.js"></script>
+        <script src="assets/js/vendor/jquery-jvectormap-in-mill-en.js"></script>
+        <script src="assets/js/vendor/jquery-jvectormap-au-mill-en.js"></script>
+        <script src="assets/js/vendor/jquery-jvectormap-us-il-chicago-mill-en.js"></script>
+        <script src="assets/js/vendor/jquery-jvectormap-uk-mill-en.js"></script>
+        <script src="assets/js/vendor/jquery-jvectormap-ca-lcc-en.js"></script>
+        <script src="assets/js/vendor/jquery-jvectormap-europe-mill-en.js"></script>
+        <script src="assets/js/vendor/jquery-jvectormap-fr-merc-en.js"></script>
+        <script src="assets/js/vendor/jquery-jvectormap-es-merc.js"></script>
+        <script src="assets/js/vendor/jquery-jvectormap-es-mill.js"></script>
         <!-- third party js ends -->
 
         <!-- demo app -->
-        <script src="assets/js/pages/demo.dashboard.js"></script>
+        <script src="assets/js/pages/demo.vector-maps.js"></script>
         <!-- end demo js-->
     </body>
 </html>

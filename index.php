@@ -275,7 +275,11 @@
                             </div>
                         </div>
                         <!-- end page title -->
-                        <div class="container" id="card-data"></div>
+
+                        <!-- card data -->
+                        <div class="container card-data" id="card-data"></div>
+                        <!-- end of card data -->
+
                         <script>
                             function loadXMLDoc(){
                                 var card = new XMLHttpRequest();

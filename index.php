@@ -337,7 +337,7 @@
                                         <div class="row align-items-center">
                                             <div class="col-6">
                                                 <h4 class="text-muted fw-normal mt-0 text-truncate" title="Booked Revenue">Suhu Lingkungan</h4>
-                                                <h3 class="my-2 py-1"><?=$tegangan;?> C</h3>
+                                                <h3 class="my-2 py-1"><?=$suhuLingkungan;?> C</h3>
                                                 <p class="mb-0 text-muted">
                                                     <span class="text-danger me-2"><i class="mdi mdi-arrow-up-bold"></i> Celcius</span>
                                                 </p>

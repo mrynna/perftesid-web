@@ -28,7 +28,7 @@
             <div class="leftside-menu">
     
                 <!-- LOGO -->
-                <a href="index.php" class="logo text-center logo-light">
+                <a href="perftesid.com" class="logo text-center logo-light">
                     <span class="logo-lg">
                         <img src="assets/images/pnup.png" alt="" height="55">
                     </span>
@@ -38,7 +38,7 @@
                 </a>
 
                 <!-- LOGO -->
-                <a href="index.php" class="logo text-center logo-dark">
+                <a href="perftesid.com" class="logo text-center logo-dark">
                     <span class="logo-lg">
                         <img src="assets/images/pnup.png" alt="" height="16">
                     </span>
@@ -254,22 +254,6 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box">
-                                    <div class="page-title-right">
-                                        <form class="d-flex">
-                                            <div class="input-group">
-                                                <input type="text" class="form-control form-control-light" id="dash-daterange">
-                                                <span class="input-group-text bg-primary border-primary text-white">
-                                                    <i class="mdi mdi-calendar-range font-13"></i>
-                                                </span>
-                                            </div>
-                                            <a href="javascript: void(0);" class="btn btn-primary ms-2">
-                                                <i class="mdi mdi-autorenew"></i>
-                                            </a>
-                                            <a href="javascript: void(0);" class="btn btn-primary ms-1">
-                                                <i class="mdi mdi-filter-variant"></i>
-                                            </a>
-                                        </form>
-                                    </div>
                                     <h4 class="page-title">Dashboard</h4>
                                 </div>
                             </div>

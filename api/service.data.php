@@ -20,12 +20,19 @@
 
     // Initialize two arrays to hold the result of our iteration over the asc ordered dataset
     $arrayID = [];
+    $arrayTegangan = [];
     $arrayArus = [];
     $arraySuhuPanel = [];
+    $arraySuhuLingkungan = [];
+    $arrayIradiasi = [];
+    $arrayPerforma = [];
 
     while ($row_asc = $result_asc->fetch_assoc()) {
         $arrayID[] = $row_asc['id'];
         $arrayTegangan[] = floatval($row_asc['tegangan']);
         $arrayArus[] = floatval($row_asc['arus']);
         $arraySuhuPanel[] = floatval($row_asc['suhuPanel']);
+        $arraySuhuLingkungan[] = floatval($row_asc['suhuLingkungan']);
+        $arrayIradiasi[] = floatval($row_asc['iradiasi']);
+        $arrayPerforma[] = floatval($row_asc['performa']);
     }  

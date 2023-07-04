@@ -28,7 +28,7 @@
             <div class="leftside-menu">
     
                 <!-- LOGO -->
-                <a href="index.php" class="logo text-center logo-light">
+                <a href="perftesid.com" class="logo text-center logo-light">
                     <span class="logo-lg">
                         <img src="assets/images/pnup.png" alt="" height="55">
                     </span>
@@ -38,7 +38,7 @@
                 </a>
 
                 <!-- LOGO -->
-                <a href="index.php" class="logo text-center logo-dark">
+                <a href="perftesid.com" class="logo text-center logo-dark">
                     <span class="logo-lg">
                         <img src="assets/images/pnup.png" alt="" height="16">
                     </span>
@@ -57,11 +57,14 @@
                         <li class="side-nav-item">
                             <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
                                 <i class="uil-home-alt"></i>
-                                <span class="badge bg-success float-end">2</span>
+                                <!-- <span class="badge bg-success float-end">2</span> -->
                                 <span> Dashboards </span>
                             </a>
                             <div class="collapse" id="sidebarDashboards">
                                 <ul class="side-nav-second-level">
+                                    <li>
+                                        <a href="perftesid.com">Home</a>
+                                    </li>
                                     <li>
                                         <a href="dashboard-grafik.php">Data Grafik</a>
                                     </li>
@@ -74,7 +77,7 @@
 
                         <li class="side-nav-title side-nav-item mt-1">Components</li>
 
-                       <li class="side-nav-item">
+                        <li class="side-nav-item">
                             <a data-bs-toggle="collapse" href="#sidebarMaps" aria-expanded="false" aria-controls="sidebarMaps" class="side-nav-link">
                                 <i class="uil-location-point"></i>
                                 <span> Maps </span>

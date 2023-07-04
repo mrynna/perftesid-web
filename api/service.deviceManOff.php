@@ -6,8 +6,9 @@ $arus = $_POST['arus'];
 $suhuPanel = $_POST['suhuPanel'];
 $suhuLingkungan = $_POST['suhuLingkungan'];
 $iradiasi = $_POST['iradiasi'];
+$performa = $_POST['performa'];
 
-$sql = "INSERT INTO tb_dataManOffline(token, tegangan, arus, suhuPanel, suhuLingkungan, iradiasi) VALUES ('$key', '$tegangan', '$arus', '$suhuPanel', '$suhuLingkungan', '$iradiasi')";
+$sql = "INSERT INTO tb_dataManOffline(token, tegangan, arus, suhuPanel, suhuLingkungan, iradiasi, performa) VALUES ('$key', '$tegangan', '$arus', '$suhuPanel', '$suhuLingkungan', '$iradiasi', '$performa')";
 $kirim = $dbconnect->query($sql);
 
 if (!$kirim) {

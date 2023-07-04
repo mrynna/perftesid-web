@@ -27,7 +27,7 @@
                 <div class="leftside-menu">
         
                     <!-- LOGO -->
-                    <a href="perftesid.com" class="logo text-center logo-light">
+                    <a href="index.php" class="logo text-center logo-light">
                         <span class="logo-lg">
                             <img src="assets/images/pnup.png" alt="" height="55">
                         </span>
@@ -37,7 +37,7 @@
                     </a>
     
                     <!-- LOGO -->
-                    <a href="perftesid.com" class="logo text-center logo-dark">
+                    <a href="index.php" class="logo text-center logo-dark">
                         <span class="logo-lg">
                             <img src="assets/images/pnup.png" alt="" height="16">
                         </span>
@@ -62,7 +62,7 @@
                             <div class="collapse" id="sidebarDashboards">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="perftesid.com">Home</a>
+                                        <a href="index.php">Home</a>
                                     </li>
                                     <li>
                                         <a href="dashboard-grafik.php">Data Grafik</a>

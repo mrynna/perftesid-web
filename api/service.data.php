@@ -16,6 +16,7 @@
     $suhuPanel = $row_desc['suhuPanel'];
     $suhuLingkungan = $row_desc['suhuLingkungan'];
     $iradiasi = $row_desc['iradiasi'];
+    $performa = $row_desc['performa'];
 
     // Initialize two arrays to hold the result of our iteration over the asc ordered dataset
     $arrayID = [];

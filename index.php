@@ -316,7 +316,7 @@
                             <div class="col-lg-8">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="header-title mb-3">Grafik Voc & Isc</h4>
+                                        <h4 class="header-title mb-3">Grafik Iradiasi Matahari</h4>
 
                                         <div dir="ltr">
                                             <canvas id="iradChart"></canvas>
@@ -331,7 +331,7 @@
                             <div class="col-lg-8">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="header-title mb-3">Grafik Voc & Isc</h4>
+                                        <h4 class="header-title mb-3">Grafik Performa Panel</h4>
 
                                         <div dir="ltr">
                                             <canvas id="perfChart"></canvas>
@@ -346,7 +346,7 @@
                             <div class="col-lg-8">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="header-title mb-3">Grafik Voc & Isc</h4>
+                                        <h4 class="header-title mb-3">Grafik Isc dan Iradiasi</h4>
 
                                         <div dir="ltr">
                                             <canvas id="iscIradiasiChart"></canvas>
@@ -361,7 +361,7 @@
                             <div class="col-lg-8">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="header-title mb-3">Grafik Voc & Isc</h4>
+                                        <h4 class="header-title mb-3">Grafik Voc & Suhu</h4>
 
                                         <div dir="ltr">
                                             <canvas id="vocSuhuChart"></canvas>

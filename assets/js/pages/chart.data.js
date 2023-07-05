@@ -40,10 +40,13 @@ function getData() {
       });
 
       // Hancurkan instansiasi chart sebelumnya
-      if (chartVoc || chartSuhu || chartPerf) {
+      if (chartVoc || chartSuhu || chartPerf || chartIrad || chartVocSuhu || chartIscIrad) {
         chartVoc.destroy();
         chartSuhu.destroy();
         chartPerf.destroy();
+        chartIrad.destroy();
+        chartVocSuhu.destroy();
+        chartIscIrad.destroy();
       }
 
       // Membuat chart VocIsc

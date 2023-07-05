@@ -223,7 +223,7 @@
                                     <!-- item-->
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <div class="d-flex">
-                                            <img class="d-flex me-2 rounded-circle" src="assets/images/users/avatar-2.jpg" alt="Generic placeholder image" height="32">
+                                            <!-- <img class="d-flex me-2 rounded-circle" src="assets/images/users/avatar-2.jpg" alt="Generic placeholder image" height="32"> -->
                                             <div class="w-100">
                                                 <h5 class="m-0 font-14">Erwin Brown</h5>
                                                 <span class="font-12 mb-0">UI Designer</span>
@@ -234,7 +234,7 @@
                                     <!-- item-->
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <div class="d-flex">
-                                            <img class="d-flex me-2 rounded-circle" src="assets/images/users/avatar-5.jpg" alt="Generic placeholder image" height="32">
+                                            <!-- <img class="d-flex me-2 rounded-circle" src="assets/images/users/avatar-5.jpg" alt="Generic placeholder image" height="32"> -->
                                             <div class="w-100">
                                                 <h5 class="m-0 font-14">Jacob Deo</h5>
                                                 <span class="font-12 mb-0">Developer</span>
@@ -281,129 +281,45 @@
                             }, 1000);
                             window.onload = loadXMLDoc();
                         </script>
-                        <div class="row">
-                            <div class="col-xl-7 col-lg-6">
-                                <div class="card card-h-100">
-                                    <div class="card-body">
-                                        <div class="dropdown float-end">
-                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="mdi mdi-dots-vertical"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Arus</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Tegangan</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Suhu Panel</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Suhu Lingkungan</a>
-                                                <a href="javascript:void(0);" class="dropdown-item">Iradiasi</a>
-                                            </div>
-                                        </div>
-                                        <h4 class="header-title mb-3">Charts Data</h4>
-
-                                        <div dir="ltr">
-                                            <div id="high-performing-product" class="apex-charts" data-colors="#727cf5,#e3eaef"></div>
-                                        </div>
-                                            
-                                    </div> <!-- end card-body-->
-                                </div> <!-- end card-->
-
-                            </div> <!-- end col -->
-                        </div>
-                        <!-- end row -->
-
-                        <div class="row">
+                        
+                        <div class="row" style="justify-content: center">
                             <div class="col-lg-8">
                                 <div class="card">
                                     <div class="card-body">
-                                        <div class="dropdown float-end">
-                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="mdi mdi-dots-vertical"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Arus</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Tegangan</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Suhu Panel</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Suhu Lingkungan</a>
-                                                <a href="javascript:void(0);" class="dropdown-item">Iradiasi</a>
-                                            </div>
-                                        </div>
-                                        <h4 class="header-title mb-3">Revenue</h4>
+                                        <h4 class="header-title mb-3">Grafik Voc & Isc</h4>
 
-                                       <div class="dash-item-overlay d-none d-md-block" dir="ltr">
-                                            <h5>Today's Earning: $2,562.30</h5>
-                                            <p class="text-muted font-13 mb-3 mt-2">Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.
-                                                Etiam rhoncus...</p>
-                                            <a href="javascript: void(0);" class="btn btn-outline-primary">View Statements
-                                                <i class="mdi mdi-arrow-right ms-2"></i>
-                                            </a>
-                                        </div>
                                         <div dir="ltr">
-                                            <div id="revenue-chart" class="apex-charts mt-3" data-colors="#727cf5,#0acf97"></div>
+                                            <canvas id="vocChart"></canvas>
                                         </div>
                                     </div> <!-- end card-body-->
                                 </div> <!-- end card-->
                             </div> <!-- end col-->
-
-                            <div class="col-lg-4">
+                        </div>
+                        <!-- end row -->
+                        
+                        
+                        <div class="row" style="justify-content: center">
+                            <div class="col-lg-8">
                                 <div class="card">
                                     <div class="card-body">
-                                        <div class="dropdown float-end">
-                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="mdi mdi-dots-vertical"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                            </div>
+                                        <h4 class="header-title mb-3">Grafik Suhu</h4>
+                                        <div dir="ltr">
+                                            <canvas id="suhuChart"></canvas>
                                         </div>
-                                        <h4 class="header-title">Revenue By Location</h4>
-                                        <div class="mb-4 mt-4">
-                                            <div id="world-map-markers" style="height: 224px"></div>
-                                        </div>
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col-->
+                        </div>
+                        <!-- end row -->
+                        
+                        <div class="row" style="justify-content: center">
+                            <div class="col-lg-8">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="header-title mb-3">Grafik Voc & Isc</h4>
 
-                                        <h5 class="mb-1 mt-0 fw-normal">New York</h5>
-                                        <div class="progress-w-percent">
-                                            <span class="progress-value fw-bold">72k </span>
-                                            <div class="progress progress-sm">
-                                                <div class="progress-bar" role="progressbar" style="width: 72%;" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-
-                                        <h5 class="mb-1 mt-0 fw-normal">San Francisco</h5>
-                                        <div class="progress-w-percent">
-                                            <span class="progress-value fw-bold">39k </span>
-                                            <div class="progress progress-sm">
-                                                <div class="progress-bar" role="progressbar" style="width: 39%;" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-
-                                        <h5 class="mb-1 mt-0 fw-normal">Sydney</h5>
-                                        <div class="progress-w-percent">
-                                            <span class="progress-value fw-bold">25k </span>
-                                            <div class="progress progress-sm">
-                                                <div class="progress-bar" role="progressbar" style="width: 39%;" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-
-                                        <h5 class="mb-1 mt-0 fw-normal">Singapore</h5>
-                                        <div class="progress-w-percent mb-0">
-                                            <span class="progress-value fw-bold">61k </span>
-                                            <div class="progress progress-sm">
-                                                <div class="progress-bar" role="progressbar" style="width: 61%;" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
+                                        <div dir="ltr">
+                                            <canvas id="iradChart"></canvas>
                                         </div>
                                     </div> <!-- end card-body-->
                                 </div> <!-- end card-->
@@ -411,9 +327,51 @@
                         </div>
                         <!-- end row -->
 
+                        <div class="row" style="justify-content: center">
+                            <div class="col-lg-8">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="header-title mb-3">Grafik Voc & Isc</h4>
 
+                                        <div dir="ltr">
+                                            <canvas id="perfChart"></canvas>
+                                        </div>
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col-->
+                        </div>
                         <!-- end row -->
 
+                        <div class="row" style="justify-content: center">
+                            <div class="col-lg-8">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="header-title mb-3">Grafik Voc & Isc</h4>
+
+                                        <div dir="ltr">
+                                            <canvas id="iscIradiasiChart"></canvas>
+                                        </div>
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col-->
+                        </div>
+                        <!-- end row -->
+
+                        <div class="row" style="justify-content: center">
+                            <div class="col-lg-8">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="header-title mb-3">Grafik Voc & Isc</h4>
+
+                                        <div dir="ltr">
+                                            <canvas id="vocSuhuChart"></canvas>
+                                        </div>
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col-->
+                        </div>
+                        <!-- end row -->
+                        
                     </div>
                     <!-- container -->
 
@@ -544,15 +502,16 @@
         <!-- bundle -->
         <script src="assets/js/vendor.min.js"></script>
         <script src="assets/js/app.min.js"></script>
-
+        
         <!-- third party js -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="assets/js/vendor/apexcharts.min.js"></script>
         <script src="assets/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
         <script src="assets/js/vendor/jquery-jvectormap-world-mill-en.js"></script>
         <!-- third party js ends -->
 
-        <!-- demo app -->
-        <script src="assets/js/pages/demo.dashboard.js"></script>
-        <!-- end demo js-->
+        <!-- js scripts -->
+        <script src="assets/js/pages/chart.data.js"></script>
+        <!-- end js scripts -->
     </body>
 </html>

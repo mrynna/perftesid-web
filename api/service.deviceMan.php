@@ -7,8 +7,9 @@ $suhuPanel = $_POST['suhuPanel'];
 $suhuLingkungan = $_POST['suhuLingkungan'];
 $iradiasi = $_POST['iradiasi'];
 $performa = $_POST['performa'];
+$waktu = $_POST['waktu'];
 
-$sql = "INSERT INTO tb_dataman(token, tegangan, arus, suhuPanel, suhuLingkungan, iradiasi, performa) VALUES ('$key', '$tegangan', '$arus', '$suhuPanel', '$suhuLingkungan', '$iradiasi', '$performa')";
+$sql = "INSERT INTO tb_dataman(token, tegangan, arus, suhuPanel, suhuLingkungan, iradiasi, performa, waktu) VALUES ('$key', '$tegangan', '$arus', '$suhuPanel', '$suhuLingkungan', '$iradiasi', '$performa', '$waktu')";
 $kirim = $dbconnect->query($sql);
 
 if (!$kirim) {

@@ -9,66 +9,7 @@
       grid: { padding: { left: 0, right: 0 } },
       colors: ["#727cf5", "#0acf97", "#fa5c7c", "#ffbc00"],
     };
-    var e = new Date(),
-      t = (function (e, t) {
-        for (
-          var a = new Date(t, e, 1), o = [], r = 0;
-          a.getMonth() === e && r < 15;
 
-        ) {
-          var s = new Date(a);
-          o.push(
-            s.getDate() + " " + s.toLocaleString("en-us", { month: "short" })
-          ),
-            a.setDate(a.getDate() + 1),
-            (r += 1);
-        }
-        return o;
-      })(e.getMonth() + 1, e.getFullYear()),
-      a = ["#727cf5", "#0acf97", "#fa5c7c", "#ffbc00"],
-      o = i("#sessions-overview").data("colors");
-    o && (a = o.split(","));
-    var r = {
-      chart: { height: 309, type: "area" },
-      dataLabels: { enabled: !1 },
-      stroke: { curve: "smooth", width: 4 },
-      series: [
-        {
-          name: "Sessions",
-          data: [10, 20, 5, 15, 10, 20, 15, 25, 20, 30, 25, 40, 30, 50, 35],
-        },
-      ],
-      zoom: { enabled: !1 },
-      legend: { show: !1 },
-      colors: a,
-      xaxis: {
-        type: "string",
-        categories: t,
-        tooltip: { enabled: !1 },
-        axisBorder: { show: !1 },
-        labels: {},
-      },
-      yaxis: {
-        labels: {
-          formatter: function (e) {
-            return e + "k";
-          },
-          offsetX: -15,
-        },
-      },
-      fill: {
-        type: "gradient",
-        gradient: {
-          type: "vertical",
-          shadeIntensity: 1,
-          inverseColors: !1,
-          opacityFrom: 0.45,
-          opacityTo: 0.05,
-          stops: [45, 100],
-        },
-      },
-    };
-    new ApexCharts(document.querySelector("#sessions-overview"), r).render();
     for (var s = [], n = 10; 1 <= n; n--) s.push(n + " min ago");
     a = ["#727cf5", "#0acf97", "#fa5c7c", "#ffbc00"];
     (o = i("#views-min").data("colors")) && (a = o.split(","));

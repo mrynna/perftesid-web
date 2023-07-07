@@ -2,8 +2,13 @@
     include "connection.php"; 
     // Retrieve datasets that match the token key
     $key = '03ar2dffd';
-    $sql_asc = "SELECT * FROM tb_data WHERE token = '$key' ORDER BY id ASC";
-    $sql_desc = "SELECT * FROM tb_data WHERE token = '$key' ORDER BY id DESC";
+    $sqlID = $dbconnect->query("SELECT MAX(id) FROM tb_data WHERE token = '$key'");
+    $dataID = $sqlID->fetch_assoc();
+    $idAkhir = $dataID['MAX(id)'];
+    $idAwal = $idAkhir-9;
+
+    $sql_asc = "SELECT * FROM tb_data WHERE token = '$key' and id >= $idAwal and id <= $idAkhir ORDER BY id ASC";
+    $sql_desc = "SELECT * FROM tb_data WHERE token = '$key' and id >= $idAwal and id <= $idAkhir ORDER BY id DESC";
 
     // Execute the query and fetch the results 
     $result_asc = $dbconnect->query($sql_asc);
@@ -39,7 +44,7 @@
             // $arrayPerforma[] = floatval($row_asc['performa']);
         }  
     }
-    // echo json_encode($arrayData);
+    echo json_encode($arrayData);
 
     $dbconnect->close();
 ?>

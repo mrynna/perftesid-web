@@ -10,12 +10,18 @@
             <link rel="shortcut icon" href="assets/images/pnup.png">
     
             <!-- third party css -->
-            <link href="assets/css/vendor/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css">
-            <script src="https://code.highcharts.com/highcharts.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
-            <script>dayjs().format()</script>
+            <!-- <link href="assets/css/vendor/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css"> -->
+            <!-- <script src="https://code.highcharts.com/highcharts.js"></script> -->
+            <!-- <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script> -->
+            <!-- <script>dayjs().format()</script> -->
             <!-- third party css end -->
-    
+
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js" integrity="sha512-UXumZrZNiOwnTcZSHLOfcTs0aos2MzBWHXOHOuB0J/R44QB0dwY5JgfbvljXcklVf65Gc4El6RjZ+lnwd2az2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/2.0.1/chartjs-plugin-zoom.min.js" integrity="sha512-wUYbRPLV5zs6IqvWd88HIqZU/b8TBx+I8LEioQ/UC0t5EMCLApqhIAnUg7EsAzdbhhdgW07TqYDdH3QEXRcPOQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            <script src="https://unpkg.com/feather-icons"></script>
+            
             <!-- App css -->
             <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css">
             <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" id="light-style">
@@ -317,8 +323,28 @@
                                 <div class="card card-h-100">
                                     <div class="card-body">
                                         <h4 class="header-title mb-3">Sessions Overview</h4>
-                                        <div dir="ltr">
-                                            <div id="chartTegangan" class="apex-charts mt-3" data-colors="#0acf97"></div>
+                                        <div dir="ltr chart">
+                                            <div class="col chart-top">
+                                                <div class = "row date-picker">
+                                                    <input type="datetime-local" class="form-control form-control-light chart-date" id="timeStart" onchange="startTimeFilter(this)">
+                                                    <input type="datetime-local" class="form-control form-control-light chart-date" id="timeEnd" onchange="endTimeFilter(this)">
+                                                </div>
+                                                <div class="btn-group btn-group-sm border-0"  role="group" aria-label="Small button group">
+                                                    <button type="button" class="btn btn-primary reset border-0" data-toggle="tooltip" title="Reset Zoom" onclick="zoomResetTegangan()"><i class="icon" data-feather="x"></i></button>
+                                                    <button type="button" class="btn btn-primary zoom-in border-0" data-toggle="tooltip" title="Zoom In" onclick="zoomInTegangan()"><i class="icon" data-feather="zoom-in"></i></button>
+                                                    <button type="button" class="btn btn-primary zoom-out border-0" data-toggle="tooltip" title="Zoom Out" onclick="zoomOutTegangan()"><i class="icon" data-feather="zoom-out"></i></i></button>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        </button>
+                                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                            <li><a class="dropdown-item" onclick="saveAsPNG('chart-tegangan')">Save as PNG</a></li>
+                                                            <li><a class="dropdown-item" onclick="saveAsJPG('chart-tegangan')">Save as JPG</a></li>
+                                                            <li><a class="dropdown-item" id="downloadCSV">Export data as CSV</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <canvas id="chart-tegangan"></canvas> 
                                         </div>
                                     </div> <!-- end card-body-->
                                 </div> <!-- end card-->
@@ -769,15 +795,19 @@
         <div class="rightbar-overlay"></div>
         <!-- /End-bar -->
 
+        <script>
+            feather.replace()
+        </script>
+
         <!-- bundle -->
         <script src="assets/js/vendor.min.js"></script>
         <script src="assets/js/app.min.js"></script>
 
         <!-- third party js -->
         <!-- <script src="assets/js/vendor/Chart.bundle.min.js"></script> -->
-        <script src="assets/js/vendor/apexcharts.min.js"></script>
-        <script src="assets/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
-        <script src="assets/js/vendor/jquery-jvectormap-world-mill-en.js"></script>
+        <!-- <script src="assets/js/vendor/apexcharts.min.js"></script> -->
+        <!-- <script src="assets/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
+        <script src="assets/js/vendor/jquery-jvectormap-world-mill-en.js"></script> -->
         <!-- third party js ends -->
 
         <!-- demo app -->

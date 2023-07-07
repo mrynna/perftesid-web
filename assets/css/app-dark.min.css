@@ -2089,8 +2089,8 @@ progress {
 }
 .form-control {
   display: block;
-  width: 100%;
-  padding: 0.45rem 0.9rem;
+  width: 30%;
+  padding: 0.2rem 0.2rem;
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.5;
@@ -19062,3 +19062,69 @@ div.table-responsive
   display: none;
 }
 /*# sourceMappingURL=app-dark.min.css.map */
+
+.col.chart-top{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 4rem;
+}
+
+.ltr.chart {
+  display: flex;
+  flex-direction: column;
+}
+
+.row.date-picker {
+  display: flex;
+  flex-direction: row;
+  /* margin-left: 4rem; */
+}
+
+.chart-date {
+  width: 12rem;
+  padding:0.2rem 0.2rem;
+  margin-inline: 0.2rem !important;
+}
+
+.btn.btn-secondary.dropdown-toggle {
+  height: auto;
+  padding-inline: 0.6rem;
+  padding-block: 0.2rem;
+  padding-right: 0.8rem;
+  outline: none !important;
+  box-shadow: none;
+}
+
+.btn-group-sm>.btn, .btn-sm  {
+  padding: 0rem;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  font-size: 0.875rem;
+}
+
+.btn-primary.reset:active {
+  background-color: #5c636aaf !important;
+}
+
+.btn-primary.zoom-in:active{
+  background-color: #5c636a8a !important;
+}
+
+.btn-primary.zoom-out:active{
+background-color: #5c636a85 !important;
+}
+
+.btn-primary {
+  outline: none !important;
+  box-shadow: none;
+  background-color: #f1f3fa !important;
+}
+
+.icon{
+  stroke: #5c636a;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+}

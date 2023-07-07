@@ -1,135 +1,215 @@
+var ctx = document.getElementById("chart-tegangan").getContext("2d");
+var chart;
+
+function convertToCSV(dataObject){
+  let array = typeof dataObject != 'object' ? JSON.parse(dataObject) : dataObject;
+  let str = '';
+  for(let i = 0; i < array.length; i++){
+    let line = '';
+    for(let prop in array[i]){
+      if(line != '') line += ';';
+      line += array[i][prop];
+    }
+    str += line + '\r\n';
+  }
+  return str;
+}
+
+// Mendapatkan data dari database menggunakan AJAX
 function getData() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      var data = JSON.parse(this.responseText);
-      // console.log(data);
-      var tepatwaktu = data.map(function (obj) {
-        return obj.waktu;
-      });
-      var tegangan = data.map(function (obj) {
-        return obj.tegangan;
-      });
-      var arus = data.map(function (obj) {
-        return obj.arus;
-      });
+      var data= JSON.parse(this.responseText);
+      console.log(data);
+      var tepatwaktu = data.map(function (obj) { return obj.waktu; });
+      var tegangan = data.map(function (obj) { return obj.tegangan; });
+      var arus = data.map(function (obj) { return obj.arus; });
 
       const dateChartJs = tepatwaktu.map((day, index) => {
         let dayjs = new Date(day);
         return dayjs;
       });
-
+      
       waktu = dateChartJs;
-      console.log(tepatwaktu);
-      console.log(waktu);
+      
+      let dataFormatted = []
+      data.forEach(item => {
+        dataFormatted.push({
+          waktu:item.waktu,
+          tegangan:item.tegangan,
+        })
+      })
 
-      a = ["#727cf5", "#0acf97", "#fa5c7c", "#ffbc00"];
-      var options = {
-        chart: {
-          selection: {
-            enabled: true,
-            type: 'x',
-            fill: {
-              color: '#24292e',
-              opacity: 0.1
+      // console.log(dataFormatted)
+
+      let headers = {
+        waktu:"waktu",
+        tegangan:"tegangan"
+      }
+
+      document.getElementById("downloadCSV").addEventListener("click", function() {
+        exportCSV(headers, dataFormatted, "chart-data");
+      });
+
+      function exportCSV(header, dataFormatted, filename){
+        if(header){
+          dataFormatted.unshift(header)
+        }
+        
+        let jsonObject = JSON.stringify(dataFormatted)
+        dataFormatted.shift();
+        // console.log(jsonObject)
+        let csv = convertToCSV(jsonObject)
+        // console.log(csv)
+        
+        let exportFileName = filename + ".csv";
+        let blob = new Blob ([csv],{
+          type:'text/csv;charset=utf-8'
+        })
+
+        if (navigator.msSaveBlob){
+          navigator.msSaveBlob(blob, exportFileName)
+        }else{
+          let link = document.createElement("a")
+
+          if (link.download !== undefined){
+            let url = URL.createObjectURL(blob)
+            link.setAttribute("href", url)
+            link.setAttribute("download", exportFileName)
+            link.style.visibility = 'hidden'
+            document.body.appendChild(link)
+            link.click()
+            document.body.removeChild(link)
+          }
+        }
+
+      }
+
+      // Membuat chart menggunakan Chart.js
+      chart = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: dateChartJs,
+          datasets: [
+            {
+              label: "Tegangan",
+              data: tegangan,
+              backgroundColor: "#767fe3",
+              borderColor: "#767fe3",
+              borderWidth: 3,
+              pointStyle: true,
+              tension: 0.2,
+              // spanGaps: false
             },
-            stroke: {
-              width: 1,
-              dashArray: 3,
-              color: '#24292e',
-              opacity: 0.4
+          ],
+        },
+        options: {
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Waktu'
+              },
+              min: '',
+              max: '',
+              type: 'time',
+                grid: {
+                display: false,
+              },
+              ticks: {
+                autoSkip: true,
+                maxRotation: 0,
+                major: {
+                  enabled: true
+                },
+              },
             },
-            xaxis: {
-              min: undefined,
-              max: undefined
+            y: {
+              title: {
+                display: true,
+                text: 'Tegangan (Voc)'
+              },
+              beginAtZero: true,
+              grid: {
+                display: false,
+              },
             },
-            yaxis: {
-              min: undefined,
-              max: undefined
-            }
           },
-          type: "area",
-          toolbar: {
-            show: true,
-            offsetX: 0,
-            offsetY: 0,
-            tools: {
-              download: true,
-              selection: true,
-              zoom: true,
-              zoomin: true,
-              zoomout: true,
-              pan: true,
-              reset: true | '<img src="/static/icons/reset.png" width="20">',
-              customIcons: []
+          plugins: {
+            tooltip: {
+              callbacks: {
+                  label: (item) =>
+                      `${item.dataset.label}: ${item.formattedValue} Volt`,
+              },
             },
-            export: {
-              csv: {
-                filename: undefined,
-                columnDelimiter: ',',
-                headerCategory: 'category',
-                headerValue: 'value',
-                dateFormatter(timestamp) {
-                  return new Date(timestamp).toDateString()
+            zoom: {
+              pan: {
+                enabled: true,
+                mode: 'x',
+              },
+              zoom: {
+                mode: 'x',
+                drag: {
+                  enabled: true,
+                  modifierKey: 'alt'
+                },
+                wheel: {
+                  enabled: true,
                 }
-              },
-              svg: {
-                filename: undefined,
-              },
-              png: {
-                filename: undefined,
               }
-            },
-            autoSelected: 'zoom' 
-          }
-        },
-        dataLabels: { enabled: !1 },
-        stroke: { curve: "smooth", width: 4 },
-        series: [
-          {
-            name: "Tegangan",
-            data: tegangan,
-          },
-        ],
-        colors: a,
-        xaxis: {
-          type: "datetime",
-          categories: tepatwaktu,
-          tickAmount: 6,
-          labels: {
-            // datetimeFormatter: {
-            //   year: 'yyyy',
-            //   month: 'MMM \'yy',
-            //   day: 'dd MMM',
-            //   hour: 'HH:mm'
-            // }
-          formatter: function(timestamp, val) {
-            return dayjs(timestamp).format('YYYY MM-DD HH:mm');
             }
           }
         },
-        fill: {
-          type: "gradient",
-          gradient: {
-            type: "vertical",
-            shadeIntensity: 1,
-            inverseColors: !1,
-            opacityFrom: 0.45,
-            opacityTo: 0.05,
-            stops: [45, 100],
-          },
-        },
-      };
-
-      var chart = new ApexCharts(
-        document.querySelector("#chartTegangan"),
-        options
-      );
-      chart.render();
+      });
+      console.log(chart.data.datasets[0].data)
     }
   };
   xhttp.open("GET", "api/service.chart.php", true);
   xhttp.send();
 }
+
+
+const startTimeFilter = date => {
+  const startDate = new Date(date.value);
+  chart.config.options.scales.x.min = startDate;
+  chart.update();
+}
+
+const endTimeFilter = date => {
+  const endDate = new Date(date.value)
+  chart.config.options.scales.x.max = endDate
+  chart.update()
+}
+
+const zoomResetTegangan = () => {
+  chart.resetZoom()
+}
+
+const zoomInTegangan = () => {
+  chart.zoom(1.2)
+}
+
+const zoomOutTegangan = () => {
+  chart.zoom(0.8)
+}
+
+const saveAsPNG = target => {
+  const imageLink = document.createElement('a')
+  const canvas = document.getElementById(target)
+  imageLink.download = 'grafik ' + target + '.png'
+  imageLink.href = canvas.toDataURL('image/png', 1)
+  imageLink.click()
+}
+
+const saveAsJPG = target => {
+  const imageLink = document.createElement('a')
+  const canvas = document.getElementById(target)
+  imageLink.download = 'grafik ' + target + '.jpg'
+  imageLink.href = canvas.toDataURL('image/jpg', 1)
+  imageLink.click()
+}
+
+
 
 getData();

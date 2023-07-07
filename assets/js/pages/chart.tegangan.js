@@ -93,11 +93,19 @@ function getData() {
         ],
         colors: a,
         xaxis: {
-          type: "category",
+          type: "datetime",
           categories: tepatwaktu,
-          // tickAmount: 6,
+          tickAmount: 6,
           labels: {
-            show: true,
+            // datetimeFormatter: {
+            //   year: 'yyyy',
+            //   month: 'MMM \'yy',
+            //   day: 'dd MMM',
+            //   hour: 'HH:mm'
+            // }
+          formatter: function(timestamp, val) {
+            return dayjs(timestamp).format('YYYY MM-DD HH:mm');
+            }
           }
         },
         fill: {

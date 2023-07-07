@@ -12,6 +12,8 @@
             <!-- third party css -->
             <link href="assets/css/vendor/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css">
             <script src="https://code.highcharts.com/highcharts.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+            <script>dayjs().format()</script>
             <!-- third party css end -->
     
             <!-- App css -->

@@ -44,7 +44,7 @@
             // $arrayPerforma[] = floatval($row_asc['performa']);
         }  
     }
-    echo json_encode($arrayData);
+    // echo json_encode($arrayData);
 
     $dbconnect->close();
 ?>

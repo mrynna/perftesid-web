@@ -161,7 +161,7 @@
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated topbar-dropdown-menu profile-dropdown">
                                     <!-- item-->
                                     <div class=" dropdown-header noti-title">
-                                        <h6 class="text-overflow m-0">Welcome !</h6>
+                                        <h6 class="text-overflow m-0">Halo <?php echo $user_username; ?>!</h6>
                                     </div>
 
                                     <!-- item -->
@@ -284,9 +284,9 @@
                                                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                                         </button>
                                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                                            <li><a class="dropdown-item" onclick="saveAsPNG('chart-tegangan')">Save as PNG</a></li>
-                                                            <li><a class="dropdown-item" onclick="saveAsJPG('chart-tegangan')">Save as JPG</a></li>
-                                                            <li><a class="dropdown-item" id="downloadCSV">Export data as CSV</a></li>
+                                                            <li><a class="dropdown-item" onclick="saveAsPNG('chart-tegangan')">Simpan PNG</a></li>
+                                                            <li><a class="dropdown-item" onclick="saveAsJPG('chart-tegangan')">Simpan JPG</a></li>
+                                                            <li><a class="dropdown-item" id="downloadCSV">Export ke CSV</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>

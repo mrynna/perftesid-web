@@ -6,9 +6,9 @@ function getData() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      console.log(this.responseText);
+      // console.log(this.responseText);
       var data= JSON.parse(this.responseText);
-      console.log(data);
+      // console.log(data);
       var tepatwaktu = data.map(function (obj) { return obj.waktu; });
       var tegangan = data.map(function (obj) { return obj.tegangan; });
       var arus = data.map(function (obj) { return obj.arus; });
@@ -140,7 +140,7 @@ $(document).ready(function () {
         method: "POST",
         data: { from_date: from_date, to_date: to_date },
         success: function (data) {
-          console.log(data);
+          // console.log(data);
           var datas = JSON.parse(data);
           dataFormatted = [];
           datas.forEach((item) => {

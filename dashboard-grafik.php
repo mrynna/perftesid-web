@@ -234,7 +234,6 @@
                                     <!-- item-->
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <div class="d-flex">
-                                            <img class="d-flex me-2 rounded-circle" src="assets/images/users/avatar-2.jpg" alt="Generic placeholder image" height="32">
                                             <div class="w-100">
                                                 <h5 class="m-0 font-14">Erwin Brown</h5>
                                                 <span class="font-12 mb-0">UI Designer</span>
@@ -245,7 +244,6 @@
                                     <!-- item-->
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <div class="d-flex">
-                                            <img class="d-flex me-2 rounded-circle" src="assets/images/users/avatar-5.jpg" alt="Generic placeholder image" height="32">
                                             <div class="w-100">
                                                 <h5 class="m-0 font-14">User1</h5>
                                                 <span class="font-12 mb-0">Admin</span>
@@ -265,13 +263,6 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box">
-                                    <div class="page-title-right">
-                                        <form class="d-flex">
-                                            <div class="input-group">
-                                                <input type="datetime-local" class="form-control form-control-light">
-                                            </div>
-                                        </form>
-                                    </div>
                                     <h4 class="page-title">Data Grafik</h4>
                                 </div>
                             </div>
@@ -279,60 +270,20 @@
                         <!-- end page title -->
 
                         <div class="row">
-                            <div class="col-xl-3 col-lg-4">
-                                <div class="card tilebox-one">
+                            <div class="col-12">
+                                <div class="card">
                                     <div class="card-body">
-                                        <i class='uil uil-users-alt float-end'></i>
-                                        <h6 class="text-uppercase mt-0">Active Users</h6>
-                                        <h2 class="my-2" id="active-users-count">121</h2>
-                                        <p class="mb-0 text-muted">
-                                            <span class="text-success me-2"><span class="mdi mdi-arrow-up-bold"></span> 5.27%</span>
-                                            <span class="text-nowrap">Since last month</span>  
-                                        </p>
-                                    </div> <!-- end card-body-->
-                                </div>
-                                <!--end card-->
-
-                                <div class="card tilebox-one">
-                                    <div class="card-body">
-                                        <i class='uil uil-window-restore float-end'></i>
-                                        <h6 class="text-uppercase mt-0">Views per minute</h6>
-                                        <h2 class="my-2" id="active-views-count">560</h2>
-                                        <p class="mb-0 text-muted">
-                                            <span class="text-danger me-2"><span class="mdi mdi-arrow-down-bold"></span> 1.08%</span>
-                                            <span class="text-nowrap">Since previous week</span>
-                                        </p>
-                                    </div> <!-- end card-body-->
-                                </div>
-                                <!--end card-->
-
-                                <div class="card cta-box overflow-hidden">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-center">
-                                            <div>
-                                                <h3 class="m-0 fw-normal cta-box-title">Enhance your <b>Campaign</b> for better outreach <i class="mdi mdi-arrow-right"></i></h3>
-                                            </div>
-                                            <img class="ms-3" src="assets/images/email-campaign.svg" width="92" alt="Generic placeholder image">
-                                        </div>
-                                    </div>
-                                    <!-- end card-body -->
-                                </div>
-                            </div> <!-- end col -->
-
-                            <div class="col-xl-9 col-lg-8">
-                                <div class="card card-h-100">
-                                    <div class="card-body">
-                                        <h4 class="header-title mb-3">Sessions Overview</h4>
+                                        <h4 class="header-title">Chart Tegangan</h4>
                                         <div dir="ltr chart">
                                             <div class="col chart-top">
                                                 <div class = "row date-picker">
-                                                    <input type="datetime-local" class="form-control form-control-light chart-date" id="timeStart" onchange="startTimeFilter(this)">
-                                                    <input type="datetime-local" class="form-control form-control-light chart-date" id="timeEnd" onchange="endTimeFilter(this)">
+                                                    <input type="datetime-local" class="form-control form-control-light chart-date" id="timeStart" onchange="startTimeFilter('chart-tegangan', this)">
+                                                    <input type="datetime-local" class="form-control form-control-light chart-date" id="timeEnd" onchange="endTimeFilter('chart-tegangan', this)">
                                                 </div>
                                                 <div class="btn-group btn-group-sm border-0"  role="group" aria-label="Small button group">
-                                                    <button type="button" class="btn btn-primary reset border-0" data-toggle="tooltip" title="Reset Zoom" onclick="zoomResetTegangan()"><i class="icon" data-feather="x"></i></button>
-                                                    <button type="button" class="btn btn-primary zoom-in border-0" data-toggle="tooltip" title="Zoom In" onclick="zoomInTegangan()"><i class="icon" data-feather="zoom-in"></i></button>
-                                                    <button type="button" class="btn btn-primary zoom-out border-0" data-toggle="tooltip" title="Zoom Out" onclick="zoomOutTegangan()"><i class="icon" data-feather="zoom-out"></i></i></button>
+                                                    <button type="button" class="btn btn-primary reset border-0" data-toggle="tooltip" title="Reset Zoom" onclick="zoomReset('chart-tegangan')"><i class="icon" data-feather="x"></i></button>
+                                                    <button type="button" class="btn btn-primary zoom-in border-0" data-toggle="tooltip" title="Zoom In" onclick="zoomIn('chart-tegangan')"><i class="icon" data-feather="zoom-in"></i></button>
+                                                    <button type="button" class="btn btn-primary zoom-out border-0" data-toggle="tooltip" title="Zoom Out" onclick="zoomOut('chart-tegangan')"><i class="icon" data-feather="zoom-out"></i></i></button>
                                                     <div class="dropdown">
                                                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                                         </button>
@@ -345,37 +296,9 @@
                                                 </div>
                                             </div>
                                             <canvas id="chart-tegangan"></canvas> 
-                                        </div>
-                                    </div> <!-- end card-body-->
-                                </div> <!-- end card-->
-                            </div>
-                        </div>
-
-                        
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="dropdown float-end">
-                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="mdi mdi-dots-vertical"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Refresh Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                            </div>
-                                        </div>
-                                        <h4 class="header-title">Sessions by country</h4>
-
-                                        <div class="row">
-                                            <div class="col-lg-8">
-                                                <div id="world-map-markers" class="mt-3 mb-3" style="height: 300px">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4" dir="ltr">
-                                                <div id="country-chart" class="apex-charts" data-colors="#727cf5"></div>
+                                            <div class="popup" id="popup">
+                                                <h7> Masukkan rentang waktu yang sesuai !!!</h7>
+                                                <button type="button" id ="popup-button" class="btn btn-primary popup-button">OK</button>
                                             </div>
                                         </div>
                                     </div> <!-- end card-body-->

@@ -19128,3 +19128,37 @@ background-color: #5c636a85 !important;
     stroke-linejoin: round;
     fill: none;
 }
+
+.popup {
+  width: 200px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  background: #313a46;
+  border-radius: 6px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 15px 30px 50px;
+  /* padding-top: 30px; */
+  color: #ffffff;
+  visibility: hidden;
+}
+
+.popup.active {
+  visibility: visible;
+  position: absolute;
+}
+
+.popup-button{
+  align-self: center;
+  text-justify: auto;
+  width: 70%;
+  height: 40%;
+  margin-top: 10px;
+  background-color: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+}

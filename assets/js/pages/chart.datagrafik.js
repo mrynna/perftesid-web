@@ -1,5 +1,5 @@
 var ctx = document.getElementById("chart-tegangan").getContext("2d");
-var chart;
+var chartTegangan;
 
 // Mendapatkan data dari database menggunakan AJAX
 function getData() {
@@ -21,7 +21,7 @@ function getData() {
       waktu = dateChartJs;
 
       // Membuat chart menggunakan Chart.js
-      chart = new Chart(ctx, {
+      chartTegangan = new Chart(ctx, {
         type: "line",
         data: {
           labels: dateChartJs,
@@ -131,10 +131,10 @@ var to_date;
 var datas;
 let dataFormatted = []
 
-//Download CSV
+//============ Download CSV
 $(document).ready(function () {
   $("#downloadCSV").click(function () {
-    if (from_date != "" && to_date != "") {
+    if (from_date != "" && from_date != undefined && to_date != "" && to_date != undefined && startDate.getTime() < endDate.getTime()) {
       $.ajax({
         url: "api/getFilterData.php",
         method: "POST",
@@ -185,40 +185,17 @@ $(document).ready(function () {
         },
       });
     } else {
-      alert("Please Select Date");
+      document.getElementById("popup").classList.add('active')
     }
   });
 });  
+//============ End of Download CSV
 
+document.getElementById("popup-button").addEventListener("click", function(){
+  document.getElementById("popup").classList.remove('active')
+})
 
-const startTimeFilter = date => {
-  const startDate = new Date(date.value);
-  from_date = date.value.replace('T', ' ');
-  // console.log(to_date)
-  chart.config.options.scales.x.min = startDate;
-  chart.update();
-}
-
-const endTimeFilter = date => {
-  const endDate = new Date(date.value)
-  to_date = date.value.replace('T', ' ');
-  // console.log(from_date)
-  chart.config.options.scales.x.max = endDate
-  chart.update()
-}
-
-const zoomResetTegangan = () => {
-  chart.resetZoom()
-}
-
-const zoomInTegangan = () => {
-  chart.zoom(1.2)
-}
-
-const zoomOutTegangan = () => {
-  chart.zoom(0.8)
-}
-
+//============ Save as Image
 const saveAsPNG = target => {
   const imageLink = document.createElement('a')
   const canvas = document.getElementById(target)
@@ -234,7 +211,192 @@ const saveAsJPG = target => {
   imageLink.href = canvas.toDataURL('image/jpg', 1)
   imageLink.click()
 }
+//============ End of Save as Image
 
+//============ Date Filter
+let startDate;
+let endDate;
+const startTimeFilter = (charts, date) => {
+  startDate = new Date(date.value);
+  from_date = date.value.replace('T', ' ');
+  // console.log(to_date)
+  switch (charts) {
+    case 'chart-tegangan':
+      chartTegangan.config.options.scales.x.min = startDate;
+      chartTegangan.update();
+      break;
 
+    case 'chart-arus':
+      chartArus.config.options.scales.x.min = startDate;
+      chartArus.update();
+      break;
+
+    case 'chart-suhupanel':
+      chartSuhuPanel.config.options.scales.x.min = startDate;
+      chartSuhuPanel.update();
+      break;
+
+    case 'chart-suhulingkungan':
+      chartSuhuLingkungan.config.options.scales.x.min = startDate;
+      chartSuhuLingkungan.update();
+      break;
+
+    case 'chart-iradiasi':
+      chartIradiasi.config.options.scales.x.min = startDate;
+      chartIradiasi.update();
+      break;
+    
+    case 'chart-performa':
+      chartPerforma.config.options.scales.x.min = startDate;
+      chartPerforma.update();
+      break;
+
+    default:
+      return
+  }
+}
+
+const endTimeFilter = (charts, date) => {
+  endDate = new Date(date.value)
+  to_date = date.value.replace('T', ' ');
+  // console.log(from_date)
+  switch (charts) {
+    case 'chart-tegangan':
+      chartTegangan.config.options.scales.x.max = endDate;
+      chartTegangan.update();
+      break;
+
+    case 'chart-arus':
+      chartArus.config.options.scales.x.max = endDate;
+      chartArus.update();
+      break;
+
+    case 'chart-suhupanel':
+      chartSuhuPanel.config.options.scales.x.max = endDate;
+      chartSuhuPanel.update();
+      break;
+
+    case 'chart-suhulingkungan':
+      chartSuhuLingkungan.config.options.scales.x.max = endDate;
+      chartSuhuLingkungan.update();
+      break;
+
+    case 'chart-iradiasi':
+      chartIradiasi.config.options.scales.x.max = endDate;
+      chartIradiasi.update();
+      break;
+    
+    case 'chart-performa':
+      chartPerforma.config.options.scales.x.max = endDate;
+      chartPerforma.update();
+      break;
+
+    default:
+      return
+  }
+}
+
+//============ End of Date Filter
+
+//============ Zoom Plugin Chart
+const zoomReset = charts => {
+  switch (charts) {
+    case 'chart-tegangan':
+      chartTegangan.resetZoom();
+      break;
+
+    case 'chart-arus':
+      chartArus.resetZoom();
+      break;
+
+    case 'chart-suhupanel':
+      chartSuhuPanel.resetZoom();
+      break;
+
+    case 'chart-suhulingkungan':
+      chartSuhuLingkungan.resetZoom();
+      break;
+
+    case 'chart-iradiasi':
+      chartIradiasi.resetZoom();
+      break;
+    
+    case 'chart-performa':
+      chartPerforma.resetZoom();
+      break;
+
+    default:
+      return
+  }
+}
+
+const zoomIn = charts => {
+  switch (charts) {
+    case 'chart-tegangan':
+      chartTegangan.zoom(1.2)
+      break;
+
+    case 'chart-arus':
+      chartArus.zoom(1.2)
+      break;
+
+    case 'chart-suhupanel':
+      chartSuhuPanel.zoom(1.2)
+      break;
+
+    case 'chart-suhulingkungan':
+      chartSuhuLingkungan.zoom(1.2)
+      break;
+
+    case 'chart-iradiasi':
+      chartIradiasi.zoom(1.2)
+      break;
+    
+    case 'chart-performa':
+      chartPerforma.zoom(1.2)
+      break;
+
+    default:
+      return
+  }
+}
+
+const zoomOut = charts => {
+  switch (charts) {
+    case 'chart-tegangan':
+      chartTegangan.zoom(0.8)
+      break;
+
+    case 'chart-arus':
+      chartArus.zoom(0.8)
+      break;
+
+    case 'chart-suhupanel':
+      chartSuhuPanel.zoom(0.8)
+      break;
+
+    case 'chart-suhulingkungan':
+      chartSuhuLingkungan.zoom(0.8)
+      break;
+
+    case 'chart-iradiasi':
+      chartIradiasi.zoom(0.8)
+      break;
+    
+    case 'chart-performa':
+      chartPerforma.zoom(0.8)
+      break;
+
+    default:
+      return
+  }
+}
+
+//============ End of Zoom Plugin Chart
+
+//============ Alert Button
+document.getElementById("popup-button").addEventListener("click", function(){
+  document.getElementById("popup").classList.remove('active')
+})
 
 getData();

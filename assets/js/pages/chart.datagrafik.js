@@ -1,25 +1,12 @@
 var ctx = document.getElementById("chart-tegangan").getContext("2d");
 var chart;
 
-function convertToCSV(dataObject){
-  let array = typeof dataObject != 'object' ? JSON.parse(dataObject) : dataObject;
-  let str = '';
-  for(let i = 0; i < array.length; i++){
-    let line = '';
-    for(let prop in array[i]){
-      if(line != '') line += ';';
-      line += array[i][prop];
-    }
-    str += line + '\r\n';
-  }
-  return str;
-}
-
 // Mendapatkan data dari database menggunakan AJAX
 function getData() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
+      console.log(this.responseText);
       var data= JSON.parse(this.responseText);
       console.log(data);
       var tepatwaktu = data.map(function (obj) { return obj.waktu; });
@@ -32,59 +19,6 @@ function getData() {
       });
       
       waktu = dateChartJs;
-      
-      let dataFormatted = []
-      data.forEach(item => {
-        dataFormatted.push({
-          waktu:item.waktu,
-          tegangan:item.tegangan,
-        })
-      })
-
-      // console.log(dataFormatted)
-
-      let headers = {
-        waktu:"waktu",
-        tegangan:"tegangan"
-      }
-
-      document.getElementById("downloadCSV").addEventListener("click", function() {
-        exportCSV(headers, dataFormatted, "chart-data");
-      });
-
-      function exportCSV(header, dataFormatted, filename){
-        if(header){
-          dataFormatted.unshift(header)
-        }
-        
-        let jsonObject = JSON.stringify(dataFormatted)
-        dataFormatted.shift();
-        // console.log(jsonObject)
-        let csv = convertToCSV(jsonObject)
-        // console.log(csv)
-        
-        let exportFileName = filename + ".csv";
-        let blob = new Blob ([csv],{
-          type:'text/csv;charset=utf-8'
-        })
-
-        if (navigator.msSaveBlob){
-          navigator.msSaveBlob(blob, exportFileName)
-        }else{
-          let link = document.createElement("a")
-
-          if (link.download !== undefined){
-            let url = URL.createObjectURL(blob)
-            link.setAttribute("href", url)
-            link.setAttribute("download", exportFileName)
-            link.style.visibility = 'hidden'
-            document.body.appendChild(link)
-            link.click()
-            document.body.removeChild(link)
-          }
-        }
-
-      }
 
       // Membuat chart menggunakan Chart.js
       chart = new Chart(ctx, {
@@ -162,22 +96,113 @@ function getData() {
           }
         },
       });
-      console.log(chart.data.datasets[0].data)
+      // console.log(chart.data.datasets[0].data)
     }
   };
   xhttp.open("GET", "api/service.chart.php", true);
   xhttp.send();
 }
 
+// console.log(dataFormatted)
+
+// Download CSV
+function convertToCSV(dataObject) {
+  let array =
+    typeof dataObject != "object" ? JSON.parse(dataObject) : dataObject;
+  let str = "";
+  for (let i = 0; i < array.length; i++) {
+    let line = "";
+    for (let prop in array[i]) {
+      if (line != "") line += ";";
+      line += array[i][prop];
+    }
+    str += line + "\r\n";
+  }
+  return str;
+}
+
+let headers = {
+  waktu: "waktu",
+  tegangan: "tegangan",
+};
+
+var from_date;
+var to_date;
+var datas;
+let dataFormatted = []
+
+//Download CSV
+$(document).ready(function () {
+  $("#downloadCSV").click(function () {
+    if (from_date != "" && to_date != "") {
+      $.ajax({
+        url: "api/getFilterData.php",
+        method: "POST",
+        data: { from_date: from_date, to_date: to_date },
+        success: function (data) {
+          console.log(data);
+          var datas = JSON.parse(data);
+          dataFormatted = [];
+          datas.forEach((item) => {
+            dataFormatted.push({
+              waktu: item.waktu,
+              tegangan: item.tegangan,
+            });
+          });
+          exportCSV(headers, dataFormatted, "chart-data");
+          function exportCSV(header, dataFormatted, filename) {
+            if (header) {
+              dataFormatted.unshift(header);
+            }
+          
+            let jsonObject = JSON.stringify(dataFormatted);
+            dataFormatted.shift();
+            // console.log(jsonObject)
+            let csv = convertToCSV(jsonObject);
+            // console.log(csv)
+          
+            let exportFileName = filename + ".csv";
+            let blob = new Blob([csv], {
+              type: "text/csv;charset=utf-8",
+            });
+          
+            if (navigator.msSaveBlob) {
+              navigator.msSaveBlob(blob, exportFileName);
+            } else {
+              let link = document.createElement("a");
+          
+              if (link.download !== undefined) {
+                let url = URL.createObjectURL(blob);
+                link.setAttribute("href", url);
+                link.setAttribute("download", exportFileName);
+                link.style.visibility = "hidden";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }
+            }
+          }
+        },
+      });
+    } else {
+      alert("Please Select Date");
+    }
+  });
+});  
+
 
 const startTimeFilter = date => {
   const startDate = new Date(date.value);
+  from_date = date.value.replace('T', ' ');
+  // console.log(to_date)
   chart.config.options.scales.x.min = startDate;
   chart.update();
 }
 
 const endTimeFilter = date => {
   const endDate = new Date(date.value)
+  to_date = date.value.replace('T', ' ');
+  // console.log(from_date)
   chart.config.options.scales.x.max = endDate
   chart.update()
 }

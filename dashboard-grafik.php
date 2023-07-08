@@ -811,7 +811,7 @@
         <!-- third party js ends -->
 
         <!-- demo app -->
-        <script src="assets/js/pages/chart.tegangan.js"></script>
+        <script src="assets/js/pages/chart.datagrafik.js"></script>
         <!-- end demo js-->
     </body>
 

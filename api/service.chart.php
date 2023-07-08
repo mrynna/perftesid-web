@@ -12,7 +12,7 @@
     if ($result_asc->num_rows > 0) {
         while ($row_asc = $result_asc->fetch_assoc()) {
             $arrayData[] = $row_asc;
-        }  
+        }
     }
     echo json_encode($arrayData);
 

@@ -1,5 +1,8 @@
 <?php
-    include "connection.php"; 
+session_start();
+if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
+    require 'connection.php';
+    $token = $_SESSION['user_token'];
     // Retrieve datasets that match the token key
     $key = '03ar2dffd';
     $sqlID = $dbconnect->query("SELECT MAX(id) FROM tb_data WHERE token = '$key'");
@@ -47,4 +50,7 @@
     // echo json_encode($arrayData);
 
     $dbconnect->close();
+} else {
+    echo "Login untuk dapat menampilkan Data";
+}
 ?>

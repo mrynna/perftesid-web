@@ -19162,3 +19162,19 @@ background-color: #5c636a85 !important;
   outline: none !important;
   box-shadow: none !important;
 }
+
+.col-12.chart {
+  display: flex;
+  justify-content: space-around;
+  column-gap: 1rem;
+  flex-direction: row;
+}
+
+.card.tegangan {
+  width: 100%;
+}
+
+.card.tegangan.mini {
+  width: 35%;
+}
+

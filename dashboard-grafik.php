@@ -1,4 +1,12 @@
-﻿<!DOCTYPE html>
+﻿<?php
+  session_start();
+  if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) { 
+    $user_username = $_SESSION['user_username'];
+    $user_type = $_SESSION['user_type'];
+
+?>
+
+<!DOCTYPE html>
     <html lang="en">
         <head>
             <meta charset="utf-8">
@@ -146,8 +154,8 @@
                                         <img src="assets/images/users/user1.png" alt="user-image" class="rounded-circle">
                                     </span>
                                     <span>
-                                        <span class="account-user-name">User1</span>
-                                        <span class="account-position">Admin</span>
+                                        <span class="account-user-name"><?php echo $user_username; ?></span>
+                                        <span class="account-position"><?php echo $user_type; ?></span>
                                     </span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated topbar-dropdown-menu profile-dropdown">
@@ -156,34 +164,22 @@
                                         <h6 class="text-overflow m-0">Welcome !</h6>
                                     </div>
 
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <!-- item -->
+                                    <!-- <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <i class="mdi mdi-account-circle me-1"></i>
                                         <span>My Account</span>
-                                    </a>
+                                    </a> -->
 
                                     <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <!-- <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <i class="mdi mdi-account-edit me-1"></i>
                                         <span>Settings</span>
-                                    </a>
-
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="mdi mdi-lifebuoy me-1"></i>
-                                        <span>Support</span>
-                                    </a>
-
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="mdi mdi-lock-outline me-1"></i>
-                                        <span>Lock Screen</span>
-                                    </a>
+                                    </a> -->
 
                                     <!-- item-->
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <i class="mdi mdi-logout me-1"></i>
-                                        <span>Logout</span>
+                                        <span onclick="window.location.href = 'logout.php';">Logout</span>
                                     </a>
                                 </div>
                             </li>
@@ -270,8 +266,8 @@
                         <!-- end page title -->
 
                         <div class="row">
-                            <div class="col-12">
-                                <div class="card">
+                            <div class="col-12 chart">
+                                <div class="card tegangan">
                                     <div class="card-body">
                                         <h4 class="header-title">Chart Tegangan</h4>
                                         <div dir="ltr chart">
@@ -300,6 +296,14 @@
                                                 <h7> Masukkan rentang waktu yang sesuai !!!</h7>
                                                 <button type="button" id ="popup-button" class="btn btn-primary popup-button">OK</button>
                                             </div>
+                                        </div>
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                                <div class="card tegangan mini">
+                                    <div class="card-body">
+                                        <h4 class="header-title">Chart Tegangan</h4>
+                                        <div dir="ltr chart">
+                                            <canvas id="chart-tegangan-mini"></canvas> 
                                         </div>
                                     </div> <!-- end card-body-->
                                 </div> <!-- end card-->
@@ -739,3 +743,8 @@
     </body>
 
 </html>
+<?php 
+}else {
+    header("Location: login.php");
+}
+?>

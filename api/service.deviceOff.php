@@ -12,10 +12,7 @@ if (($_POST['token'])) {
     $suhuLingkungan = $_POST['suhuLingkungan'];
     $iradiasi = $_POST['iradiasi'];
     $performa = $_POST['performa'];
-    $tanggal = $_POST['tanggal'];
-    $jam = $_POST['jam'];
-
-    $waktu = $tanggal . " " . $jam;
+    $waktu = $_POST['waktu'];
 
     $sql = "INSERT INTO tb_dataoffline(token, tegangan, arus, suhuPanel, suhuLingkungan, iradiasi, performa, waktu) VALUES ('$key', '$tegangan', '$arus', '$suhuPanel', '$suhuLingkungan', '$iradiasi', '$performa', '$waktu')";
     $kirim = $dbconnect->query($sql);

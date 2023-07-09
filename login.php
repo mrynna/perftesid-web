@@ -26,9 +26,9 @@
 		    <?php } ?>
 		  <div class="mb-3">
 		    <label for="exampleInputEmail1" 
-		           class="form-label">Email address
+		           class="form-label">Email address or Username
 		    </label>
-		    <input type="email" 
+		    <input type="text" 
 		           name="email" 
 		           value="<?php if(isset($_GET['email']))echo(htmlspecialchars($_GET['email'])) ?>" 
 		           class="form-control" 

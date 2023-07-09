@@ -1,17 +1,15 @@
 <?php
-if (isset($_POST['key'])){
+if (($_POST['token'])) {
   include 'connection.php';
-  $sql = "SELECT token FROM users";
+  $key = $_POST['token'];
+  $sql = "SELECT token FROM users WHERE token = '$key'";
   $result = $dbconnect->query($sql);
-  $token = $_POST['key'];
+
+  echo "data : ";
+  echo $key;
+  echo "\n";
 
   if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-      $arrayData[] = $row['token'];
-    }
-  }
-  
-  if($token === array_search($token, $arrayData)){
     $tegangan = $_POST['tegangan'];
     $arus = $_POST['arus'];
     $suhuPanel = $_POST['suhuPanel'];
@@ -19,7 +17,7 @@ if (isset($_POST['key'])){
     $iradiasi = $_POST['iradiasi'];
     $performa = $_POST['performa'];
     $waktu = $_POST['waktu'];
-    $sql = "INSERT INTO tb_data(token, tegangan, arus, suhuPanel, suhuLingkungan, iradiasi, performa, waktu) VALUES ('$token', '$tegangan', '$arus', '$suhuPanel', '$suhuLingkungan', '$iradiasi', '$performa', '$waktu')";
+    $sql = "INSERT INTO tb_data(token, tegangan, arus, suhuPanel, suhuLingkungan, iradiasi, performa, waktu) VALUES ('$key', '$tegangan', '$arus', '$suhuPanel', '$suhuLingkungan', '$iradiasi', '$performa', '$waktu')";
     $kirim = $dbconnect->query($sql);
     if (!$kirim) {
       echo "Error: " . $sql . "<br>" . $dbconnect->error();
@@ -27,15 +25,8 @@ if (isset($_POST['key'])){
       echo "New Automatic record created successfully";
     }
   }else{
-    echo "Invalid Token or Expired Token";
+    echo "Invalid or Expired Token";
   }
-}else{
+} else {
   echo "Invalid Token (Null)";
 }
-
-
-
-  
-
-
-

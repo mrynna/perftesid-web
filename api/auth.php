@@ -4,17 +4,18 @@ require 'connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = trim($_POST['email']);
+    $username = trim($_POST['email']);
     $password = trim($_POST['password']);
 
-    if (empty($email)) {
-        header("Location: ../login.php?error=" . urlencode("Email is required"));
+    if (empty($email) && empty($username)) {
+        header("Location: ../login.php?error=" . urlencode("Email Address or Username is required") . "&email=" . urlencode($email));
         exit();
     } elseif (empty($password)) {
-        header("Location: ../login.php?error=" . urlencode("Password is required") . "&email=" . urlencode($email));
+        header("Location: ../login.php?error=" . urlencode("Password is required") . "&email=" . urlencode($email) . "&username=" . urlencode($username));
         exit();
     } else {
-        $stmt = $dbconnect->prepare("SELECT id, username, email, password, type, token FROM users WHERE email = ?");
-        $stmt->bind_param("s", $email);
+        $stmt = $dbconnect->prepare("SELECT id, username, email, password, type, token FROM users WHERE email = ? OR username = ?");
+        $stmt->bind_param("ss", $email, $username);
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -37,11 +38,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 header("Location: ../index.php");
                 exit();
             } else {
-                header("Location: ../login.php?error=" . urlencode("Incorrect Email or password") . "&email=" . urlencode($email));
+                header("Location: ../login.php?error=" . urlencode("Incorrect Email, Username, or password") . "&email=" . urlencode($email) . "&username=" . urlencode($username));
                 exit();
             }
         } else {
-            header("Location: ../login.php?error=" . urlencode("Incorrect Email or password") . "&email=" . urlencode($email));
+            header("Location: ../login.php?error=" . urlencode("Incorrect Email, Username, or password") . "&email=" . urlencode($email) . "&username=" . urlencode($username));
             exit();
         }
     }

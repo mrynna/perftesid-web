@@ -12,7 +12,10 @@ if (($_POST['token'])) {
     $suhuLingkungan = $_POST['suhuLingkungan'];
     $iradiasi = $_POST['iradiasi'];
     $performa = $_POST['performa'];
-    $waktu = $_POST['waktu'];
+    $tanggal = $_POST['tanggal'];
+    $jam = $_POST['jam'];
+
+    $waktu = $tanggal . " " . $jam;
 
     $sql = "INSERT INTO tb_dataman(token, tegangan, arus, suhuPanel, suhuLingkungan, iradiasi, performa, waktu) VALUES ('$key', '$tegangan', '$arus', '$suhuPanel', '$suhuLingkungan', '$iradiasi', '$performa', '$waktu')";
     $kirim = $dbconnect->query($sql);

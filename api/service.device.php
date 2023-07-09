@@ -5,10 +5,6 @@ if (($_POST['token'])) {
   $sql = "SELECT token FROM users WHERE token = '$key'";
   $result = $dbconnect->query($sql);
 
-  echo "data : ";
-  echo $key;
-  echo "\n";
-
   if ($result->num_rows > 0) {
     $tegangan = $_POST['tegangan'];
     $arus = $_POST['arus'];

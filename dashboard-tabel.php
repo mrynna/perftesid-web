@@ -1,18 +1,19 @@
 ﻿<?php
-  session_start();
-  if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) { 
+session_start();
+if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
     $user_username = $_SESSION['user_username'];
     $user_type = $_SESSION['user_type'];
     include 'api/connection.php';
     $token = $_SESSION['user_token'];
-      // Mengambil data dari tabel tb_data
-      $sql = "SELECT * FROM tb_data WHERE token = '$token'";
-      $result = $dbconnect->query($sql);
+    // Mengambil data dari tabel tb_data
+    $sql = "SELECT * FROM tb_data WHERE token = '$token'";
+    $result = $dbconnect->query($sql);
 
-?>
+    ?>
 
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
+
     <head>
         <meta charset="utf-8">
         <title>Performance Tester</title>
@@ -34,12 +35,13 @@
     </head>
 
 
-    <body class="loading" data-layout-config='{"leftSideBarTheme":"dark","layoutBoxed":false, "leftSidebarCondensed":false, "leftSidebarScrollable":false,"darkMode":false, "showRightSidebarOnStart": true}'>
+    <body class="loading"
+        data-layout-config='{"leftSideBarTheme":"dark","layoutBoxed":false, "leftSidebarCondensed":false, "leftSidebarScrollable":false,"darkMode":false, "showRightSidebarOnStart": true}'>
         <!-- Begin page -->
         <div class="wrapper">
             <!-- ========== Left Sidebar Start ========== -->
             <div class="leftside-menu">
-    
+
                 <!-- LOGO -->
                 <a href="index.php" class="logo text-center logo-light">
                     <span class="logo-lg">
@@ -59,16 +61,17 @@
                         <img src="assets/images/pnup.png" alt="" height="16">
                     </span>
                 </a>
-    
+
                 <div class="h-100" id="leftside-menu-container" data-simplebar="">
 
-                     <!--- Sidemenu -->
-                     <ul class="side-nav">
+                    <!--- Sidemenu -->
+                    <ul class="side-nav">
 
                         <li class="side-nav-title side-nav-item">Navigation</li>
 
                         <li class="side-nav-item">
-                            <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
+                            <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false"
+                                aria-controls="sidebarDashboards" class="side-nav-link">
                                 <i class="uil-home-alt"></i>
                                 <!-- <span class="badge bg-success float-end">2</span> -->
                                 <span> Dashboards </span>
@@ -91,7 +94,8 @@
                         <li class="side-nav-title side-nav-item mt-1">Components</li>
 
                         <li class="side-nav-item">
-                            <a data-bs-toggle="collapse" href="#sidebarMaps" aria-expanded="false" aria-controls="sidebarMaps" class="side-nav-link">
+                            <a data-bs-toggle="collapse" href="#sidebarMaps" aria-expanded="false"
+                                aria-controls="sidebarMaps" class="side-nav-link">
                                 <i class="uil-location-point"></i>
                                 <span> Maps </span>
                                 <span class="menu-arrow"></span>
@@ -128,17 +132,19 @@
                     <div class="navbar-custom">
                         <ul class="list-unstyled topbar-menu float-end mb-0">
                             <li class="dropdown notification-list d-lg-none">
-                                <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#"
+                                    role="button" aria-haspopup="false" aria-expanded="false">
                                     <i class="dripicons-search noti-icon"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-animated dropdown-lg p-0">
                                     <form class="p-3">
-                                        <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
+                                        <input type="text" class="form-control" placeholder="Search ..."
+                                            aria-label="Recipient's username">
                                     </form>
                                 </div>
                             </li>
-                            
-                            
+
+
                             <li class="notification-list">
                                 <a class="nav-link end-bar-toggle" href="javascript: void(0);">
                                     <i class="dripicons-gear noti-icon"></i>
@@ -146,19 +152,27 @@
                             </li>
 
                             <li class="dropdown notification-list">
-                                <a class="nav-link dropdown-toggle nav-user arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                    <span class="account-user-avatar"> 
+                                <a class="nav-link dropdown-toggle nav-user arrow-none me-0" data-bs-toggle="dropdown"
+                                    href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                    <span class="account-user-avatar">
                                         <img src="assets/images/users/user1.png" alt="user-image" class="rounded-circle">
                                     </span>
                                     <span>
-                                        <span class="account-user-name"><?php echo $user_username; ?></span>
-                                        <span class="account-position"><?php echo $user_type; ?></span>
+                                        <span class="account-user-name">
+                                            <?php echo $user_username; ?>
+                                        </span>
+                                        <span class="account-position">
+                                            <?php echo $user_type; ?>
+                                        </span>
                                     </span>
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated topbar-dropdown-menu profile-dropdown">
+                                <div
+                                    class="dropdown-menu dropdown-menu-end dropdown-menu-animated topbar-dropdown-menu profile-dropdown">
                                     <!-- item-->
                                     <div class=" dropdown-header noti-title">
-                                        <h6 class="text-overflow m-0">Halo <?php echo $user_username; ?>!</h6>
+                                        <h6 class="text-overflow m-0">Halo
+                                            <?php echo $user_username; ?>!
+                                        </h6>
                                     </div>
 
                                     <!-- item -->
@@ -188,7 +202,8 @@
                         <div class="app-search dropdown d-none d-lg-block">
                             <form>
                                 <div class="input-group">
-                                    <input type="text" class="form-control dropdown-toggle" placeholder="Search..." id="top-search">
+                                    <input type="text" class="form-control dropdown-toggle" placeholder="Search..."
+                                        id="top-search">
                                     <span class="mdi mdi-magnify search-icon"></span>
                                     <button class="input-group-text btn-primary" type="submit">Search</button>
                                 </div>
@@ -227,7 +242,6 @@
                                     <!-- item-->
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <div class="d-flex">
-                                            <img class="d-flex me-2 rounded-circle" src="assets/images/users/avatar-2.jpg" alt="Generic placeholder image" height="32">
                                             <div class="w-100">
                                                 <h5 class="m-0 font-14">Erwin Brown</h5>
                                                 <span class="font-12 mb-0">UI Designer</span>
@@ -238,7 +252,6 @@
                                     <!-- item-->
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <div class="d-flex">
-                                            <img class="d-flex me-2 rounded-circle" src="assets/images/users/avatar-5.jpg" alt="Generic placeholder image" height="32">
                                             <div class="w-100">
                                                 <h5 class="m-0 font-14">User1</h5>
                                                 <span class="font-12 mb-0">Admin</span>
@@ -253,14 +266,15 @@
 
                     <!-- Start Content-->
                     <div class="container-fluid">
-                        
+
                         <!-- start page title -->
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box">
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Performance Tester</a></li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Performance
+                                                    Tester</a></li>
                                             <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
                                             <li class="breadcrumb-item active">Data Tabel</li>
                                         </ol>
@@ -268,67 +282,69 @@
                                     <h4 class="page-title">Data Tabel</h4>
                                 </div>
                             </div>
-                        </div>     
-                        <!-- end page title --> 
+                        </div>
+                        <!-- end page title -->
 
                         <div class="row table">
                             <div class="col-md-3">
-                                <input type="datetime-local" name="from_date" id="from_date" class="form-control" placeholder="From Date" />
+                                <input type="datetime-local" name="from_date" id="from_date" class="form-control form-control-light"
+                                    placeholder="From Date" />
                             </div>
                             <div class="col-md-3">
-                                <input type="datetime-local" name="to_date" id="to_date" class="form-control" placeholder="To Date" />
+                                <input type="datetime-local" name="to_date" id="to_date" class="form-control form-control-light"
+                                    placeholder="To Date" />
                             </div>
                             <div class="col-md-5">
                                 <input type="button" name="filter" id="filter" value="Filter" class="btn btn-info" />
                             </div>
-                            <table class="table table-bordered mt-10">
-                                <thead>
+                            <div style="clear:both"></div>
+                            <br />
+                            <div id="order_table">
+                                <table class="table table-bordered">
                                     <tr>
-                                        <th scope="col" width="fit">No</th>
-                                        <th scope="col" width="fit">Tegangan</th>
-                                        <th scope="col" width="fit">Arus</th>
-                                        <th scope="col" width="fit">Suhu Lingkungan</th>
-                                        <th scope="col" width="fit">Suhu Panel</th>
-                                        <th scope="col" width="fit">Iradiasi</th>
-                                        <th scope="col" width="fit">Performa</th>
-                                        <th scope="col" width="fit">Waktu</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                        while ($row = $result->fetch_assoc()) {
-                                    ?>
-                                    <tr>
-                                    <td>
-                                        <?php echo $row["id"]; ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $row["tegangan"]; ?> V
-                                        </td>
-                                        <td>
-                                            <?php echo $row["arus"]; ?> A
-                                        </td>
-                                        <td>
-                                            <?php echo $row["suhuLingkungan"]; ?> C
-                                        </td>
-                                        <td>
-                                            <?php echo $row["suhuPanel"]; ?> C
-                                        </td>
-                                        <td>
-                                            <?php echo $row["iradiasi"]; ?> w/m2
-                                        </td>
-                                        <td>
-                                            <?php echo $row["performa"]; ?> %
-                                        </td>
-                                        <td>
-                                            <?php echo $row["waktu"]; ?>
-                                        </td>
+                                        <th scope="col" width="5%">No</th>  
+                                        <th scope="col" width="10%">Tegangan</th>  
+                                        <th scope="col" width="10%">Arus</th>  
+                                        <th scope="col" width="10%">Suhu Lingkungan</th>  
+                                        <th scope="col" width="10%">Suhu Panel</th>  
+                                        <th scope="col" width="10%">Iradiasi</th>  
+                                        <th scope="col" width="10%">Performa</th>  
+                                        <th scope="col" width="15%">Waktu</th>  
                                     </tr>
                                     <?php
-                                        }
+                                    while ($row = $result->fetch_assoc()) {
+                                        ?>
+                                        <tr>
+                                            <td>
+                                                <?php echo $row["id"]; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $row["tegangan"]; ?> V
+                                            </td>
+                                            <td>
+                                                <?php echo $row["arus"]; ?> A
+                                            </td>
+                                            <td>
+                                                <?php echo $row["suhuLingkungan"]; ?> C
+                                            </td>
+                                            <td>
+                                                <?php echo $row["suhuPanel"]; ?> C
+                                            </td>
+                                            <td>
+                                                <?php echo $row["iradiasi"]; ?> w/m2
+                                            </td>
+                                            <td>
+                                                <?php echo $row["performa"]; ?> %
+                                            </td>
+                                            <td>
+                                                <?php echo $row["waktu"]; ?>
+                                            </td>
+                                        </tr>
+                                        <?php
+                                    }
                                     ?>
-                                </tbody>
-                            </table>
+                                </table>
+                            </div>
                         </div>
                         <!-- end row -->
 
@@ -337,7 +353,8 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="dropdown float-end">
-                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <a href="#" class="dropdown-toggle arrow-none card-drop"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
                                                 <i class="mdi mdi-dots-vertical"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-end">
@@ -354,29 +371,37 @@
 
                                         <h4 class="header-title mb-1">Campaigns</h4>
 
-                                        <div id="dash-campaigns-chart" class="apex-charts" data-colors="#ffbc00,#727cf5,#0acf97"></div>
+                                        <div id="dash-campaigns-chart" class="apex-charts"
+                                            data-colors="#ffbc00,#727cf5,#0acf97"></div>
 
                                         <div class="row text-center mt-2">
                                             <div class="col-md-4">
-                                                <i class="mdi mdi-send widget-icon rounded-circle bg-light-lighten text-muted"></i>
+                                                <i
+                                                    class="mdi mdi-send widget-icon rounded-circle bg-light-lighten text-muted"></i>
                                                 <h3 class="fw-normal mt-3">
                                                     <span>6,510</span>
                                                 </h3>
-                                                <p class="text-muted mb-0 mb-2"><i class="mdi mdi-checkbox-blank-circle text-warning"></i> Total Sent</p>
+                                                <p class="text-muted mb-0 mb-2"><i
+                                                        class="mdi mdi-checkbox-blank-circle text-warning"></i> Total Sent
+                                                </p>
                                             </div>
                                             <div class="col-md-4">
-                                                <i class="mdi mdi-flag-variant widget-icon rounded-circle bg-light-lighten text-muted"></i>
+                                                <i
+                                                    class="mdi mdi-flag-variant widget-icon rounded-circle bg-light-lighten text-muted"></i>
                                                 <h3 class="fw-normal mt-3">
                                                     <span>3,487</span>
                                                 </h3>
-                                                <p class="text-muted mb-0 mb-2"><i class="mdi mdi-checkbox-blank-circle text-primary"></i> Reached</p>
+                                                <p class="text-muted mb-0 mb-2"><i
+                                                        class="mdi mdi-checkbox-blank-circle text-primary"></i> Reached</p>
                                             </div>
                                             <div class="col-md-4">
-                                                <i class="mdi mdi-email-open widget-icon rounded-circle bg-light-lighten text-muted"></i>
+                                                <i
+                                                    class="mdi mdi-email-open widget-icon rounded-circle bg-light-lighten text-muted"></i>
                                                 <h3 class="fw-normal mt-3">
                                                     <span>1,568</span>
                                                 </h3>
-                                                <p class="text-muted mb-0 mb-2"><i class="mdi mdi-checkbox-blank-circle text-success"></i> Opened</p>
+                                                <p class="text-muted mb-0 mb-2"><i
+                                                        class="mdi mdi-checkbox-blank-circle text-success"></i> Opened</p>
                                             </div>
                                         </div>
                                     </div>
@@ -385,12 +410,13 @@
                                 <!-- end card -->
                             </div>
                             <!-- end col-->
-    
+
                             <div class="col-lg-7">
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="dropdown float-end">
-                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <a href="#" class="dropdown-toggle arrow-none card-drop"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
                                                 <i class="mdi mdi-dots-vertical"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-end">
@@ -404,7 +430,7 @@
                                                 <a href="javascript:void(0);" class="dropdown-item">Last Month</a>
                                             </div>
                                         </div>
-                                        
+
                                         <h4 class="header-title mb-3">Revenue</h4>
 
                                         <div class="chart-content-bg">
@@ -425,7 +451,8 @@
                                         </div>
 
                                         <div dir="ltr">
-                                            <div id="dash-revenue-chart" class="apex-charts" data-colors="#0acf97,#fa5c7c"></div>
+                                            <div id="dash-revenue-chart" class="apex-charts" data-colors="#0acf97,#fa5c7c">
+                                            </div>
                                         </div>
 
                                     </div>
@@ -443,7 +470,8 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="dropdown float-end">
-                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <a href="#" class="dropdown-toggle arrow-none card-drop"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
                                                 <i class="mdi mdi-dots-vertical"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-end">
@@ -476,7 +504,8 @@
                                                         <td>154</td>
                                                         <td>49</td>
                                                         <td class="table-action">
-                                                            <a href="javascript: void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>
+                                                            <a href="javascript: void(0);" class="action-icon"> <i
+                                                                    class="mdi mdi-eye"></i></a>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -488,7 +517,8 @@
                                                         <td>127</td>
                                                         <td>83</td>
                                                         <td class="table-action">
-                                                            <a href="javascript: void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>
+                                                            <a href="javascript: void(0);" class="action-icon"> <i
+                                                                    class="mdi mdi-eye"></i></a>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -500,7 +530,8 @@
                                                         <td>148</td>
                                                         <td>62</td>
                                                         <td class="table-action">
-                                                            <a href="javascript: void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>
+                                                            <a href="javascript: void(0);" class="action-icon"> <i
+                                                                    class="mdi mdi-eye"></i></a>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -512,7 +543,8 @@
                                                         <td>159</td>
                                                         <td>258</td>
                                                         <td class="table-action">
-                                                            <a href="javascript: void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>
+                                                            <a href="javascript: void(0);" class="action-icon"> <i
+                                                                    class="mdi mdi-eye"></i></a>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -524,7 +556,8 @@
                                                         <td>126</td>
                                                         <td>73</td>
                                                         <td class="table-action">
-                                                            <a href="javascript: void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>
+                                                            <a href="javascript: void(0);" class="action-icon"> <i
+                                                                    class="mdi mdi-eye"></i></a>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -536,92 +569,18 @@
                             </div>
                             <!-- end col-->
 
-                            <div class="col-xl-4 col-lg-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="dropdown float-end">
-                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="mdi mdi-dots-vertical"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Settings</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                            </div>
-                                        </div>
-                                        <h4 class="header-title mb-4">Recent Leads</h4>
 
-                                        <div class="d-flex align-items-start">
-                                            <img class="me-3 rounded-circle" src="assets/images/users/avatar-2.jpg" width="40" alt="Generic placeholder image">
-                                            <div class="w-100 overflow-hidden">
-                                                <span class="badge badge-warning-lighten float-end">Cold lead</span>
-                                                <h5 class="mt-0 mb-1">Risa Pearson</h5>
-                                                <span class="font-13">richard.john@mail.com</span>
-                                            </div>
-                                        </div>
-
-                                        <div class="d-flex align-items-start mt-3">
-                                            <img class="me-3 rounded-circle" src="assets/images/users/avatar-3.jpg" width="40" alt="Generic placeholder image">
-                                            <div class="w-100 overflow-hidden">
-                                                <span class="badge badge-danger-lighten float-end">Lost lead</span>
-                                                <h5 class="mt-0 mb-1">Margaret D. Evans</h5>
-                                                <span class="font-13">margaret.evans@rhyta.com</span>
-                                            </div>
-                                        </div>
-
-                                        <div class="d-flex align-items-start mt-3">
-                                            <img class="me-3 rounded-circle" src="assets/images/users/avatar-4.jpg" width="40" alt="Generic placeholder image">
-                                            <div class="w-100 overflow-hidden">
-                                                <span class="badge badge-success-lighten float-end">Won lead</span>
-                                                <h5 class="mt-0 mb-1">Bryan J. Luellen</h5>
-                                                <span class="font-13">bryuellen@dayrep.com</span>
-                                            </div>
-                                        </div>
-
-                                        <div class="d-flex align-items-start mt-3">
-                                            <img class="me-3 rounded-circle" src="assets/images/users/avatar-5.jpg" width="40" alt="Generic placeholder image">
-                                            <div class="w-100 overflow-hidden">
-                                                <span class="badge badge-warning-lighten float-end">Cold lead</span>
-                                                <h5 class="mt-0 mb-1">Kathryn S. Collier</h5>
-                                                <span class="font-13">collier@jourrapide.com</span>
-                                            </div>
-                                        </div>
-
-                                        <div class="d-flex align-items-start mt-3">
-                                            <img class="me-3 rounded-circle" src="assets/images/users/avatar-1.jpg" width="40" alt="Generic placeholder image">
-                                            <div class="w-100 overflow-hidden">
-                                                <span class="badge badge-warning-lighten float-end">Cold lead</span>
-                                                <h5 class="mt-0 mb-1">Timothy Kauper</h5>
-                                                <span class="font-13">thykauper@rhyta.com</span>
-                                            </div>
-                                        </div>
-
-                                        <div class="d-flex align-items-start mt-3">
-                                            <img class="me-3 rounded-circle" src="assets/images/users/avatar-6.jpg" width="40" alt="Generic placeholder image">
-                                            <div class="w-100 overflow-hidden">
-                                                <span class="badge badge-success-lighten float-end">Won lead</span>
-                                                <h5 class="mt-0 mb-1">Zara Raws</h5>
-                                                <span class="font-13">austin@dayrep.com</span>
-                                            </div>
-                                        </div>
-                                           
-                                    </div>
-                                    <!-- end card-body -->
-                                </div>
-                                <!-- end card-->
-                            </div>
-                            <!-- end col -->  
-                            
                             <div class="col-xl-4 col-lg-6">
                                 <div class="card cta-box bg-primary text-white">
                                     <div class="card-body">
                                         <div class="d-flex align-items-start align-items-center">
                                             <div class="w-100 overflow-hidden">
                                                 <h2 class="mt-0"><i class="mdi mdi-bullhorn-outline"></i>&nbsp;</h2>
-                                                <h3 class="m-0 fw-normal cta-box-title">Enhance your <b>Campaign</b> for better outreach <i class="mdi mdi-arrow-right"></i></h3>
+                                                <h3 class="m-0 fw-normal cta-box-title">Enhance your <b>Campaign</b> for
+                                                    better outreach <i class="mdi mdi-arrow-right"></i></h3>
                                             </div>
-                                            <img class="ms-3" src="assets/images/email-campaign.svg" width="120" alt="Generic placeholder image">
+                                            <img class="ms-3" src="assets/images/email-campaign.svg" width="120"
+                                                alt="Generic placeholder image">
                                         </div>
                                     </div>
                                     <!-- end card-body -->
@@ -632,7 +591,8 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="dropdown float-end">
-                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <a href="#" class="dropdown-toggle arrow-none card-drop"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
                                                 <i class="mdi mdi-dots-vertical"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-end">
@@ -654,32 +614,32 @@
                                 </div> <!-- end card-->
 
                             </div>
-                            <!-- end col -->  
+                            <!-- end col -->
                         </div>
                         <!-- end row-->
-                        
+
                     </div> <!-- container -->
 
                 </div> <!-- content -->
 
-               <!-- Footer Start -->
-               <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <script>document.write(new Date().getFullYear())</script> © Politeknik Negeri Ujung Pandang
-                        </div>
-                        <div class="col-md-6">
-                            <div class="text-md-end footer-links d-none d-md-block">
-                                <a href="javascript: void(0);">About</a>
-                                <a href="javascript: void(0);">Support</a>
-                                <a href="javascript: void(0);">Contact Us</a>
+                <!-- Footer Start -->
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <script>document.write(new Date().getFullYear())</script> © Politeknik Negeri Ujung Pandang
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-md-end footer-links d-none d-md-block">
+                                    <a href="javascript: void(0);">About</a>
+                                    <a href="javascript: void(0);">Support</a>
+                                    <a href="javascript: void(0);">Contact Us</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </footer>
-            <!-- end Footer -->
+                </footer>
+                <!-- end Footer -->
 
             </div>
 
@@ -714,21 +674,24 @@
                     <hr class="mt-1">
 
                     <div class="form-check form-switch mb-1">
-                        <input class="form-check-input" type="checkbox" name="color-scheme-mode" value="light" id="light-mode-check" checked="">
+                        <input class="form-check-input" type="checkbox" name="color-scheme-mode" value="light"
+                            id="light-mode-check" checked="">
                         <label class="form-check-label" for="light-mode-check">Light Mode</label>
                     </div>
 
                     <div class="form-check form-switch mb-1">
-                        <input class="form-check-input" type="checkbox" name="color-scheme-mode" value="dark" id="dark-mode-check">
+                        <input class="form-check-input" type="checkbox" name="color-scheme-mode" value="dark"
+                            id="dark-mode-check">
                         <label class="form-check-label" for="dark-mode-check">Dark Mode</label>
                     </div>
-       
+
 
                     <!-- Width -->
                     <h5 class="mt-4">Width</h5>
                     <hr class="mt-1">
                     <div class="form-check form-switch mb-1">
-                        <input class="form-check-input" type="checkbox" name="width" value="fluid" id="fluid-check" checked="">
+                        <input class="form-check-input" type="checkbox" name="width" value="fluid" id="fluid-check"
+                            checked="">
                         <label class="form-check-label" for="fluid-check">Fluid</label>
                     </div>
 
@@ -736,7 +699,7 @@
                         <input class="form-check-input" type="checkbox" name="width" value="boxed" id="boxed-check">
                         <label class="form-check-label" for="boxed-check">Boxed</label>
                     </div>
-        
+
 
                     <!-- Left Sidebar-->
                     <h5 class="mt-4">Left Sidebar</h5>
@@ -747,7 +710,8 @@
                     </div>
 
                     <div class="form-check form-switch mb-1">
-                        <input class="form-check-input" type="checkbox" name="theme" value="light" id="light-check" checked="">
+                        <input class="form-check-input" type="checkbox" name="theme" value="light" id="light-check"
+                            checked="">
                         <label class="form-check-label" for="light-check">Light</label>
                     </div>
 
@@ -757,24 +721,27 @@
                     </div>
 
                     <div class="form-check form-switch mb-1">
-                        <input class="form-check-input" type="checkbox" name="compact" value="fixed" id="fixed-check" checked="">
+                        <input class="form-check-input" type="checkbox" name="compact" value="fixed" id="fixed-check"
+                            checked="">
                         <label class="form-check-label" for="fixed-check">Fixed</label>
                     </div>
 
                     <div class="form-check form-switch mb-1">
-                        <input class="form-check-input" type="checkbox" name="compact" value="condensed" id="condensed-check">
+                        <input class="form-check-input" type="checkbox" name="compact" value="condensed"
+                            id="condensed-check">
                         <label class="form-check-label" for="condensed-check">Condensed</label>
                     </div>
 
                     <div class="form-check form-switch mb-1">
-                        <input class="form-check-input" type="checkbox" name="compact" value="scrollable" id="scrollable-check">
+                        <input class="form-check-input" type="checkbox" name="compact" value="scrollable"
+                            id="scrollable-check">
                         <label class="form-check-label" for="scrollable-check">Scrollable</label>
                     </div>
 
                     <div class="d-grid mt-4">
                         <button class="btn btn-primary" id="resetBtn">Reset to Default</button>
-            
-                       
+
+
                     </div>
                 </div> <!-- end padding-->
 
@@ -799,9 +766,10 @@
         <script src="assets/js/pages/data-table.js"></script>
         <!-- end demo js-->
     </body>
-</html>
-<?php 
-}else {
+
+    </html>
+<?php
+} else {
     header("Location: landing-page.php");
 }
 ?>

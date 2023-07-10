@@ -19164,7 +19164,8 @@ background-color: #5c636a85 !important;
 
 .row.table {
   display: flex;
-  width: 80%;
+  width: 100%;
   align-content: center;
-  padding-left: 240px;
+  padding-left: 180px;
+  margin-left: -80px;
 }

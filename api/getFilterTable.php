@@ -4,7 +4,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
      require 'connection.php';
      $token = $_SESSION['user_token'];
      $sql = "SELECT * FROM tb_data WHERE token = '$token' AND waktu BETWEEN '" . $_POST["from_date"] . "' AND '" . $_POST["to_date"] . "'";
-     $result = $conn->query($sql);
+     $result = $dbconnect->query($sql);
 
      // Menyimpan data dalam array
      $output = '  

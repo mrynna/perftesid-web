@@ -209,7 +209,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
           <div class="col-xl-3 col-md-6 d-flex align-items-stretch parameter" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-lightning-charge"></i></div>
-              <h4><a href="">Tegangan Hubung Buka (Voc)</a></h4>
+              <h4>Tegangan Hubung Buka (Voc)</h4>
               <p>Pengukuran terhadap tegangan (V) dilakukan pada terminal positif dan negatif dari modul sel surya dengan 
                 tidak menghubungkan sel surya dengan komponen lainnya. </p>
             </div>
@@ -219,7 +219,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
             data-aos-delay="200">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-lightning-charge-fill"></i></div>
-              <h4><a href="">Arus Hubung Singkat (Isc)</a></h4>
+              <h4>Arus Hubung Singkat (Isc)</h4>
               <p>Untuk mengukur arus hubung singkat, maka kedua terminal dari modul dibuat rangkaian hubung singkat sehingga tegangannya menjadi nol dan arusnya maksimum. 
                 </p>
             </div>
@@ -229,7 +229,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
             data-aos-delay="300">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-thermometer-low"></i></div>
-              <h4><a href="">Suhu Lingkungan</a></h4>
+              <h4>Suhu Lingkungan</h4>
               <p>Suhu lingkungan ialah tingkatan derajat panas atau dingin yang berlaku dalam ruang sekitar.</p>
             </div>
           </div>
@@ -238,7 +238,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
             data-aos-delay="400">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-thermometer-half"></i></div>
-              <h4><a href="">Suhu Panel</a></h4>
+              <h4>Suhu Panel</h4>
               <p>Suhu panel merupakan suhu yang terdapat atau yang berada pada cell dari panel surya.</p>
             </div>
           </div>
@@ -247,7 +247,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
             data-aos-delay="400">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-brightness-high"></i></div>
-              <h4><a href="">Iradiasi Matahari</a></h4>
+              <h4>Iradiasi Matahari</h4>
               <p>Iradiasi adalah besaran yang mengukur energi per satuan luas radiasi 
                 matahari yang terjadi pada permukaan tertentu</p>
             </div>
@@ -350,28 +350,29 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
 
           <div class="col-lg-5 contact">
             <div class="info">
-              <div class="address">
-                <i class="bi bi-geo-alt"></i>
-                <h4>Alamat:</h4>
-                <p>Jalan Perintis Kemerdekaan KM.10 Tamalanrea , Makassar 90245</p>
-              </div>
+              <div class="row">
+                <div class="address">
+                  <i class="bi bi-geo-alt"></i>
+                  <h4>Alamat:</h4>
+                  <p>Jalan Perintis Kemerdekaan KM.10 Tamalanrea , Makassar 90245</p>
+                </div>
 
-              <div class="email">
-                <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
-                <p>pnup@poliupg.ac.id</p>
-              </div>
+                <div class="email">
+                  <i class="bi bi-envelope"></i>
+                  <h4>Email:</h4>
+                  <p>pnup@poliupg.ac.id</p>
+                </div>
 
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Kontak:</h4>
-                <p>+62 (411) 585365 | +62 (411) 585367 | +62 (411) 585368</p>
+                <div class="phone">
+                  <i class="bi bi-phone"></i>
+                  <h4>Kontak:</h4>
+                  <p style="margin-bottom: 0px;">+62 (411) 585365 | +62 (411) 585367 | +62 (411) 585368</p>
+                </div>
               </div>
               <div class=map>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d31790.325384078515!2d119.48213520109655!3d-5.137377168360036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sPoliteknik%20Negeri%20Ujung%20Pandang!5e0!3m2!1sid!2sid!4v1688988384743!5m2!1sid!2sid" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
               </div>
             </div>
-
           </div>
         </div>
 
@@ -382,11 +383,9 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
-
     <div class="footer-newsletter">
       <div class="container">
         <div class="row">
-
           <div class="col-lg-3 col-md-6 footer-contact">
             <h3>PERFTESID</h3>
             <p>
@@ -397,19 +396,6 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
               <strong>Email:</strong> pnup@poliupg.ac.id<br>
             </p>
           </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Social Networks</h4>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
-            <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-            </div>
-          </div>
-
         </div>
       </div>
     </div>

@@ -472,9 +472,9 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
         <!-- bundle -->
         <script src="assets/js/vendor.min.js"></script>
         <script src="assets/js/app.min.js"></script>
-        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="assets/js/vendor/jquery.dataTables.min.js"></script>
-        <script src="assets/js/vendor/dataTables.bootstrap5.js"></script>
+        <script src="assets/js/vendor/dataTables.bootstrap5.js"></script> -->
 
         <!-- main app -->
         <script src="assets/js/pages/data-table.js"></script>

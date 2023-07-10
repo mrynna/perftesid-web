@@ -17,8 +17,8 @@ function getData() {
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       var data = JSON.parse(this.responseText);
-      var ids = data.map(function (obj) {
-        return obj.id;
+      var tepatwaktu = data.map(function (obj) {
+        return obj.waktu;
       });
       var tegangan = data.map(function (obj) {
         return obj.tegangan;
@@ -39,6 +39,11 @@ function getData() {
         return obj.performa;
       });
 
+      const dateChartJs = tepatwaktu.map((day, index) => {
+        let dayjs = new Date(day);
+        return dayjs;
+      });
+
       // Hancurkan instansiasi chart sebelumnya
       if (chartVoc || chartSuhu || chartPerf || chartIrad || chartVocSuhu || chartIscIrad) {
         chartVoc.destroy();
@@ -53,7 +58,7 @@ function getData() {
       chartVoc = new Chart(vocIsc, {
         type: "line",
         data: {
-          labels: ids,
+          labels: dateChartJs,
           datasets: [
             {
               label: "Tegangan",
@@ -79,6 +84,7 @@ function getData() {
           animation: false,
           scales: {
             x: {
+              type:"time",
               grid: {
                 display: false,
               },
@@ -90,6 +96,24 @@ function getData() {
               },
             },
           },
+          plugins: {
+            zoom: {
+              pan: {
+                enabled: true,
+                mode: 'x',
+              },
+              zoom: {
+                mode: 'x',
+                drag: {
+                  enabled: true,
+                  modifierKey: 'alt'
+                },
+                wheel: {
+                  enabled: true,
+                }
+              }
+            }
+          }
         },
       });
 
@@ -97,7 +121,7 @@ function getData() {
       chartIscIrad = new Chart(iscIrad, {
         type: "line",
         data: {
-          labels: ids,
+          labels: dateChartJs,
           datasets: [
             {
               label: "Arus Hubung Singkat (Isc)",
@@ -123,6 +147,7 @@ function getData() {
           animation: false,
           scales: {
             x: {
+              type:"time",
               grid: {
                 display: false,
               },
@@ -134,6 +159,24 @@ function getData() {
               },
             },
           },
+          plugins: {
+            zoom: {
+              pan: {
+                enabled: true,
+                mode: 'x',
+              },
+              zoom: {
+                mode: 'x',
+                drag: {
+                  enabled: true,
+                  modifierKey: 'alt'
+                },
+                wheel: {
+                  enabled: true,
+                }
+              }
+            }
+          }
         },
       });
 
@@ -141,7 +184,7 @@ function getData() {
       chartSuhu = new Chart(suhu, {
         type: "line",
         data: {
-          labels: ids,
+          labels: dateChartJs,
           datasets: [
             {
               label: "Suhu Panel",
@@ -167,6 +210,7 @@ function getData() {
           animation: false,
           scales: {
             x: {
+              type:"time",
               grid: {
                 display: false,
               },
@@ -178,6 +222,24 @@ function getData() {
               },
             },
           },
+          plugins: {
+            zoom: {
+              pan: {
+                enabled: true,
+                mode: 'x',
+              },
+              zoom: {
+                mode: 'x',
+                drag: {
+                  enabled: true,
+                  modifierKey: 'alt'
+                },
+                wheel: {
+                  enabled: true,
+                }
+              }
+            }
+          }
         },
       });
 
@@ -185,7 +247,7 @@ function getData() {
       chartVocSuhu = new Chart(vocSuhu, {
         type: "line",
         data: {
-          labels: ids,
+          labels: dateChartJs,
           datasets: [
             {
               label: "Tegangan (Voc)",
@@ -220,6 +282,7 @@ function getData() {
           animation: false,
           scales: {
             x: {
+              type:"time",
               grid: {
                 display: false,
               },
@@ -231,6 +294,24 @@ function getData() {
               },
             },
           },
+          plugins: {
+            zoom: {
+              pan: {
+                enabled: true,
+                mode: 'x',
+              },
+              zoom: {
+                mode: 'x',
+                drag: {
+                  enabled: true,
+                  modifierKey: 'alt'
+                },
+                wheel: {
+                  enabled: true,
+                }
+              }
+            }
+          }
         },
       });
 
@@ -238,7 +319,7 @@ function getData() {
       chartPerf = new Chart(perf, {
         type: "line",
         data: {
-          labels: ids,
+          labels: dateChartJs,
           datasets: [
             {
               label: "Performa",
@@ -255,6 +336,7 @@ function getData() {
           animation: false,
           scales: {
             x: {
+              type:"time",
               grid: {
                 display: false,
               },
@@ -266,6 +348,30 @@ function getData() {
               },
             },
           },
+          plugins: {
+            tooltip: {
+              callbacks: {
+                  label: (item) =>
+                      `${item.dataset.label}: ${item.formattedValue} %`,
+              },
+            },
+            zoom: {
+              pan: {
+                enabled: true,
+                mode: 'x',
+              },
+              zoom: {
+                mode: 'x',
+                drag: {
+                  enabled: true,
+                  modifierKey: 'alt'
+                },
+                wheel: {
+                  enabled: true,
+                }
+              }
+            }
+          }
         },
       });
 
@@ -273,7 +379,7 @@ function getData() {
       chartIrad = new Chart(irad, {
         type: "line",
         data: {
-          labels: ids,
+          labels: dateChartJs,
           datasets: [
             {
               label: "Iradiasi",
@@ -290,6 +396,7 @@ function getData() {
           animation: false,
           scales: {
             x: {
+              type:"time",
               grid: {
                 display: false,
               },
@@ -301,11 +408,35 @@ function getData() {
               },
             },
           },
+          plugins: {
+            tooltip: {
+              callbacks: {
+                  label: (item) =>
+                      `${item.dataset.label}: ${item.formattedValue} w/m2`,
+              },
+            },
+            zoom: {
+              pan: {
+                enabled: true,
+                mode: 'x',
+              },
+              zoom: {
+                mode: 'x',
+                drag: {
+                  enabled: true,
+                  modifierKey: 'alt'
+                },
+                wheel: {
+                  enabled: true,
+                }
+              }
+            }
+          }
         },
       });
     }
   };
-  xhttp.open("GET", "api/service.chart.php", true);
+  xhttp.open("GET", "api/service.chart.limit.php", true);
   xhttp.send();
 }
 

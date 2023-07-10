@@ -34,6 +34,9 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
         <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" id="light-style">
         <link href="assets/css/app-dark.min.css" rel="stylesheet" type="text/css" id="dark-style">
 
+        <!-- Script -->
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+
     </head>
 
 

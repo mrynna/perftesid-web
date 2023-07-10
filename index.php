@@ -514,6 +514,6 @@
 </html>
 <?php 
 }else {
-    header("Location: login.php");
+    header("Location: landing-page.php");
 }
 ?>

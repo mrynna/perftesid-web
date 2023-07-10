@@ -8,10 +8,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = trim($_POST['password']);
 
     if (empty($email) && empty($username)) {
-        header("Location: ../login.php?error=" . urlencode("Email Address or Username is required") . "&email=" . urlencode($email));
+        header("Location: ../landing-page.php?error=" . urlencode("Email Address or Username is required") . "&email=" . urlencode($email));
         exit();
     } elseif (empty($password)) {
-        header("Location: ../login.php?error=" . urlencode("Password is required") . "&email=" . urlencode($email) . "&username=" . urlencode($username));
+        header("Location: ../landing-page.php?error=" . urlencode("Password is required") . "&email=" . urlencode($email) . "&username=" . urlencode($username));
         exit();
     } else {
         $stmt = $dbconnect->prepare("SELECT id, username, email, password, type, token FROM users WHERE email = ? OR username = ?");
@@ -38,11 +38,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 header("Location: ../index.php");
                 exit();
             } else {
-                header("Location: ../login.php?error=" . urlencode("Incorrect Email, Username, or password") . "&email=" . urlencode($email) . "&username=" . urlencode($username));
+                header("Location: ../landing-page.php?error=" . urlencode("Incorrect Email, Username, or password") . "&email=" . urlencode($email) . "&username=" . urlencode($username));
                 exit();
             }
         } else {
-            header("Location: ../login.php?error=" . urlencode("Incorrect Email, Username, or password") . "&email=" . urlencode($email) . "&username=" . urlencode($username));
+            header("Location: ../landing-page.php?error=" . urlencode("Incorrect Email, Username, or password") . "&email=" . urlencode($email) . "&username=" . urlencode($username));
             exit();
         }
     }

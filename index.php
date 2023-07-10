@@ -17,6 +17,7 @@
         <meta content="Coderthemes" name="author">
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/pnup.png">
+        <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 
         <!-- third party css -->
         <link href="assets/css/vendor/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css">
@@ -64,13 +65,18 @@
                         <li class="side-nav-title side-nav-item">Navigation</li>
 
                         <li class="side-nav-item">
-                            <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
-                                <i class="uil-home-alt"></i>
-                                <span class="badge bg-success float-end">2</span>
+                            <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false"
+                                aria-controls="sidebarDashboards" class="side-nav-link">
+                                <i class="bi bi-graph-up"></i>
+                                <!-- <span class="badge bg-success float-end">2</span> -->
                                 <span> Dashboards </span>
+                                <span class="menu-arrow"></span>
                             </a>
                             <div class="collapse" id="sidebarDashboards">
                                 <ul class="side-nav-second-level">
+                                    <li>
+                                        <a href="index.php">Home</a>
+                                    </li>
                                     <li>
                                         <a href="dashboard-grafik.php">Data Grafik</a>
                                     </li>
@@ -83,19 +89,17 @@
 
                         <li class="side-nav-title side-nav-item mt-1">Components</li>
 
-                       <li class="side-nav-item">
-                            <a data-bs-toggle="collapse" href="#sidebarMaps" aria-expanded="false" aria-controls="sidebarMaps" class="side-nav-link">
-                                <i class="uil-location-point"></i>
-                                <span> Maps </span>
+                        <li class="side-nav-item">
+                            <a data-bs-toggle="collapse" href="#sidebarMaps" aria-expanded="false"
+                                aria-controls="sidebarMaps" class="side-nav-link">
+                                <i class="bi bi-gear"></i>
+                                <span> Lainnya </span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <div class="collapse" id="sidebarMaps">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="maps-google.html">Google Maps</a>
-                                    </li>
-                                    <li>
-                                        <a href="maps-vector.html">Vector Maps</a>
+                                        <a href="landing-page.php">Tentang</a>
                                     </li>
                                 </ul>
                             </div>

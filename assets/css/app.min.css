@@ -19156,6 +19156,9 @@ background-color: #5c636a85 !important;
 
 .card.tegangan {
   width: 100%;
+  .card-body {
+    padding: 4rem 4rem !important;
+  }
 }
 
 .card.tegangan.mini {

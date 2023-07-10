@@ -15,6 +15,7 @@
             <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description">
             <meta content="Coderthemes" name="author">
             <!-- App favicon -->
+            <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
             <link rel="shortcut icon" href="assets/images/pnup.png">
     
             <!-- third party css -->
@@ -66,52 +67,52 @@
                     <div class="h-100" id="leftside-menu-container" data-simplebar="">
     
                          <!--- Sidemenu -->
-                    <ul class="side-nav">
+                        <ul class="side-nav">
 
-                        <li class="side-nav-title side-nav-item">Navigation</li>
+                            <li class="side-nav-title side-nav-item">Navigation</li>
 
-                        <li class="side-nav-item">
-                            <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
-                                <i class="uil-home-alt"></i>
-                                <!-- <span class="badge bg-success float-end">2</span> -->
-                                <span> Dashboards </span>
-                            </a>
-                            <div class="collapse" id="sidebarDashboards">
-                                <ul class="side-nav-second-level">
-                                    <li>
-                                        <a href="index.php">Home</a>
-                                    </li>
-                                    <li>
-                                        <a href="dashboard-grafik.php">Data Grafik</a>
-                                    </li>
-                                    <li>
-                                        <a href="dashboard-tabel.php">Data Tabel</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
+                            <li class="side-nav-item">
+                                <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false"
+                                    aria-controls="sidebarDashboards" class="side-nav-link">
+                                    <i class="bi bi-graph-up"></i>
+                                    <!-- <span class="badge bg-success float-end">2</span> -->
+                                    <span> Dashboards </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="sidebarDashboards">
+                                    <ul class="side-nav-second-level">
+                                        <li>
+                                            <a href="index.php">Home</a>
+                                        </li>
+                                        <li>
+                                            <a href="dashboard-grafik.php">Data Grafik</a>
+                                        </li>
+                                        <li>
+                                            <a href="dashboard-tabel.php">Data Tabel</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
 
-                        <li class="side-nav-title side-nav-item mt-1">Components</li>
+                            <li class="side-nav-title side-nav-item mt-1">Components</li>
 
-                       <li class="side-nav-item">
-                            <a data-bs-toggle="collapse" href="#sidebarMaps" aria-expanded="false" aria-controls="sidebarMaps" class="side-nav-link">
-                                <i class="uil-location-point"></i>
-                                <span> Maps </span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <div class="collapse" id="sidebarMaps">
-                                <ul class="side-nav-second-level">
-                                    <li>
-                                        <a href="maps-google.html">Google Maps</a>
-                                    </li>
-                                    <li>
-                                        <a href="maps-vector.html">Vector Maps</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
+                            <li class="side-nav-item">
+                                <a data-bs-toggle="collapse" href="#sidebarMaps" aria-expanded="false"
+                                    aria-controls="sidebarMaps" class="side-nav-link">
+                                    <i class="bi bi-gear"></i>
+                                    <span> Lainnya </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="sidebarMaps">
+                                    <ul class="side-nav-second-level">
+                                        <li>
+                                            <a href="landing-page.php">Tentang</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
 
-                    </ul>
+                        </ul>
 
                     <div class="clearfix"></div>
 
@@ -299,301 +300,17 @@
                                         </div>
                                     </div> <!-- end card-body-->
                                 </div> <!-- end card-->
-                                <div class="card tegangan mini">
+                                <!-- <div class="card tegangan mini">
                                     <div class="card-body">
                                         <h4 class="header-title">Chart Tegangan</h4>
                                         <div dir="ltr chart">
                                             <canvas id="chart-tegangan-mini"></canvas> 
                                         </div>
-                                    </div> <!-- end card-body-->
-                                </div> <!-- end card-->
+                                    </div> 
+                                </div>  -->
                             </div> <!-- end col-->
                         </div>
                         <!-- end row -->
-
-                        <div class="row">
-                            <div class="col-xl-4 col-lg-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="dropdown float-end">
-                                            <a href="#" class="dropdown-toggle arrow-none card-drop p-0" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="mdi mdi-dots-vertical"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a href="javascript:void(0);" class="dropdown-item">Refresh Report</a>
-                                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                            </div>
-                                        </div>
-                                        <h4 class="header-title">Views Per Minute</h4>
-
-                                        <div id="views-min" class="apex-charts mt-2" data-colors="#0acf97"></div>
-
-                                        <div class="table-responsive mt-3">
-                                            <table class="table table-sm mb-0 font-13">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Page</th>
-                                                        <th>Views</th>
-                                                        <th>Bounce Rate</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <a href="javascript:void(0);" class="text-muted">/hyper/dashboard-analytics</a>
-                                                        </td>
-                                                        <td>25</td>
-                                                        <td>87.5%</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <a href="javascript:void(0);" class="text-muted">/hyper/dashboard-crm</a>
-                                                        </td>
-                                                        <td>15</td>
-                                                        <td>21.48%</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <a href="javascript:void(0);" class="text-muted">/ubold/dashboard</a>
-                                                        </td>
-                                                        <td>10</td>
-                                                        <td>63.59%</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <a href="javascript:void(0);" class="text-muted">/minton/home</a>
-                                                        </td>
-                                                        <td>7</td>
-                                                        <td>56.12%</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div> <!-- end card-body-->
-                                </div> <!-- end card-->
-                            </div> <!-- end col-->
-
-                            <div class="col-xl-4 col-lg-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="dropdown float-end">
-                                            <a href="#" class="dropdown-toggle arrow-none card-drop p-0" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="mdi mdi-dots-vertical"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a href="javascript:void(0);" class="dropdown-item">Refresh Report</a>
-                                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                            </div>
-                                        </div>
-                                        <h4 class="header-title">Sessions by Browser</h4>
-
-                                        <div id="sessions-browser" class="apex-charts mt-3" data-colors="#727cf5"></div>
-                                    </div> <!-- end card-body-->
-                                </div> <!-- end card-->
-                            </div> <!-- end col-->
-
-                            <div class="col-xl-4 col-lg-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="dropdown float-end">
-                                            <a href="#" class="dropdown-toggle arrow-none card-drop p-0" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="mdi mdi-dots-vertical"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a href="javascript:void(0);" class="dropdown-item">Refresh Report</a>
-                                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                            </div>
-                                        </div>
-                                        <h4 class="header-title">Sessions by Operating System</h4>
-
-                                        <div id="sessions-os" class="apex-charts mt-3" data-colors="#727cf5,#0acf97,#fa5c7c,#ffbc00"></div>
-
-                                        <div class="row text-center mt-2">
-                                            <div class="col-6">
-                                                <h4 class="fw-normal">
-                                                    <span>6,510</span>
-                                                </h4>
-                                                <p class="text-muted mb-0">Online System</p>
-                                            </div>
-                                            <div class="col-6">
-                                                <h4 class="fw-normal">
-                                                    <span>2,031</span>
-                                                </h4>
-                                                <p class="text-muted mb-0">Offline System</p>
-                                            </div>
-                                        </div>
-
-                                    </div> <!-- end card-body-->
-                                </div> <!-- end card-->
-                            </div> <!-- end col-->
-                        </div>
-                        <!-- end row -->
-
-                        <div class="row">
-                            <div class="col-xl-4 col-lg-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <a href="" class="p-0 float-end">Export <i class="mdi mdi-download ms-1"></i></a>
-                                        <h4 class="header-title mt-1 mb-3">Channels</h4>
-
-                                        <div class="table-responsive">
-                                            <table class="table table-sm table-centered mb-0 font-14">
-                                                <thead class="table-light">
-                                                    <tr>
-                                                        <th>Channel</th>
-                                                        <th>Visits</th>
-                                                        <th style="width: 40%;"></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Direct</td>
-                                                        <td>2,050</td>
-                                                        <td>
-                                                            <div class="progress" style="height: 3px;">
-                                                                <div class="progress-bar" role="progressbar" style="width: 65%; height: 20px;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Organic Search</td>
-                                                        <td>1,405</td>
-                                                        <td>
-                                                            <div class="progress" style="height: 3px;">
-                                                                <div class="progress-bar bg-info" role="progressbar" style="width: 45%; height: 20px;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Refferal</td>
-                                                        <td>750</td>
-                                                        <td>
-                                                            <div class="progress" style="height: 3px;">
-                                                                <div class="progress-bar bg-warning" role="progressbar" style="width: 30%; height: 20px;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Social</td>
-                                                        <td>540</td>
-                                                        <td>
-                                                            <div class="progress" style="height: 3px;">
-                                                                <div class="progress-bar bg-danger" role="progressbar" style="width: 25%; height: 20px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div> <!-- end table-responsive-->
-                                    </div> <!-- end card-body-->
-                                </div> <!-- end card-->
-                            </div> <!-- end col-->
-
-                            <div class="col-xl-4 col-lg-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <a href="" class="p-0 float-end">Export <i class="mdi mdi-download ms-1"></i></a>
-                                        <h4 class="header-title mt-1 mb-3">Social Media Traffic</h4>
-
-                                        <div class="table-responsive">
-                                            <table class="table table-sm table-centered mb-0 font-14">
-                                                <thead class="table-light">
-                                                    <tr>
-                                                        <th>Network</th>
-                                                        <th>Visits</th>
-                                                        <th style="width: 40%;"></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Facebook</td>
-                                                        <td>2,250</td>
-                                                        <td>
-                                                            <div class="progress" style="height: 3px;">
-                                                                <div class="progress-bar" role="progressbar" style="width: 65%; height: 20px;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Instagram</td>
-                                                        <td>1,501</td>
-                                                        <td>
-                                                            <div class="progress" style="height: 3px;">
-                                                                <div class="progress-bar" role="progressbar" style="width: 45%; height: 20px;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Twitter</td>
-                                                        <td>750</td>
-                                                        <td>
-                                                            <div class="progress" style="height: 3px;">
-                                                                <div class="progress-bar" role="progressbar" style="width: 30%; height: 20px;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>LinkedIn</td>
-                                                        <td>540</td>
-                                                        <td>
-                                                            <div class="progress" style="height: 3px;">
-                                                                <div class="progress-bar" role="progressbar" style="width: 25%; height: 20px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div> <!-- end table-responsive-->
-                                    </div> <!-- end card-body-->
-                                </div> <!-- end card-->
-                            </div> <!-- end col-->
-
-                            <div class="col-xl-4 col-lg-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <a href="" class="p-0 float-end">Export <i class="mdi mdi-download ms-1"></i></a>
-                                        <h4 class="header-title mt-1 mb-3">Engagement Overview</h4>
-
-                                        <div class="table-responsive">
-                                            <table class="table table-sm table-centered mb-0 font-14">
-                                                <thead class="table-light">
-                                                    <tr>
-                                                        <th>Duration (Secs)</th>
-                                                        <th style="width: 30%;">Sessions</th>
-                                                        <th style="width: 30%;">Views</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>0-30</td>
-                                                        <td>2,250</td>
-                                                        <td>4,250</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>31-60</td>
-                                                        <td>1,501</td>
-                                                        <td>2,050</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>61-120</td>
-                                                        <td>750</td>
-                                                        <td>1,600</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>121-240</td>
-                                                        <td>540</td>
-                                                        <td>1,040</td>  
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div> <!-- end table-responsive-->
-                                    </div> <!-- end card-body-->
-                                </div> <!-- end card-->
-                            </div> <!-- end col-->
-
-                        </div>
-                        <!-- end row -->
-
                     </div>
                     <!-- container -->
 

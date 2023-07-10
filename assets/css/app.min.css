@@ -19162,3 +19162,9 @@ background-color: #5c636a85 !important;
   width: 35%;
 }
 
+.row.table {
+  display: flex;
+  width: 80%;
+  align-content: center;
+  padding-left: 240px;
+}

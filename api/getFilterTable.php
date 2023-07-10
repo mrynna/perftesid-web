@@ -10,14 +10,14 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
      $output = '  
            <table class="table table-bordered">  
                 <tr>  
-                     <th width="5%">No</th>  
-                     <th width="10%">Tegangan</th>  
-                     <th width="10%">Arus</th>  
-                     <th width="10%">Suhu Lingkungan</th>  
-                     <th width="10%">Suhu Panel</th>  
-                     <th width="10%">Iradiasi</th>  
-                     <th width="10%">Performa</th>  
-                     <th width="15%">Waktu</th>  
+                     <th scope="col" width="5%">No</th>  
+                     <th scope="col" width="10%">Tegangan</th>  
+                     <th scope="col" width="10%">Arus</th>  
+                     <th scope="col" width="10%">Suhu Lingkungan</th>  
+                     <th scope="col" width="10%">Suhu Panel</th>  
+                     <th scope="col" width="10%">Iradiasi</th>  
+                     <th scope="col" width="10%">Performa</th>  
+                     <th scope="col" width="15%">Waktu</th>  
                 </tr>  
       ';
      if ($result->num_rows > 0) {
@@ -46,6 +46,6 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
      $output .= '</table>';
      echo $output;
 } else {
-     echo "Login untuk dapat menampilkan Data";
+     header("location:landing-page.php");
 }
 ?>

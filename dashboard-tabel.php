@@ -3,6 +3,11 @@
   if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) { 
     $user_username = $_SESSION['user_username'];
     $user_type = $_SESSION['user_type'];
+    include 'api/connection.php';
+    $token = $_SESSION['user_token'];
+      // Mengambil data dari tabel tb_data
+      $sql = "SELECT * FROM tb_data WHERE token = '$token'";
+      $result = $dbconnect->query($sql);
 
 ?>
 
@@ -266,90 +271,64 @@
                         </div>     
                         <!-- end page title --> 
 
-                        <div class="row">
-                            <div class="col-lg-6 col-xl-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <h5 class="text-muted fw-normal mt-0 text-truncate" title="Campaign Sent">Campaign Sent</h5>
-                                                <h3 class="my-2 py-1">9,184</h3>
-                                                <p class="mb-0 text-muted">
-                                                    <span class="text-success me-2"><i class="mdi mdi-arrow-up-bold"></i> 3.27%</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="text-end">
-                                                    <div id="campaign-sent-chart" data-colors="#727cf5"></div>
-                                                </div>
-                                            </div>
-                                        </div> <!-- end row-->
-                                    </div> <!-- end card-body -->
-                                </div> <!-- end card -->
-                            </div> <!-- end col -->
-        
-                            <div class="col-lg-6 col-xl-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <h5 class="text-muted fw-normal mt-0 text-truncate" title="New Leads">New Leads</h5>
-                                                <h3 class="my-2 py-1">3,254</h3>
-                                                <p class="mb-0 text-muted">
-                                                    <span class="text-danger me-2"><i class="mdi mdi-arrow-down-bold"></i> 5.38%</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="text-end">
-                                                    <div id="new-leads-chart" data-colors="#0acf97"></div>
-                                                </div>
-                                            </div>
-                                        </div> <!-- end row-->
-                                    </div> <!-- end card-body -->
-                                </div> <!-- end card -->
-                            </div> <!-- end col -->
-
-                            <div class="col-lg-6 col-xl-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <h5 class="text-muted fw-normal mt-0 text-truncate" title="Deals">Deals</h5>
-                                                <h3 class="my-2 py-1">861</h3>
-                                                <p class="mb-0 text-muted">
-                                                    <span class="text-success me-2"><i class="mdi mdi-arrow-up-bold"></i> 4.87%</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="text-end">
-                                                    <div id="deals-chart" data-colors="#727cf5"></div>
-                                                </div>
-                                            </div>
-                                        </div> <!-- end row-->
-                                    </div> <!-- end card-body -->
-                                </div> <!-- end card -->
-                            </div> <!-- end col -->
-
-                            <div class="col-lg-6 col-xl-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <h5 class="text-muted fw-normal mt-0 text-truncate" title="Booked Revenue">Booked Revenue</h5>
-                                                <h3 class="my-2 py-1">$253k</h3>
-                                                <p class="mb-0 text-muted">
-                                                    <span class="text-success me-2"><i class="mdi mdi-arrow-up-bold"></i> 11.7%</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="text-end">
-                                                    <div id="booked-revenue-chart" data-colors="#0acf97"></div>
-                                                </div>
-                                            </div>
-                                        </div> <!-- end row-->
-                                    </div> <!-- end card-body -->
-                                </div> <!-- end card -->
-                            </div> <!-- end col -->
+                        <div class="row table">
+                            <div class="col-md-3">
+                                <input type="datetime-local" name="from_date" id="from_date" class="form-control" placeholder="From Date" />
+                            </div>
+                            <div class="col-md-3">
+                                <input type="datetime-local" name="to_date" id="to_date" class="form-control" placeholder="To Date" />
+                            </div>
+                            <div class="col-md-5">
+                                <input type="button" name="filter" id="filter" value="Filter" class="btn btn-info" />
+                            </div>
+                            <table class="table table-bordered mt-10">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" width="fit">No</th>
+                                        <th scope="col" width="fit">Tegangan</th>
+                                        <th scope="col" width="fit">Arus</th>
+                                        <th scope="col" width="fit">Suhu Lingkungan</th>
+                                        <th scope="col" width="fit">Suhu Panel</th>
+                                        <th scope="col" width="fit">Iradiasi</th>
+                                        <th scope="col" width="fit">Performa</th>
+                                        <th scope="col" width="fit">Waktu</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                        while ($row = $result->fetch_assoc()) {
+                                    ?>
+                                    <tr>
+                                    <td>
+                                        <?php echo $row["id"]; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row["tegangan"]; ?> V
+                                        </td>
+                                        <td>
+                                            <?php echo $row["arus"]; ?> A
+                                        </td>
+                                        <td>
+                                            <?php echo $row["suhuLingkungan"]; ?> C
+                                        </td>
+                                        <td>
+                                            <?php echo $row["suhuPanel"]; ?> C
+                                        </td>
+                                        <td>
+                                            <?php echo $row["iradiasi"]; ?> w/m2
+                                        </td>
+                                        <td>
+                                            <?php echo $row["performa"]; ?> %
+                                        </td>
+                                        <td>
+                                            <?php echo $row["waktu"]; ?>
+                                        </td>
+                                    </tr>
+                                    <?php
+                                        }
+                                    ?>
+                                </tbody>
+                            </table>
                         </div>
                         <!-- end row -->
 
@@ -817,7 +796,7 @@
         <script src="assets/js/ui/component.todo.js"></script>
 
         <!-- demo app -->
-        <script src="assets/js/pages/demo.dashboard-crm.js"></script>
+        <script src="assets/js/pages/data-table.js"></script>
         <!-- end demo js-->
     </body>
 </html>

@@ -7,7 +7,7 @@ if (($_POST['token'])) {
   
   if ($result->num_rows > 0) {
     $waktu = $_POST['waktu'];
-    $waktu = date("Y-m-d h:i:s", strtotime($waktu));
+    // $waktu = date("Y-m-d h:i:s", strtotime($waktu));
     $sql1 = "SELECT waktu FROM tb_dataoffline WHERE waktu = '$waktu'";
     $result1 = $dbconnect->query($sql1);
     // echo $result1;

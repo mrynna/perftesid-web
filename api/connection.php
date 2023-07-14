@@ -1,8 +1,8 @@
 <?php
 $dbhost = "localhost";
-$dbuser = "root";
-$password = "";
-$dbname = "db_datasensor";
+$dbuser = "n1567423_perftesid";
+$password = "KIDsperfTest123@";
+$dbname = "n1567423_dbperftest";
 
 $dbconnect = new mysqli($dbhost, $dbuser, $password, $dbname);
 

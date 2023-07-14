@@ -62,7 +62,7 @@ function getData() {
             y: {
               title: {
                 display: true,
-                text: 'Tegangan (Voc)'
+                text: 'Tegangan (V)'
               },
               beginAtZero: true,
               grid: {
@@ -93,7 +93,9 @@ function getData() {
                 }
               }
             }
-          }
+          },
+          maintainAspectRatio: true,
+          responsive: true
         },
       });
       // console.log(chart.data.datasets[0].data)

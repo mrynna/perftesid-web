@@ -19046,6 +19046,15 @@ div.table-responsive
 }
 /*# sourceMappingURL=app.min.css.map */
 
+
+/* =================================== Chart ================================ */
+.card.tegangan {
+  width: 100%;
+  .card-body {
+    padding: 4rem 4rem !important;
+  }
+}
+
 .col.chart-top{
   display: flex;
   flex-direction: row;
@@ -19068,6 +19077,40 @@ div.table-responsive
   width: 10rem;
   padding:0.2rem 0.2rem;
   margin-inline: 0.2rem !important;
+}
+
+@media screen and (max-width: 670px){
+  .card.tegangan {
+    width: 100%;
+    .card-body {
+      padding: 10px 10px !important;
+      padding-top: 20px !important;
+    }
+  }
+  
+  .col.chart-top{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    /* padding-right: 10px; */
+  }
+  
+  .chart-date {
+    width: 15%;
+    /* margin-left: -20px; */
+  }
+
+  .row.date-picker {
+    margin-left: -65px;
+  }
+
+  .row.date-picker input{
+    color: transparent !important;
+  }
+
+  .btn-group-sm>.btn, .btn-sm  {
+    margin-left: -100px;
+  }
 }
 
 .btn.btn-secondary.dropdown-toggle {
@@ -19154,12 +19197,8 @@ background-color: #5c636a85 !important;
   flex-direction: row;
 }
 
-.card.tegangan {
-  width: 100%;
-  .card-body {
-    padding: 4rem 4rem !important;
-  }
-}
+
+/* ====================================== End of Chart =================================== */
 
 .card.tegangan.mini {
   width: 35%;

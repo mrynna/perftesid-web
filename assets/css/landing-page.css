@@ -136,6 +136,12 @@ h6 {
   max-height: 40px;
 }
 
+@media screen and (max-width: 575px) {
+  #header .logo {
+    font-size: 25px !important;
+  }
+}
+
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -1679,6 +1685,10 @@ section {
   }
 }
 
+
+/*=============================== Form Login =================================*/
+
+
 .form-label{
   color: rgba(255, 255, 255, 0.607);
 }
@@ -1702,7 +1712,18 @@ input[type="text"], input[type="password"], textarea {
   outline-color: #0c3c5300;
   outline-width: 0cap;
   color:#ffffff !important;
+
 }
+
+@media (max-width: 992px) {
+  .form-login{
+    justify-content: center;
+    margin-top: -30px;
+    padding-bottom: 50px;
+  }
+}
+
+/* ============================== End Of Form Login ================================== */
 
 .btn.btn-primary {
   font-family: "Jost", sans-serif;
@@ -1738,10 +1759,19 @@ input[type="text"], input[type="password"], textarea {
   height: auto;
 }
 
+/* ======================= Tujuan Penelitian ========================= */
 
+.tujuan {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: stretch !important;
+  order: 2 !important;
+
+}
 
 .content.tujuan {
-  padding-top: 0px !important;
+  padding-top: 0px;
 }
 
 .row.content.tujuan {
@@ -1753,10 +1783,47 @@ input[type="text"], input[type="password"], textarea {
   }
 }
 
+@media screen and (max-width: 992px) {
+  .tujuan {
+    display: grid !important;
+    justify-content: center;
+  }
+
+  .content.tujuan h3 {
+    padding-top: 40px !important;
+    padding-bottom:10px !important;
+  }
+}
+
+/* ======================= End Of Tujuan Penelitian ====================== */
+
+/* ========================= Card Parameter =========================== */
+.card-parameter {
+  display: flex;
+  flex-direction: row;
+}
+
 .parameter {
   width : 20% !important;
 }
 
+@media screen and (max-width: 575px) {
+  .card-parameter{
+    flex-direction: column;
+  }
+
+  .parameter {
+    padding: 20px 20px 0;
+    width: 100% !important;
+    /* margin-left : 30% !important; */
+  }
+
+}
+
+/* ======================== End Of Card Parameter ========================== */
+
+
+/* ========================== Kontak ============================= */
 .col-lg-5.contact{
   display: flex;
   flex-direction: column;
@@ -1779,3 +1846,4 @@ input[type="text"], input[type="password"], textarea {
   height: 100% !important;
 
 }
+/* =========================== End Of Kontak ============================== */

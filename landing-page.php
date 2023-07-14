@@ -166,13 +166,13 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
       </div>
     </section><!-- End About Us Section -->
 
-    <!-- ======= Why Us Section ======= -->
+    <!-- ======= Tujuan Penelitian Section ======= -->
     <section id="why-us" class="why-us section-bg">
       <div class="container-fluid" data-aos="fade-up">
 
         <div class="row">
 
-          <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">
+          <div class="col-lg-7 tujuan">
 
             <div class="content tujuan">
               <h3><strong>Tujuan</strong> Penelitian</h3>
@@ -205,7 +205,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
             seperti tegangan hubung buka (Voc), Arus hubung singkat (Isc), suhu lingkungan, suhu panel, dan iradiasi matahari.</p>
         </div>
 
-        <div class="row">
+        <div class="row card-parameter">
           <div class="col-xl-3 col-md-6 d-flex align-items-stretch parameter" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-lightning-charge"></i></div>

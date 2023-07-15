@@ -3,7 +3,10 @@ var ctxMan = document.getElementById("chart-manual").getContext("2d");
 var ctxManOff = document.getElementById("chart-manualOff").getContext("2d");
 var ctxOff = document.getElementById("chart-otomatisOff").getContext("2d");
 let chartOtomatis, chartManual, chartManualOff, chartOtomatisOff;
-let tegangan, arus, suhuPanel, suhuLingkungan, iradiasi, performa;
+let waktu, tegangan, arus, suhuPanel, suhuLingkungan, iradiasi, performa;
+let waktuMan, teganganMan, arusMan, suhuPanelMan, suhuLingkunganMan, iradiasiMan, performaMan;
+let waktuOff, teganganOff, arusOff, suhuPanelOff, suhuLingkunganOff, iradiasiOff, performaOff;
+let waktuManOff, teganganManOff, arusManOff, suhuPanelManOff, suhuLingkunganManOff, iradiasiManOff, performaManOff;
 
 // ============================================ Chart Otomatis Get Data ===================================================
 function getData() {
@@ -13,7 +16,7 @@ function getData() {
       // console.log(this.responseText);
       var data= JSON.parse(this.responseText);
       // console.log(data);
-      var tepatwaktu = data.map(function (obj) { return obj.waktu; });
+      waktu = data.map(function (obj) { return obj.waktu; });
       tegangan = data.map(function (obj) { return obj.tegangan; });
       arus = data.map(function (obj) { return obj.arus; });
       suhuPanel = data.map(function (obj) { return obj.suhuPanel; });
@@ -21,12 +24,10 @@ function getData() {
       iradiasi = data.map(function (obj) { return obj.iradiasi; });
       performa = data.map(function (obj) { return obj.performa; });
 
-      const dateChartJs = tepatwaktu.map((day, index) => {
+      const dateChartJs = waktu.map((day, index) => {
         let dayjs = new Date(day);
         return dayjs;
       });
-      
-      waktu = dateChartJs;
 
       // ------------------- Chart Otomatis ------------------------
       chartOtomatis = new Chart(ctx, {
@@ -126,30 +127,28 @@ function getDataMan() {
       // console.log(this.responseText);
       var data= JSON.parse(this.responseText);
       // console.log(data);
-      var tepatwaktu = data.map(function (obj) { return obj.waktu; });
-      tegangan = data.map(function (obj) { return obj.tegangan; });
-      arus = data.map(function (obj) { return obj.arus; });
-      suhuPanel = data.map(function (obj) { return obj.suhuPanel; });
-      suhuLingkungan = data.map(function (obj) { return obj.suhuLingkungan; });
-      iradiasi = data.map(function (obj) { return obj.iradiasi; });
-      performa = data.map(function (obj) { return obj.performa; });
+      waktuMan = data.map(function (obj) { return obj.waktu; });
+      teganganMan = data.map(function (obj) { return obj.tegangan; });
+      arusMan = data.map(function (obj) { return obj.arus; });
+      suhuPanelMan = data.map(function (obj) { return obj.suhuPanel; });
+      suhuLingkunganMan = data.map(function (obj) { return obj.suhuLingkungan; });
+      iradiasiMan = data.map(function (obj) { return obj.iradiasi; });
+      performaMan = data.map(function (obj) { return obj.performa; });
 
-      const dateChartJs = tepatwaktu.map((day, index) => {
+      const dateChartJsMan = waktuMan.map((day, index) => {
         let dayjs = new Date(day);
         return dayjs;
       });
-      
-      waktu = dateChartJs;
 
       // --------------  Chart Manual ----------------
       chartManual = new Chart(ctxMan, {
         type: "line",
         data: {
-          labels: dateChartJs,
+          labels: dateChartJsMan,
           datasets: [
             {
               label: "Tegangan",
-              data: tegangan,
+              data: teganganMan,
               backgroundColor: "#767fe3",
               borderColor: "#767fe3",
               borderWidth: 3,
@@ -236,30 +235,28 @@ function getDataOff() {
       // console.log(this.responseText);
       var data= JSON.parse(this.responseText);
       // console.log(data);
-      var tepatwaktu = data.map(function (obj) { return obj.waktu; });
-      tegangan = data.map(function (obj) { return obj.tegangan; });
-      arus = data.map(function (obj) { return obj.arus; });
-      suhuPanel = data.map(function (obj) { return obj.suhuPanel; });
-      suhuLingkungan = data.map(function (obj) { return obj.suhuLingkungan; });
-      iradiasi = data.map(function (obj) { return obj.iradiasi; });
-      performa = data.map(function (obj) { return obj.performa; });
+      waktuOff = data.map(function (obj) { return obj.waktu; });
+      teganganOff = data.map(function (obj) { return obj.tegangan; });
+      arusOff = data.map(function (obj) { return obj.arus; });
+      suhuPanelOff = data.map(function (obj) { return obj.suhuPanel; });
+      suhuLingkunganOff = data.map(function (obj) { return obj.suhuLingkungan; });
+      iradiasiOff = data.map(function (obj) { return obj.iradiasi; });
+      performaOff = data.map(function (obj) { return obj.performa; });
 
-      const dateChartJs = tepatwaktu.map((day, index) => {
+      const dateChartJsOff = waktuOff.map((day, index) => {
         let dayjs = new Date(day);
         return dayjs;
       });
-      
-      waktu = dateChartJs;
 
       // --------------  Chart Manual ----------------
       chartOtomatisOff = new Chart(ctxOff, {
         type: "line",
         data: {
-          labels: dateChartJs,
+          labels: dateChartJsOff,
           datasets: [
             {
               label: "Tegangan",
-              data: tegangan,
+              data: teganganOff,
               backgroundColor: "#767fe3",
               borderColor: "#767fe3",
               borderWidth: 3,
@@ -346,30 +343,28 @@ function getDataManOff() {
       // console.log(this.responseText);
       var data= JSON.parse(this.responseText);
       // console.log(data);
-      var tepatwaktu = data.map(function (obj) { return obj.waktu; });
-      tegangan = data.map(function (obj) { return obj.tegangan; });
-      arus = data.map(function (obj) { return obj.arus; });
-      suhuPanel = data.map(function (obj) { return obj.suhuPanel; });
-      suhuLingkungan = data.map(function (obj) { return obj.suhuLingkungan; });
-      iradiasi = data.map(function (obj) { return obj.iradiasi; });
-      performa = data.map(function (obj) { return obj.performa; });
+      waktuManOff = data.map(function (obj) { return obj.waktu; });
+      teganganManOff = data.map(function (obj) { return obj.tegangan; });
+      arusManOff = data.map(function (obj) { return obj.arus; });
+      suhuPanelManOff = data.map(function (obj) { return obj.suhuPanel; });
+      suhuLingkunganManOff = data.map(function (obj) { return obj.suhuLingkungan; });
+      iradiasiManOff = data.map(function (obj) { return obj.iradiasi; });
+      performaManOff = data.map(function (obj) { return obj.performa; });
 
-      const dateChartJs = tepatwaktu.map((day, index) => {
+      const dateChartJsManOff = waktuManOff.map((day, index) => {
         let dayjs = new Date(day);
         return dayjs;
       });
-      
-      waktu = dateChartJs;
 
       // --------------  Chart Manual ----------------
       chartManualOff = new Chart(ctxManOff, {
         type: "line",
         data: {
-          labels: dateChartJs,
+          labels: dateChartJsManOff,
           datasets: [
             {
               label: "Tegangan",
-              data: tegangan,
+              data: teganganManOff,
               backgroundColor: "#767fe3",
               borderColor: "#767fe3",
               borderWidth: 3,
@@ -1210,47 +1205,48 @@ const zoomOut = charts => {
 // =========================== Chart Picker ===============================
 const changeChart = (chartType, charts) => {
   let chartLabel, chartData, chartTitle, unit;
-  switch(charts){
-    case 'chart-tegangan':
-      chartLabel = "Tegangan"
-      chartData = tegangan
-      chartTitle = "Tegangan (V)"
-      unit = "V"
-      break;
-    case 'chart-arus':
-      chartLabel = "Arus"
-      chartData = arus
-      chartTitle = "Arus (A)"
-      unit = "A"
-      break
-    case 'chart-suhupanel':
-      chartLabel = "Suhu Panel"
-      chartData = suhuPanel
-      chartTitle = "Suhu Panel (°C)"
-      unit = "°C"
-      break
-    case 'chart-suhulingkungan':
-      chartLabel = "Suhu Lingkungan"
-      chartData = suhuLingkungan
-      chartTitle = "Suhu Lingkungan (°C)"
-      unit = "°C"
-      break
-    case 'chart-iradiasi':
-      chartLabel = "Iradiasi"
-      chartData = iradiasi
-      chartTitle = "Iradiasi (W/m²)"
-      unit = "W/m²"
-      break
-    case 'chart-performa':
-      chartLabel = "Performa"
-      chartData = performa
-      chartTitle = "Performa (%)"
-      unit = "%"
-      break
-  }
 
   switch(chartType){
     case 'chart-otomatis':
+      switch(charts){
+        case 'chart-tegangan':
+          chartLabel = "Tegangan"
+          chartData = tegangan
+          chartTitle = "Tegangan (V)"
+          unit = "V"
+          break;
+        case 'chart-arus':
+          chartLabel = "Arus"
+          chartData = arus
+          chartTitle = "Arus (A)"
+          unit = "A"
+          break
+        case 'chart-suhupanel':
+          chartLabel = "Suhu Panel"
+          chartData = suhuPanel
+          chartTitle = "Suhu Panel (°C)"
+          unit = "°C"
+          break
+        case 'chart-suhulingkungan':
+          chartLabel = "Suhu Lingkungan"
+          chartData = suhuLingkungan
+          chartTitle = "Suhu Lingkungan (°C)"
+          unit = "°C"
+          break
+        case 'chart-iradiasi':
+          chartLabel = "Iradiasi"
+          chartData = iradiasi
+          chartTitle = "Iradiasi (W/m²)"
+          unit = "W/m²"
+          break
+
+        case 'chart-performa':
+          chartLabel = "Performa"
+          chartData = performa
+          chartTitle = "Performa (%)"
+          unit = "%"
+          break
+      }
       chartOtomatis.data.datasets[0] = {
         label: chartLabel,
         data: chartData,
@@ -1273,6 +1269,44 @@ const changeChart = (chartType, charts) => {
       break
     
     case 'chart-manual':
+      switch(charts){
+        case 'chart-tegangan':
+          chartLabel = "Tegangan"
+          chartData = teganganMan
+          chartTitle = "Tegangan (V)"
+          unit = "V"
+          break;
+        case 'chart-arus':
+          chartLabel = "Arus"
+          chartData = arusMan
+          chartTitle = "Arus (A)"
+          unit = "A"
+          break
+        case 'chart-suhupanel':
+          chartLabel = "Suhu Panel"
+          chartData = suhuPanelMan
+          chartTitle = "Suhu Panel (°C)"
+          unit = "°C"
+          break
+        case 'chart-suhulingkungan':
+          chartLabel = "Suhu Lingkungan"
+          chartData = suhuLingkunganMan
+          chartTitle = "Suhu Lingkungan (°C)"
+          unit = "°C"
+          break
+        case 'chart-iradiasi':
+          chartLabel = "Iradiasi"
+          chartData = iradiasiMan
+          chartTitle = "Iradiasi (W/m²)"
+          unit = "W/m²"
+          break
+        case 'chart-performa':
+          chartLabel = "Performa"
+          chartData = performaMan
+          chartTitle = "Performa (%)"
+          unit = "%"
+          break
+      }
       chartManual.data.datasets[0] = {
         label: chartLabel,
         data: chartData,
@@ -1291,6 +1325,44 @@ const changeChart = (chartType, charts) => {
       break
 
     case 'chart-manualOff':
+      switch(charts){
+        case 'chart-tegangan':
+          chartLabel = "Tegangan"
+          chartData = teganganManOff
+          chartTitle = "Tegangan (V)"
+          unit = "V"
+          break;
+        case 'chart-arus':
+          chartLabel = "Arus"
+          chartData = arusManOff
+          chartTitle = "Arus (A)"
+          unit = "A"
+          break
+        case 'chart-suhupanel':
+          chartLabel = "Suhu Panel"
+          chartData = suhuPanelManOff
+          chartTitle = "Suhu Panel (°C)"
+          unit = "°C"
+          break
+        case 'chart-suhulingkungan':
+          chartLabel = "Suhu Lingkungan"
+          chartData = suhuLingkunganManOff
+          chartTitle = "Suhu Lingkungan (°C)"
+          unit = "°C"
+          break
+        case 'chart-iradiasi':
+          chartLabel = "Iradiasi"
+          chartData = iradiasiManOff
+          chartTitle = "Iradiasi (W/m²)"
+          unit = "W/m²"
+          break
+        case 'chart-performa':
+          chartLabel = "Performa"
+          chartData = performaManOff
+          chartTitle = "Performa (%)"
+          unit = "%"
+          break
+      }
       chartManualOff.data.datasets[0] = {
         label: chartLabel,
         data: chartData,
@@ -1308,6 +1380,44 @@ const changeChart = (chartType, charts) => {
       break
 
     case 'chart-otomatisOff':
+      switch(charts){
+        case 'chart-tegangan':
+          chartLabel = "Tegangan"
+          chartData = teganganOff
+          chartTitle = "Tegangan (V)"
+          unit = "V"
+          break;
+        case 'chart-arus':
+          chartLabel = "Arus"
+          chartData = arusOff
+          chartTitle = "Arus (A)"
+          unit = "A"
+          break
+        case 'chart-suhupanel':
+          chartLabel = "Suhu Panel"
+          chartData = suhuPanelOff
+          chartTitle = "Suhu Panel (°C)"
+          unit = "°C"
+          break
+        case 'chart-suhulingkungan':
+          chartLabel = "Suhu Lingkungan"
+          chartData = suhuLingkunganOff
+          chartTitle = "Suhu Lingkungan (°C)"
+          unit = "°C"
+          break
+        case 'chart-iradiasi':
+          chartLabel = "Iradiasi"
+          chartData = iradiasiOff
+          chartTitle = "Iradiasi (W/m²)"
+          unit = "W/m²"
+          break
+        case 'chart-performa':
+          chartLabel = "Performa"
+          chartData = performaOff
+          chartTitle = "Performa (%)"
+          unit = "%"
+          break
+      }
       chartOtomatisOff.data.datasets[0] = {
         label: chartLabel,
         data: chartData,

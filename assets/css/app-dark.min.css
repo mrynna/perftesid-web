@@ -19150,20 +19150,20 @@ background-color: #5c636a85 !important;
 
 .icon{
   stroke: #c6ccd2;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    fill: none;
-  }
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
 
 .popup {
   width: 200px;
   height: 120px;
   display: flex;
   flex-direction: column;
+  position: fixed;
   background: #313a46;
   border-radius: 6px;
-  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -19176,7 +19176,7 @@ background-color: #5c636a85 !important;
 
 .popup.active {
   visibility: visible;
-  position: absolute;
+  position: fixed;
 }
 
 .popup-button{
@@ -19199,6 +19199,15 @@ background-color: #5c636a85 !important;
 }
 
 @media screen and (max-width: 670px){
+  .page-title-box .page-title {
+    line-height: 40px !important;
+  }
+
+  .page-title-box .page-title.otomatis {
+    padding-top: 20px;
+    line-height: 40px !important;
+  }
+
   .card.tegangan {
     width: 100%;
     .card-body {

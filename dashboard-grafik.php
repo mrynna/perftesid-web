@@ -260,12 +260,13 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box">
-                                    <h4 class="page-title">Data Grafik</h4>
+                                    <h4 class="page-title otomatis">Grafik Otomatis</h4>
                                 </div>
                             </div>
                         </div>
                         <!-- end page title -->
 
+                        <!-- Chart Otomatis Section -->
                         <div class="row">
                             <div class="col-12 chart">
                                 <div class="card tegangan">
@@ -306,24 +307,199 @@
                                                 </div>
                                             </div>
                                             <canvas id="chart-otomatis"></canvas> 
-                                            <div class="popup" id="popup">
-                                                <h7> Masukkan rentang waktu yang sesuai !!!</h7>
-                                                <button type="button" id ="popup-button" class="btn btn-primary popup-button">OK</button>
-                                            </div>
                                         </div>
                                     </div> <!-- end card-body-->
                                 </div> <!-- end card-->
-                                <!-- <div class="card tegangan mini">
-                                    <div class="card-body">
-                                        <h4 class="header-title">Chart Tegangan</h4>
-                                        <div dir="ltr chart">
-                                            <canvas id="chart-tegangan-mini"></canvas> 
-                                        </div>
-                                    </div> 
-                                </div>  -->
                             </div> <!-- end col-->
                         </div>
-                        <!-- end row -->
+                        <!-- end Chart Otomatis -->
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box chart">
+                                    <h4 class="page-title">Grafik Manual</h4>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Chart Manual Section -->
+                        <div class="row">
+                            <div class="col-12 chart">
+                                <div class="card tegangan">
+                                    <div class="card-body">
+                                        <div class="dropdown">
+                                            <button class="btn btn-secondary dropdown-toggle chart-picker" type="button" id="dropdown-chartPicker" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <h4 class="header-title chart" id="dropdown-title manual">Grafik Tegangan</h4></button>
+                                            <ul class="dropdown-menu chartpicker" aria-labelledby="dropdown-chartPicker">
+                                                <li><a class="dropdown-item" onclick="changeChart('chart-manual', 'chart-tegangan')">Tegangan</a></li>
+                                                <li><a class="dropdown-item" onclick="changeChart('chart-manual', 'chart-arus')">Arus</a></li>
+                                                <li><a class="dropdown-item" onclick="changeChart('chart-manual', 'chart-suhulingkungan')">Suhu Lingkungan</a></li>
+                                                <li><a class="dropdown-item" onclick="changeChart('chart-manual', 'chart-suhupanel')">Suhu Panel</a></li>
+                                                <li><a class="dropdown-item" onclick="changeChart('chart-manual', 'chart-iradiasi')">Iradiasi</a></li>
+                                                <li><a class="dropdown-item" onclick="changeChart('chart-manual', 'chart-performa')">Performa</a></li>
+                                            </ul>
+                                        </div>
+                                        <div dir="ltr chart">
+                                            <div class="col chart-top">
+                                                <div class = "row date-picker">
+                                                    <input type="datetime-local" class="form-control form-control-light chart-date" id="timeStart" onchange="startTimeFilter('chart-manual', this)">
+                                                    <input type="datetime-local" class="form-control form-control-light chart-date" id="timeEnd" onchange="endTimeFilter('chart-manual', this)">
+                                                </div>
+                                                <div class="btn-group btn-group-sm border-0"  role="group" aria-label="Small button group">
+                                                    <button type="button" class="btn btn-primary reset border-0" data-toggle="tooltip" title="Reset Zoom" onclick="zoomReset('chart-manual')"><i class="icon" data-feather="x"></i></button>
+                                                    <button type="button" class="btn btn-primary zoom-in border-0" data-toggle="tooltip" title="Zoom In" onclick="zoomIn('chart-manual')"><i class="icon" data-feather="zoom-in"></i></button>
+                                                    <button type="button" class="btn btn-primary zoom-out border-0" data-toggle="tooltip" title="Zoom Out" onclick="zoomOut('chart-manual')"><i class="icon" data-feather="zoom-out"></i></i></button>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        </button>
+                                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                            <li><a class="dropdown-item show-grid" id="show-grid" onclick="showGrid('chart-manual')">Tampilkan Grid</a></li>
+                                                            <li><a class="dropdown-item hide-grid hide" id="hide-grid" onclick="hideGrid('chart-manual')">Sembunyikan Grid</a></li>
+                                                            <li><a class="dropdown-item" onclick="saveAsPNG('chart-manual')">Simpan PNG</a></li>
+                                                            <li><a class="dropdown-item" onclick="saveAsJPG('chart-manual')">Simpan JPG</a></li>
+                                                            <li><a class="dropdown-item" id="downloadCSVMan">Export ke CSV</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <canvas id="chart-manual"></canvas> 
+                                            <!-- <div class="popup" id="popup">
+                                                <h7> Masukkan rentang waktu yang sesuai !!!</h7>
+                                                <button type="button" id ="popup-button" class="btn btn-primary popup-button">OK</button>
+                                            </div> -->
+                                        </div>
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col-->
+                        </div>
+                        <!-- end Chart Manual -->
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box chart">
+                                    <h4 class="page-title">Grafik Offline Otomatis</h4>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Chart Otomatis Offline Section -->
+                        <div class="row">
+                            <div class="col-12 chart">
+                                <div class="card tegangan">
+                                    <div class="card-body">
+                                        <div class="dropdown">
+                                            <button class="btn btn-secondary dropdown-toggle chart-picker" type="button" id="dropdown-chartPicker" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <h4 class="header-title chart" id="dropdown-title otomatisOff">Grafik Tegangan</h4></button>
+                                            <ul class="dropdown-menu chartpicker" aria-labelledby="dropdown-chartPicker">
+                                                <li><a class="dropdown-item" onclick="changeChart('chart-otomatisOff', 'chart-tegangan')">Tegangan</a></li>
+                                                <li><a class="dropdown-item" onclick="changeChart('chart-otomatisOff', 'chart-arus')">Arus</a></li>
+                                                <li><a class="dropdown-item" onclick="changeChart('chart-otomatisOff', 'chart-suhulingkungan')">Suhu Lingkungan</a></li>
+                                                <li><a class="dropdown-item" onclick="changeChart('chart-otomatisOff', 'chart-suhupanel')">Suhu Panel</a></li>
+                                                <li><a class="dropdown-item" onclick="changeChart('chart-otomatisOff', 'chart-iradiasi')">Iradiasi</a></li>
+                                                <li><a class="dropdown-item" onclick="changeChart('chart-otomatisOff', 'chart-performa')">Performa</a></li>
+                                            </ul>
+                                        </div>
+                                        <div dir="ltr chart">
+                                            <div class="col chart-top">
+                                                <div class = "row date-picker">
+                                                    <input type="datetime-local" class="form-control form-control-light chart-date" id="timeStart" onchange="startTimeFilter('chart-otomatisOff', this)">
+                                                    <input type="datetime-local" class="form-control form-control-light chart-date" id="timeEnd" onchange="endTimeFilter('chart-otomatisOff', this)">
+                                                </div>
+                                                <div class="btn-group btn-group-sm border-0"  role="group" aria-label="Small button group">
+                                                    <button type="button" class="btn btn-primary reset border-0" data-toggle="tooltip" title="Reset Zoom" onclick="zoomReset('chart-otomatisOff')"><i class="icon" data-feather="x"></i></button>
+                                                    <button type="button" class="btn btn-primary zoom-in border-0" data-toggle="tooltip" title="Zoom In" onclick="zoomIn('chart-otomatisOff')"><i class="icon" data-feather="zoom-in"></i></button>
+                                                    <button type="button" class="btn btn-primary zoom-out border-0" data-toggle="tooltip" title="Zoom Out" onclick="zoomOut('chart-otomatisOff')"><i class="icon" data-feather="zoom-out"></i></i></button>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        </button>
+                                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                            <li><a class="dropdown-item show-grid" id="show-grid" onclick="showGrid('chart-otomatisOff')">Tampilkan Grid</a></li>
+                                                            <li><a class="dropdown-item hide-grid hide" id="hide-grid" onclick="hideGrid('chart-otomatisOff')">Sembunyikan Grid</a></li>
+                                                            <li><a class="dropdown-item" onclick="saveAsPNG('chart-otomatisOff')">Simpan PNG</a></li>
+                                                            <li><a class="dropdown-item" onclick="saveAsJPG('chart-otomatisOff')">Simpan JPG</a></li>
+                                                            <li><a class="dropdown-item" id="downloadCSVOff">Export ke CSV</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <canvas id="chart-otomatisOff"></canvas> 
+                                            <!-- <div class="popup" id="popup">
+                                                <h7> Masukkan rentang waktu yang sesuai !!!</h7>
+                                                <button type="button" id ="popup-button" class="btn btn-primary popup-button">OK</button>
+                                            </div> -->
+                                        </div>
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col-->
+                        </div>
+                        <!-- end Chart Otomatis Offline-->
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box chart">
+                                    <h4 class="page-title">Grafik Offline Manual</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Chart Manual Offline Section -->
+                        <div class="row">
+                            <div class="col-12 chart">
+                                <div class="card tegangan">
+                                    <div class="card-body">
+                                        <div class="dropdown">
+                                            <button class="btn btn-secondary dropdown-toggle chart-picker" type="button" id="dropdown-chartPicker" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <h4 class="header-title chart" id="dropdown-title manualOff">Grafik Tegangan</h4></button>
+                                            <ul class="dropdown-menu chartpicker" aria-labelledby="dropdown-chartPicker">
+                                                <li><a class="dropdown-item" onclick="changeChart('chart-manualOff', 'chart-tegangan')">Tegangan</a></li>
+                                                <li><a class="dropdown-item" onclick="changeChart('chart-manualOff', 'chart-arus')">Arus</a></li>
+                                                <li><a class="dropdown-item" onclick="changeChart('chart-manualOff', 'chart-suhulingkungan')">Suhu Lingkungan</a></li>
+                                                <li><a class="dropdown-item" onclick="changeChart('chart-manualOff', 'chart-suhupanel')">Suhu Panel</a></li>
+                                                <li><a class="dropdown-item" onclick="changeChart('chart-manualOff', 'chart-iradiasi')">Iradiasi</a></li>
+                                                <li><a class="dropdown-item" onclick="changeChart('chart-manualOff', 'chart-performa')">Performa</a></li>
+                                            </ul>
+                                        </div>
+                                        <div dir="ltr chart">
+                                            <div class="col chart-top">
+                                                <div class = "row date-picker">
+                                                    <input type="datetime-local" class="form-control form-control-light chart-date" id="timeStart" onchange="startTimeFilter('chart-manualOff', this)">
+                                                    <input type="datetime-local" class="form-control form-control-light chart-date" id="timeEnd" onchange="endTimeFilter('chart-manualOff', this)">
+                                                </div>
+                                                <div class="btn-group btn-group-sm border-0"  role="group" aria-label="Small button group">
+                                                    <button type="button" class="btn btn-primary reset border-0" data-toggle="tooltip" title="Reset Zoom" onclick="zoomReset('chart-manualOff')"><i class="icon" data-feather="x"></i></button>
+                                                    <button type="button" class="btn btn-primary zoom-in border-0" data-toggle="tooltip" title="Zoom In" onclick="zoomIn('chart-manualOff')"><i class="icon" data-feather="zoom-in"></i></button>
+                                                    <button type="button" class="btn btn-primary zoom-out border-0" data-toggle="tooltip" title="Zoom Out" onclick="zoomOut('chart-manualOff')"><i class="icon" data-feather="zoom-out"></i></i></button>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        </button>
+                                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                            <li><a class="dropdown-item show-grid" id="show-grid" onclick="showGrid('chart-manualOff')">Tampilkan Grid</a></li>
+                                                            <li><a class="dropdown-item hide-grid hide" id="hide-grid" onclick="hideGrid('chart-manualOff')">Sembunyikan Grid</a></li>
+                                                            <li><a class="dropdown-item" onclick="saveAsPNG('chart-manualOff')">Simpan PNG</a></li>
+                                                            <li><a class="dropdown-item" onclick="saveAsJPG('chart-manualOff')">Simpan JPG</a></li>
+                                                            <li><a class="dropdown-item" id="downloadCSVManOff">Export ke CSV</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <canvas id="chart-manualOff"></canvas> 
+                                            <!-- <div class="popup" id="popup">
+                                                <h7> Masukkan rentang waktu yang sesuai !!!</h7>
+                                                <button type="button" id ="popup-button" class="btn btn-primary popup-button">OK</button>
+                                            </div> -->
+                                        </div>
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col-->
+                        </div>
+                        <!-- end Chart Manual Offline-->
+
+                        
+                        <div class="popup" id="popup">
+                            <h7> Masukkan rentang waktu yang sesuai !!!</h7>
+                            <button type="button" id ="popup-button" class="btn btn-primary popup-button">OK</button>
+                        </div>
+
                     </div>
                     <!-- container -->
 
@@ -468,7 +644,7 @@
         <!-- third party js ends -->
 
         <!-- demo app -->
-        <script src="assets/js/pages/chart.datagrafik.js"></script>
+        <script src="assets/js/pages/chart.dataGrafik.js"></script>
         <!-- end demo js-->
     </body>
 

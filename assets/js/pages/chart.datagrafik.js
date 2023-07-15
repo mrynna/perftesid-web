@@ -181,7 +181,7 @@ $(document).ready(function () {
             case "Grafik Suhu Lingkungan":
               headers = {
                 waktu: "Waktu",
-                suhuLingkungan: "Suhu Lingkungan (C)",
+                suhuLingkungan: "Suhu Lingkungan (°C)",
               }
               dataFormatted = [];
               datas.forEach((item) => {
@@ -195,7 +195,7 @@ $(document).ready(function () {
             case "Grafik Suhu Panel":
               headers = {
                 waktu: "Waktu",
-                suhuPanel: "Suhu Panel (C)",
+                suhuPanel: "Suhu Panel (°C)",
               }
               dataFormatted = [];
               datas.forEach((item) => {
@@ -209,7 +209,7 @@ $(document).ready(function () {
             case "Grafik Iradiasi":
               headers = {
                 waktu: "Waktu",
-                iradiasi: "Iradiasi (W/m2)",
+                iradiasi: "Iradiasi (W/m²)",
               }
               dataFormatted = [];
               datas.forEach((item) => {
@@ -454,20 +454,20 @@ const changeChart = (chartType, charts) => {
     case 'chart-suhupanel':
       chartLabel = "Suhu Panel"
       chartData = suhuPanel
-      chartTitle = "Suhu Panel (C)"
-      unit = "C"
+      chartTitle = "Suhu Panel (°C)"
+      unit = "°C"
       break
     case 'chart-suhulingkungan':
       chartLabel = "Suhu Lingkungan"
       chartData = suhuLingkungan
-      chartTitle = "Suhu Lingkungan (C)"
-      unit = "C"
+      chartTitle = "Suhu Lingkungan (°C)"
+      unit = "°C"
       break
     case 'chart-iradiasi':
       chartLabel = "Iradiasi"
       chartData = iradiasi
-      chartTitle = "Iradiasi (W/m2)"
-      unit = "W/m2"
+      chartTitle = "Iradiasi (W/m²)"
+      unit = "W/m²"
       break
     case 'chart-performa':
       chartLabel = "Performa"

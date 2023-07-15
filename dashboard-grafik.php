@@ -353,8 +353,8 @@
                                                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                                         </button>
                                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                                            <li><a class="dropdown-item show-grid" id="show-grid" onclick="showGrid('chart-manual')">Tampilkan Grid</a></li>
-                                                            <li><a class="dropdown-item hide-grid hide" id="hide-grid" onclick="hideGrid('chart-manual')">Sembunyikan Grid</a></li>
+                                                            <li><a class="dropdown-item show-grid manual" id="show-grid manual" onclick="showGrid('chart-manual')">Tampilkan Grid</a></li>
+                                                            <li><a class="dropdown-item hide-grid manual hide" id="hide-grid manual" onclick="hideGrid('chart-manual')">Sembunyikan Grid</a></li>
                                                             <li><a class="dropdown-item" onclick="saveAsPNG('chart-manual')">Simpan PNG</a></li>
                                                             <li><a class="dropdown-item" onclick="saveAsJPG('chart-manual')">Simpan JPG</a></li>
                                                             <li><a class="dropdown-item" id="downloadCSVMan">Export ke CSV</a></li>
@@ -413,8 +413,8 @@
                                                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                                         </button>
                                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                                            <li><a class="dropdown-item show-grid" id="show-grid" onclick="showGrid('chart-otomatisOff')">Tampilkan Grid</a></li>
-                                                            <li><a class="dropdown-item hide-grid hide" id="hide-grid" onclick="hideGrid('chart-otomatisOff')">Sembunyikan Grid</a></li>
+                                                            <li><a class="dropdown-item show-grid otomatisOff" id="show-grid otomatisOff" onclick="showGrid('chart-otomatisOff')">Tampilkan Grid</a></li>
+                                                            <li><a class="dropdown-item hide-grid otomatisOff hide" id="hide-grid otomatisOff" onclick="hideGrid('chart-otomatisOff')">Sembunyikan Grid</a></li>
                                                             <li><a class="dropdown-item" onclick="saveAsPNG('chart-otomatisOff')">Simpan PNG</a></li>
                                                             <li><a class="dropdown-item" onclick="saveAsJPG('chart-otomatisOff')">Simpan JPG</a></li>
                                                             <li><a class="dropdown-item" id="downloadCSVOff">Export ke CSV</a></li>
@@ -473,8 +473,8 @@
                                                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                                         </button>
                                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                                            <li><a class="dropdown-item show-grid" id="show-grid" onclick="showGrid('chart-manualOff')">Tampilkan Grid</a></li>
-                                                            <li><a class="dropdown-item hide-grid hide" id="hide-grid" onclick="hideGrid('chart-manualOff')">Sembunyikan Grid</a></li>
+                                                            <li><a class="dropdown-item show-grid manualOff" id="show-grid manualOff" onclick="showGrid('chart-manualOff')">Tampilkan Grid</a></li>
+                                                            <li><a class="dropdown-item hide-grid manualOff hide" id="hide-grid manualOff" onclick="hideGrid('chart-manualOff')">Sembunyikan Grid</a></li>
                                                             <li><a class="dropdown-item" onclick="saveAsPNG('chart-manualOff')">Simpan PNG</a></li>
                                                             <li><a class="dropdown-item" onclick="saveAsJPG('chart-manualOff')">Simpan JPG</a></li>
                                                             <li><a class="dropdown-item" id="downloadCSVManOff">Export ke CSV</a></li>

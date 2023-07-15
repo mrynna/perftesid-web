@@ -1338,43 +1338,49 @@ const showGrid = chart => {
         drawOnChartArea: true,
       }
       chartOtomatis.update()
+      document.getElementById("show-grid").classList.add('hide')
+      document.getElementById("hide-grid").classList.remove('hide')
       break;
-    case "chart-manual":
-      chartManual.config.options.scales.y.grid = {
-        display: true,
-        drawOnChartArea: true,
-      }
+      case "chart-manual":
+        chartManual.config.options.scales.y.grid = {
+          display: true,
+          drawOnChartArea: true,
+        }
       chartManual.config.options.scales.x.grid = {
         display: true,
         drawOnChartArea: true,
       }
       chartManual.update()
+      document.getElementById("show-grid manual").classList.add('hide')
+      document.getElementById("hide-grid manual").classList.remove('hide')
       break;
-    case "chart-manualOff":
-      chartManualOff.config.options.scales.y.grid = {
-        display: true,
-        drawOnChartArea: true,
-      }
-      chartManOff.config.options.scales.x.grid = {
-        display: true,
+      case "chart-manualOff":
+        chartManualOff.config.options.scales.y.grid = {
+          display: true,
+          drawOnChartArea: true,
+        }
+        chartManualOff.config.options.scales.x.grid = {
+          display: true,
         drawOnChartArea: true,
       }
       chartManualOff.update()
+      document.getElementById("show-grid manualOff").classList.add('hide')
+      document.getElementById("hide-grid manualOff").classList.remove('hide')
       break;
-    case "chart-otomatisOff":
-      chartOtomatisOff.config.options.scales.y.grid = {
-        display: true,
-        drawOnChartArea: true,
+      case "chart-otomatisOff":
+        chartOtomatisOff.config.options.scales.y.grid = {
+          display: true,
+          drawOnChartArea: true,
+        }
+        chartOtomatisOff.config.options.scales.x.grid = {
+          display: true,
+          drawOnChartArea: true,
+        }
+        chartOtomatisOff.update()
+        document.getElementById("show-grid otomatisOff").classList.add('hide')
+        document.getElementById("hide-grid otomatisOff").classList.remove('hide')
+        break
       }
-      chartOtomatisOff.config.options.scales.x.grid = {
-        display: true,
-        drawOnChartArea: true,
-      }
-      chartOtomatisOff.update()
-      break
-  }
-  document.getElementById("show-grid").classList.add('hide')
-  document.getElementById("hide-grid").classList.remove('hide')
 }
 
 const hideGrid = chart => {
@@ -1389,31 +1395,37 @@ const hideGrid = chart => {
         drawOnChartArea: false,
       }
       chartOtomatis.update()
+      document.getElementById("hide-grid").classList.add('hide')
+      document.getElementById("show-grid").classList.remove('hide')
       break;
-    case "chart-manual":
-      chartManual.config.options.scales.y.grid = {
-        display: false,
-        drawOnChartArea: false,
-      }
-      chartManual.config.options.scales.x.grid = {
-        display: false,
-        drawOnChartArea: false,
-      }
-      chartManual.update()
-      break;
-    case "chart-manualOff":
-      chartManualOff.config.options.scales.y.grid = {
-        display: false,
-        drawOnChartArea: false,
-      }
-      chartManOff.config.options.scales.x.grid = {
-        display: false,
-        drawOnChartArea: false,
-      }
-      chartManualOff.update()
-      break;
-    case "chart-otomatisOff":
-      chartOtomatisOff.config.options.scales.y.grid = {
+      case "chart-manual":
+        chartManual.config.options.scales.y.grid = {
+          display: false,
+          drawOnChartArea: false,
+        }
+        chartManual.config.options.scales.x.grid = {
+          display: false,
+          drawOnChartArea: false,
+        }
+        chartManual.update()
+        document.getElementById("hide-grid manual").classList.add('hide')
+        document.getElementById("show-grid manual").classList.remove('hide')
+        break;
+        case "chart-manualOff":
+          chartManualOff.config.options.scales.y.grid = {
+            display: false,
+            drawOnChartArea: false,
+          }
+          chartManualOff.config.options.scales.x.grid = {
+            display: false,
+            drawOnChartArea: false,
+          }
+          chartManualOff.update()
+          document.getElementById("hide-grid manualOff").classList.add('hide')
+          document.getElementById("show-grid manualOff").classList.remove('hide')
+          break;
+          case "chart-otomatisOff":
+            chartOtomatisOff.config.options.scales.y.grid = {
         display: false,
         drawOnChartArea: false,
       }
@@ -1421,11 +1433,11 @@ const hideGrid = chart => {
         display: false,
         drawOnChartArea: false,
       }
+      document.getElementById("hide-grid otomatisOff").classList.add('hide')
+      document.getElementById("show-grid otomatisOff").classList.remove('hide')
       chartOtomatisOff.update()
       break
-  }
-  document.getElementById("hide-grid").classList.add('hide')
-  document.getElementById("show-grid").classList.remove('hide')
+    }
 }
 
 

@@ -437,37 +437,43 @@ const zoomOut = charts => {
 
 // =========================== Chart Picker ===============================
 const changeChart = (chartType, charts) => {
-  let chartLabel, chartData, chartTitle;
+  let chartLabel, chartData, chartTitle, unit;
   switch(charts){
     case 'chart-tegangan':
       chartLabel = "Tegangan"
       chartData = tegangan
       chartTitle = "Tegangan (V)"
+      unit = "V"
       break;
     case 'chart-arus':
       chartLabel = "Arus"
       chartData = arus
       chartTitle = "Arus (A)"
+      unit = "A"
       break
     case 'chart-suhupanel':
       chartLabel = "Suhu Panel"
       chartData = suhuPanel
       chartTitle = "Suhu Panel (C)"
+      unit = "C"
       break
     case 'chart-suhulingkungan':
       chartLabel = "Suhu Lingkungan"
       chartData = suhuLingkungan
       chartTitle = "Suhu Lingkungan (C)"
+      unit = "C"
       break
     case 'chart-iradiasi':
       chartLabel = "Iradiasi"
       chartData = iradiasi
       chartTitle = "Iradiasi (W/m2)"
+      unit = "W/m2"
       break
     case 'chart-performa':
       chartLabel = "Performa"
       chartData = performa
       chartTitle = "Performa (%)"
+      unit = "%"
       break
   }
 
@@ -482,6 +488,9 @@ const changeChart = (chartType, charts) => {
         pointStyle: true,
         tension: 0.2,
       };
+
+      chartOtomatis.options.plugins.tooltip.callbacks.label = (item) =>
+      `${item.dataset.label}: ${item.formattedValue} ${unit}`
     
       chartOtomatis.config.options.scales.y.title.text = chartTitle;
       const title = document.getElementById("dropdown-title otomatis");

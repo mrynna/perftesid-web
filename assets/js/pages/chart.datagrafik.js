@@ -477,7 +477,7 @@ $(document).ready(function () {
         success: function (data) {
           // console.log(data);
           const dataTitle = document.getElementById("dropdown-title otomatis").innerHTML;
-          console.log(dataTitle)
+          // console.log(dataTitle)
           let headers = {
           };
           var datas = JSON.parse(data);
@@ -1205,6 +1205,9 @@ const zoomOut = charts => {
 // =========================== Chart Picker ===============================
 const changeChart = (chartType, charts) => {
   let chartLabel, chartData, chartTitle, unit;
+  let chartLabelMan, chartDataMan, chartTitleMan, unitMan;
+  let chartLabelOff, chartDataOff, chartTitleOff, unitOff;
+  let chartLabelManOff, chartDataManOff, chartTitleManOff, unitManOff;
 
   switch(chartType){
     case 'chart-otomatis':
@@ -1271,45 +1274,45 @@ const changeChart = (chartType, charts) => {
     case 'chart-manual':
       switch(charts){
         case 'chart-tegangan':
-          chartLabel = "Tegangan"
-          chartData = teganganMan
-          chartTitle = "Tegangan (V)"
-          unit = "V"
+          chartLabelMan = "Tegangan"
+          chartDataMan = teganganMan
+          chartTitleMan = "Tegangan (V)"
+          unitMan = "V"
           break;
         case 'chart-arus':
-          chartLabel = "Arus"
-          chartData = arusMan
-          chartTitle = "Arus (A)"
-          unit = "A"
+          chartLabelMan = "Arus"
+          chartDataMan = arusMan
+          chartTitleMan = "Arus (A)"
+          unitMan = "A"
           break
         case 'chart-suhupanel':
-          chartLabel = "Suhu Panel"
-          chartData = suhuPanelMan
-          chartTitle = "Suhu Panel (°C)"
-          unit = "°C"
+          chartLabelMan = "Suhu Panel"
+          chartDataMan = suhuPanelMan
+          chartTitleMan = "Suhu Panel (°C)"
+          unitMan = "°C"
           break
         case 'chart-suhulingkungan':
-          chartLabel = "Suhu Lingkungan"
-          chartData = suhuLingkunganMan
-          chartTitle = "Suhu Lingkungan (°C)"
-          unit = "°C"
+          chartLabelMan = "Suhu Lingkungan"
+          chartDataMan = suhuLingkunganMan
+          chartTitleMan = "Suhu Lingkungan (°C)"
+          unitMan = "°C"
           break
         case 'chart-iradiasi':
-          chartLabel = "Iradiasi"
-          chartData = iradiasiMan
-          chartTitle = "Iradiasi (W/m²)"
-          unit = "W/m²"
+          chartLabelMan = "Iradiasi"
+          chartDataMan = iradiasiMan
+          chartTitleMan = "Iradiasi (W/m²)"
+          unitMan = "W/m²"
           break
         case 'chart-performa':
-          chartLabel = "Performa"
-          chartData = performaMan
-          chartTitle = "Performa (%)"
-          unit = "%"
+          chartLabelMan = "Performa"
+          chartDataMan = performaMan
+          chartTitleMan = "Performa (%)"
+          unitMan = "%"
           break
       }
       chartManual.data.datasets[0] = {
-        label: chartLabel,
-        data: chartData,
+        label: chartLabelMan,
+        data: chartDataMan,
         backgroundColor: "#767fe3",
         borderColor: "#767fe3",
         borderWidth: 3,
@@ -1317,9 +1320,12 @@ const changeChart = (chartType, charts) => {
         tension: 0.2,
       };
 
-      chartManual.config.options.scales.y.title.text = chartTitle;
+      chartManual.options.plugins.tooltip.callbacks.label = (item) =>
+      `${item.dataset.label}: ${item.formattedValue} ${unitMan}`
+
+      chartManual.config.options.scales.y.title.text = chartTitleMan;
       const title2 = document.getElementById("dropdown-title manual");
-      title2.innerHTML = "Grafik " + chartLabel;
+      title2.innerHTML = "Grafik " + chartLabelMan;
 
       chartManual.update();
       break
@@ -1327,45 +1333,45 @@ const changeChart = (chartType, charts) => {
     case 'chart-manualOff':
       switch(charts){
         case 'chart-tegangan':
-          chartLabel = "Tegangan"
-          chartData = teganganManOff
-          chartTitle = "Tegangan (V)"
-          unit = "V"
+          chartLabelManOff = "Tegangan"
+          chartDataManOff = teganganManOff
+          chartTitleManOff = "Tegangan (V)"
+          unitManOff = "V"
           break;
         case 'chart-arus':
-          chartLabel = "Arus"
-          chartData = arusManOff
-          chartTitle = "Arus (A)"
-          unit = "A"
+          chartLabelManOff = "Arus"
+          chartDataManOff = arusManOff
+          chartTitleManOff = "Arus (A)"
+          unitManOff = "A"
           break
         case 'chart-suhupanel':
-          chartLabel = "Suhu Panel"
-          chartData = suhuPanelManOff
-          chartTitle = "Suhu Panel (°C)"
-          unit = "°C"
+          chartLabelManOff = "Suhu Panel"
+          chartDataManOff = suhuPanelManOff
+          chartTitleManOff = "Suhu Panel (°C)"
+          unitManOff = "°C"
           break
         case 'chart-suhulingkungan':
-          chartLabel = "Suhu Lingkungan"
-          chartData = suhuLingkunganManOff
-          chartTitle = "Suhu Lingkungan (°C)"
-          unit = "°C"
+          chartLabelManOff = "Suhu Lingkungan"
+          chartDataManOff = suhuLingkunganManOff
+          chartTitleManOff = "Suhu Lingkungan (°C)"
+          unitManOff = "°C"
           break
         case 'chart-iradiasi':
-          chartLabel = "Iradiasi"
-          chartData = iradiasiManOff
-          chartTitle = "Iradiasi (W/m²)"
-          unit = "W/m²"
+          chartLabelManOff = "Iradiasi"
+          chartDataManOff = iradiasiManOff
+          chartTitleManOff = "Iradiasi (W/m²)"
+          unitManOff = "W/m²"
           break
         case 'chart-performa':
-          chartLabel = "Performa"
-          chartData = performaManOff
-          chartTitle = "Performa (%)"
-          unit = "%"
+          chartLabelManOff = "Performa"
+          chartDataManOff = performaManOff
+          chartTitleManOff = "Performa (%)"
+          unitManOff = "%"
           break
       }
       chartManualOff.data.datasets[0] = {
-        label: chartLabel,
-        data: chartData,
+        label: chartLabelManOff,
+        data: chartDataManOff,
         backgroundColor: "#767fe3",
         borderColor: "#767fe3",
         borderWidth: 3,
@@ -1373,54 +1379,57 @@ const changeChart = (chartType, charts) => {
         tension: 0.2,
       };
 
-      chartManualOff.config.options.scales.y.title.text = chartTitle;
+      chartManualOff.options.plugins.tooltip.callbacks.label = (item) =>
+      `${item.dataset.label}: ${item.formattedValue} ${unitManOff}`
+
+      chartManualOff.config.options.scales.y.title.text = chartTitleManOff;
       const title3 = document.getElementById("dropdown-title manualOff");
-      title3.innerHTML = "Grafik " + chartLabel;
+      title3.innerHTML = "Grafik " + chartLabelManOff;
       chartManualOff.update();
       break
 
     case 'chart-otomatisOff':
       switch(charts){
         case 'chart-tegangan':
-          chartLabel = "Tegangan"
-          chartData = teganganOff
-          chartTitle = "Tegangan (V)"
-          unit = "V"
+          chartLabelOff = "Tegangan"
+          chartDataOff = teganganOff
+          chartTitleOff = "Tegangan (V)"
+          unitOff = "V"
           break;
         case 'chart-arus':
-          chartLabel = "Arus"
-          chartData = arusOff
-          chartTitle = "Arus (A)"
-          unit = "A"
+          chartLabelOff = "Arus"
+          chartDataOff = arusOff
+          chartTitleOff = "Arus (A)"
+          unitOff = "A"
           break
         case 'chart-suhupanel':
-          chartLabel = "Suhu Panel"
-          chartData = suhuPanelOff
-          chartTitle = "Suhu Panel (°C)"
-          unit = "°C"
+          chartLabelOff = "Suhu Panel"
+          chartDataOff = suhuPanelOff
+          chartTitleOff = "Suhu Panel (°C)"
+          unitOff = "°C"
           break
         case 'chart-suhulingkungan':
-          chartLabel = "Suhu Lingkungan"
-          chartData = suhuLingkunganOff
-          chartTitle = "Suhu Lingkungan (°C)"
-          unit = "°C"
+          chartLabelOff = "Suhu Lingkungan"
+          chartDataOff = suhuLingkunganOff
+          chartTitleOff = "Suhu Lingkungan (°C)"
+          unitOff = "°C"
           break
         case 'chart-iradiasi':
-          chartLabel = "Iradiasi"
-          chartData = iradiasiOff
-          chartTitle = "Iradiasi (W/m²)"
-          unit = "W/m²"
+          chartLabelOff = "Iradiasi"
+          chartDataOff = iradiasiOff
+          chartTitleOff = "Iradiasi (W/m²)"
+          unitOff = "W/m²"
           break
         case 'chart-performa':
-          chartLabel = "Performa"
-          chartData = performaOff
-          chartTitle = "Performa (%)"
-          unit = "%"
+          chartLabelOff = "Performa"
+          chartDataOff = performaOff
+          chartTitleOff = "Performa (%)"
+          unitOff = "%"
           break
       }
       chartOtomatisOff.data.datasets[0] = {
-        label: chartLabel,
-        data: chartData,
+        label: chartLabelOff,
+        data: chartDataOff,
         backgroundColor: "#767fe3",
         borderColor: "#767fe3",
         borderWidth: 3,
@@ -1428,9 +1437,12 @@ const changeChart = (chartType, charts) => {
         tension: 0.2,
       }
 
-      chartOtomatisOff.config.options.scales.y.title.text = chartTitle;
+      chartOtomatisOff.options.plugins.tooltip.callbacks.label = (item) =>
+      `${item.dataset.label}: ${item.formattedValue} ${unitOff}`
+
+      chartOtomatisOff.config.options.scales.y.title.text = chartTitleOff;
       const title4 = document.getElementById("dropdown-title otomatisOff");
-      title4.innerHTML = "Grafik " + chartLabel;
+      title4.innerHTML = "Grafik " + chartLabelOff;
       chartOtomatisOff.update();
       break
   }
@@ -1534,15 +1546,15 @@ const hideGrid = chart => {
           document.getElementById("hide-grid manualOff").classList.add('hide')
           document.getElementById("show-grid manualOff").classList.remove('hide')
           break;
-          case "chart-otomatisOff":
-            chartOtomatisOff.config.options.scales.y.grid = {
-        display: false,
-        drawOnChartArea: false,
-      }
-      chartOtomatisOff.config.options.scales.x.grid = {
-        display: false,
-        drawOnChartArea: false,
-      }
+        case "chart-otomatisOff":
+          chartOtomatisOff.config.options.scales.y.grid = {
+            display: false,
+            drawOnChartArea: false,
+          }
+          chartOtomatisOff.config.options.scales.x.grid = {
+            display: false,
+            drawOnChartArea: false,
+          }
       document.getElementById("hide-grid otomatisOff").classList.add('hide')
       document.getElementById("show-grid otomatisOff").classList.remove('hide')
       chartOtomatisOff.update()

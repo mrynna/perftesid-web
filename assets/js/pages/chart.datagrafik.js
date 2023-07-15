@@ -3,7 +3,7 @@ var ctxMan = document.getElementById("chart-manual").getContext("2d");
 var ctxManOff = document.getElementById("chart-manualOff").getContext("2d");
 var ctxOff = document.getElementById("chart-otomatisOff").getContext("2d");
 let chartOtomatis, chartManual, chartManualOff, chartOtomatisOff;
-let waktu, tegangan, arus, suhuPanel, suhuLingkungan, iradiasi, performa;
+let tegangan, arus, suhuPanel, suhuLingkungan, iradiasi, performa;
 
 // ============================================ Chart Otomatis Get Data ===================================================
 function getData() {
@@ -32,7 +32,7 @@ function getData() {
       chartOtomatis = new Chart(ctx, {
         type: "line",
         data: {
-          labels: waktu,
+          labels: dateChartJs,
           datasets: [
             {
               label: "Tegangan",
@@ -145,7 +145,7 @@ function getDataMan() {
       chartManual = new Chart(ctxMan, {
         type: "line",
         data: {
-          labels: waktu,
+          labels: dateChartJs,
           datasets: [
             {
               label: "Tegangan",
@@ -255,7 +255,7 @@ function getDataOff() {
       chartOtomatisOff = new Chart(ctxOff, {
         type: "line",
         data: {
-          labels: waktu,
+          labels: dateChartJs,
           datasets: [
             {
               label: "Tegangan",
@@ -365,7 +365,7 @@ function getDataManOff() {
       chartManualOff = new Chart(ctxManOff, {
         type: "line",
         data: {
-          labels: waktu,
+          labels: dateChartJs,
           datasets: [
             {
               label: "Tegangan",
@@ -1251,7 +1251,6 @@ const changeChart = (chartType, charts) => {
 
   switch(chartType){
     case 'chart-otomatis':
-      chartOtomatis.data.labels = waktu
       chartOtomatis.data.datasets[0] = {
         label: chartLabel,
         data: chartData,
@@ -1261,20 +1260,19 @@ const changeChart = (chartType, charts) => {
         pointStyle: true,
         tension: 0.2,
       };
-      
+
       chartOtomatis.options.plugins.tooltip.callbacks.label = (item) =>
       `${item.dataset.label}: ${item.formattedValue} ${unit}`
-      
+    
       chartOtomatis.config.options.scales.y.title.text = chartTitle;
       const title = document.getElementById("dropdown-title otomatis");
       title.innerHTML = "Grafik " + chartLabel;
-      
+    
       chartOtomatis.update();
       
       break
-      
-      case 'chart-manual':
-      chartManual.data.labels = waktu
+    
+    case 'chart-manual':
       chartManual.data.datasets[0] = {
         label: chartLabel,
         data: chartData,
@@ -1293,7 +1291,6 @@ const changeChart = (chartType, charts) => {
       break
 
     case 'chart-manualOff':
-      chartManualOff.data.labels = waktu
       chartManualOff.data.datasets[0] = {
         label: chartLabel,
         data: chartData,
@@ -1311,7 +1308,6 @@ const changeChart = (chartType, charts) => {
       break
 
     case 'chart-otomatisOff':
-      chartOtomatisOff.data.labels = waktu
       chartOtomatisOff.data.datasets[0] = {
         label: chartLabel,
         data: chartData,

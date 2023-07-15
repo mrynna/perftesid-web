@@ -19063,6 +19063,33 @@ div.table-responsive
 }
 /*# sourceMappingURL=app-dark.min.css.map */
 
+/* =================================== Chart ================================ */
+.card.tegangan {
+  width: 100%;
+  .card-body {
+    padding: 4rem 4rem !important;
+  }
+}
+
+.chart-picker {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-items:end !important;
+  background-color: transparent;
+  color: #6c757d;
+  border: none;
+}
+
+.chart-picker:hover {
+  background-color: #f1f3fa85;
+  color: #6c757d;
+}
+
+.chart-picker:focus {
+  background-color: #f1f3faf5;
+  color: #6c757d;
+}
+
 .col.chart-top{
   display: flex;
   flex-direction: row;
@@ -19118,20 +19145,20 @@ background-color: #5c636a85 !important;
 .btn-primary {
   outline: none !important;
   box-shadow: none;
-  background-color: #f1f3fa !important;
+  background-color: #404954 !important;
 }
 
 .icon{
-  stroke: #5c636a;
+  stroke: #c6ccd2;
     stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
     fill: none;
-}
+  }
 
 .popup {
   width: 200px;
-  height: 150px;
+  height: 120px;
   display: flex;
   flex-direction: column;
   background: #313a46;
@@ -19141,7 +19168,7 @@ background-color: #5c636a85 !important;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  padding: 15px 30px 50px;
+  padding: 15px 30px 30px;
   /* padding-top: 30px; */
   color: #ffffff;
   visibility: hidden;
@@ -19155,8 +19182,9 @@ background-color: #5c636a85 !important;
 .popup-button{
   align-self: center;
   text-justify: auto;
-  width: 70%;
-  height: 40%;
+  align-content: center;
+  width: 60%;
+  height: 50%;
   margin-top: 10px;
   background-color: transparent !important;
   outline: none !important;
@@ -19170,11 +19198,64 @@ background-color: #5c636a85 !important;
   flex-direction: row;
 }
 
-.card.tegangan {
+@media screen and (max-width: 670px){
+  .card.tegangan {
+    width: 100%;
+    .card-body {
+      padding: 10px 10px !important;
+      padding-top: 20px !important;
+    }
+  }
+  
+  .col.chart-top{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    /* padding-right: 10px; */
+  }
+  
+  .chart-date {
+    width: 15% !important;
+    padding:0 0 !important;
+    /* margin-left: -20px; */
+  }
+
+  .row.date-picker {
+    margin-left: -65px;
+  }
+
+  .row.date-picker input{
+    color: transparent !important;
+  }
+
+  .btn-group-sm>.btn, .btn-sm  {
+    margin-left: -100px;
+  }
+}
+
+.show-grid {
+  visibility: visible;
+}
+
+.show-grid.hide {
+  display: none !important;
+}
+
+.hide-grid {
+  visibility: visible;
+}
+
+.hide-grid.hide {
+  display: none !important;
+}
+
+
+/* ====================================== End of Chart =================================== */
+
+.row.table {
+  display: flex;
   width: 100%;
+  align-content: center;
+  padding-left: 180px;
+  margin-left: -80px;
 }
-
-.card.tegangan.mini {
-  width: 35%;
-}
-

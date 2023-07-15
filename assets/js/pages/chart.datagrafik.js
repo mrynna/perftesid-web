@@ -1,5 +1,6 @@
-var ctx = document.getElementById("chart-tegangan").getContext("2d");
-var chartTegangan;
+var ctx = document.getElementById("chart-otomatis").getContext("2d");
+var chartOtomatis;
+let tegangan, arus, suhuPanel, suhuLingkungan, iradiasi, performa;
 
 // Mendapatkan data dari database menggunakan AJAX
 function getData() {
@@ -10,8 +11,12 @@ function getData() {
       var data= JSON.parse(this.responseText);
       // console.log(data);
       var tepatwaktu = data.map(function (obj) { return obj.waktu; });
-      var tegangan = data.map(function (obj) { return obj.tegangan; });
-      var arus = data.map(function (obj) { return obj.arus; });
+      tegangan = data.map(function (obj) { return obj.tegangan; });
+      arus = data.map(function (obj) { return obj.arus; });
+      suhuPanel = data.map(function (obj) { return obj.suhuPanel; });
+      suhuLingkungan = data.map(function (obj) { return obj.suhuLingkungan; });
+      iradiasi = data.map(function (obj) { return obj.iradiasi; });
+      performa = data.map(function (obj) { return obj.performa; });
 
       const dateChartJs = tepatwaktu.map((day, index) => {
         let dayjs = new Date(day);
@@ -21,7 +26,7 @@ function getData() {
       waktu = dateChartJs;
 
       // Membuat chart menggunakan Chart.js
-      chartTegangan = new Chart(ctx, {
+      chartOtomatis = new Chart(ctx, {
         type: "line",
         data: {
           labels: dateChartJs,
@@ -123,11 +128,6 @@ function convertToCSV(dataObject) {
   return str;
 }
 
-let headers = {
-  waktu: "waktu",
-  tegangan: "tegangan",
-};
-
 var from_date;
 var to_date;
 var datas;
@@ -136,21 +136,104 @@ let dataFormatted = []
 //============ Download CSV
 $(document).ready(function () {
   $("#downloadCSV").click(function () {
-    if (from_date != "" && from_date != undefined && to_date != "" && to_date != undefined && startDate.getTime() < endDate.getTime()) {
+    if (from_date != "" && from_date != undefined && to_date != "" && to_date != undefined && startDate.getTime() < endDate.getTime() && from_date != to_date) {
       $.ajax({
         url: "api/getFilterData.php",
         method: "POST",
         data: { from_date: from_date, to_date: to_date },
         success: function (data) {
           // console.log(data);
+          const dataTitle = document.getElementById("dropdown-title otomatis").innerHTML;
+          console.log(dataTitle)
+          let headers = {
+          };
           var datas = JSON.parse(data);
-          dataFormatted = [];
-          datas.forEach((item) => {
-            dataFormatted.push({
-              waktu: item.waktu,
-              tegangan: item.tegangan,
-            });
-          });
+          switch (dataTitle){
+            case "Grafik Tegangan":
+              headers = {
+                waktu: "Waktu",
+                tegangan: "Tegangan (V)",
+              };
+              dataFormatted = [];
+              datas.forEach((item) => {
+                dataFormatted.push({
+                  waktu: item.waktu,
+                  tegangan: item.tegangan,
+                });
+              });
+
+              break;
+
+            case "Grafik Arus":
+              headers = {
+                waktu: "Waktu",
+                arus: "Arus (A)",
+              }
+              dataFormatted = [];
+              datas.forEach((item) => {
+                dataFormatted.push({
+                  waktu: item.waktu,
+                  arus: item.arus,
+                });
+              })
+              break;
+            
+            case "Grafik Suhu Lingkungan":
+              headers = {
+                waktu: "Waktu",
+                suhuLingkungan: "Suhu Lingkungan (C)",
+              }
+              dataFormatted = [];
+              datas.forEach((item) => {
+                dataFormatted.push({
+                  waktu: item.waktu,
+                  suhuLingkungan: item.suhuLingkungan,
+                });
+              })
+              break
+
+            case "Grafik Suhu Panel":
+              headers = {
+                waktu: "Waktu",
+                suhuPanel: "Suhu Panel (C)",
+              }
+              dataFormatted = [];
+              datas.forEach((item) => {
+                dataFormatted.push({
+                  waktu: item.waktu,
+                  suhuPanel: item.suhuPanel,
+                });
+              })
+              break
+            
+            case "Grafik Iradiasi":
+              headers = {
+                waktu: "Waktu",
+                iradiasi: "Iradiasi (W/m2)",
+              }
+              dataFormatted = [];
+              datas.forEach((item) => {
+                dataFormatted.push({
+                  waktu: item.waktu,
+                  iradiasi: item.iradiasi,
+                });
+              })
+              break
+            
+            case "Grafik Performa":
+              headers = {
+                waktu: "Waktu",
+                performa: "Performa (%)",
+              }
+              dataFormatted = [];
+              datas.forEach((item) => {
+                dataFormatted.push({
+                  waktu: item.waktu,
+                  performa: item.performa,
+                });
+              })
+              break
+          }
           exportCSV(headers, dataFormatted, "chart-data");
           function exportCSV(header, dataFormatted, filename) {
             if (header) {
@@ -223,34 +306,24 @@ const startTimeFilter = (charts, date) => {
   from_date = date.value.replace('T', ' ');
   // console.log(to_date)
   switch (charts) {
-    case 'chart-tegangan':
-      chartTegangan.config.options.scales.x.min = startDate;
-      chartTegangan.update();
+    case 'chart-otomatis':
+      chartOtomatis.config.options.scales.x.min = startDate;
+      chartOtomatis.update();
       break;
 
-    case 'chart-arus':
-      chartArus.config.options.scales.x.min = startDate;
-      chartArus.update();
+    case 'chart-manual':
+      chartManual.config.options.scales.x.min = startDate;
+      chartManual.update();
       break;
 
-    case 'chart-suhupanel':
-      chartSuhuPanel.config.options.scales.x.min = startDate;
-      chartSuhuPanel.update();
+    case 'chart-manualOff':
+      chartManualOff.config.options.scales.x.min = startDate;
+      chartManualOff.update();
       break;
 
-    case 'chart-suhulingkungan':
-      chartSuhuLingkungan.config.options.scales.x.min = startDate;
-      chartSuhuLingkungan.update();
-      break;
-
-    case 'chart-iradiasi':
-      chartIradiasi.config.options.scales.x.min = startDate;
-      chartIradiasi.update();
-      break;
-    
-    case 'chart-performa':
-      chartPerforma.config.options.scales.x.min = startDate;
-      chartPerforma.update();
+    case 'chart-otomatisOff':
+      chartOtomatisOff.config.options.scales.x.min = startDate;
+      chartOtomatisOff.update();
       break;
 
     default:
@@ -263,34 +336,24 @@ const endTimeFilter = (charts, date) => {
   to_date = date.value.replace('T', ' ');
   // console.log(from_date)
   switch (charts) {
-    case 'chart-tegangan':
-      chartTegangan.config.options.scales.x.max = endDate;
-      chartTegangan.update();
+    case 'chart-otomatis':
+      chartOtomatis.config.options.scales.x.max = endDate;
+      chartOtomatis.update();
       break;
 
-    case 'chart-arus':
-      chartArus.config.options.scales.x.max = endDate;
-      chartArus.update();
+    case 'chart-manual':
+      chartManual.config.options.scales.x.max = endDate;
+      chartManual.update();
       break;
 
-    case 'chart-suhupanel':
-      chartSuhuPanel.config.options.scales.x.max = endDate;
-      chartSuhuPanel.update();
+    case 'chart-manualOff':
+      chartManualOff.config.options.scales.x.max = endDate;
+      chartManualOff.update();
       break;
 
-    case 'chart-suhulingkungan':
-      chartSuhuLingkungan.config.options.scales.x.max = endDate;
-      chartSuhuLingkungan.update();
-      break;
-
-    case 'chart-iradiasi':
-      chartIradiasi.config.options.scales.x.max = endDate;
-      chartIradiasi.update();
-      break;
-    
-    case 'chart-performa':
-      chartPerforma.config.options.scales.x.max = endDate;
-      chartPerforma.update();
+    case 'chart-otomatisOff':
+      chartOtomatisOff.config.options.scales.x.max = endDate;
+      chartOtomatisOff.update();
       break;
 
     default:
@@ -303,28 +366,20 @@ const endTimeFilter = (charts, date) => {
 //============ Zoom Plugin Chart
 const zoomReset = charts => {
   switch (charts) {
-    case 'chart-tegangan':
-      chartTegangan.resetZoom();
+    case 'chart-otomatis':
+      chartOtomatis.resetZoom();
       break;
 
-    case 'chart-arus':
-      chartArus.resetZoom();
+    case 'chart-manual':
+      chartManual.resetZoom();
       break;
 
-    case 'chart-suhupanel':
-      chartSuhuPanel.resetZoom();
+    case 'chart-manualOff':
+      chartManualOff.resetZoom();
       break;
 
-    case 'chart-suhulingkungan':
-      chartSuhuLingkungan.resetZoom();
-      break;
-
-    case 'chart-iradiasi':
-      chartIradiasi.resetZoom();
-      break;
-    
-    case 'chart-performa':
-      chartPerforma.resetZoom();
+    case 'chart-otomatisOff':
+      chartOtomatisOff.resetZoom();
       break;
 
     default:
@@ -334,28 +389,20 @@ const zoomReset = charts => {
 
 const zoomIn = charts => {
   switch (charts) {
-    case 'chart-tegangan':
-      chartTegangan.zoom(1.2)
+    case 'chart-otomatis':
+      chartOtomatis.zoom(1.2)
       break;
 
-    case 'chart-arus':
-      chartArus.zoom(1.2)
+    case 'chart-manual':
+      chartManual.zoom(1.2)
       break;
 
-    case 'chart-suhupanel':
-      chartSuhuPanel.zoom(1.2)
+    case 'chart-manualOff':
+      chartManualOff.zoom(1.2)
       break;
 
-    case 'chart-suhulingkungan':
-      chartSuhuLingkungan.zoom(1.2)
-      break;
-
-    case 'chart-iradiasi':
-      chartIradiasi.zoom(1.2)
-      break;
-    
-    case 'chart-performa':
-      chartPerforma.zoom(1.2)
+    case 'chart-otomatisOff':
+      chartOtomatisOff.zoom(1.2)
       break;
 
     default:
@@ -365,28 +412,20 @@ const zoomIn = charts => {
 
 const zoomOut = charts => {
   switch (charts) {
-    case 'chart-tegangan':
-      chartTegangan.zoom(0.8)
+    case 'chart-otomatis':
+      chartOtomatis.zoom(0.8)
       break;
 
-    case 'chart-arus':
-      chartArus.zoom(0.8)
+    case 'chart-manual':
+      chartManual.zoom(0.8)
       break;
 
-    case 'chart-suhupanel':
-      chartSuhuPanel.zoom(0.8)
+    case 'chart-manualOff':
+      chartManualOff.zoom(0.8)
       break;
 
-    case 'chart-suhulingkungan':
-      chartSuhuLingkungan.zoom(0.8)
-      break;
-
-    case 'chart-iradiasi':
-      chartIradiasi.zoom(0.8)
-      break;
-    
-    case 'chart-performa':
-      chartPerforma.zoom(0.8)
+    case 'chart-otomatisOff':
+      chartOtomatisOff.zoom(0.8)
       break;
 
     default:
@@ -396,9 +435,220 @@ const zoomOut = charts => {
 
 //============ End of Zoom Plugin Chart
 
-//============ Alert Button
-document.getElementById("popup-button").addEventListener("click", function(){
-  document.getElementById("popup").classList.remove('active')
-})
+// =========================== Chart Picker ===============================
+const changeChart = (chartType, charts) => {
+  let chartLabel, chartData, chartTitle;
+  switch(charts){
+    case 'chart-tegangan':
+      chartLabel = "Tegangan"
+      chartData = tegangan
+      chartTitle = "Tegangan (V)"
+      break;
+    case 'chart-arus':
+      chartLabel = "Arus"
+      chartData = arus
+      chartTitle = "Arus (A)"
+      break
+    case 'chart-suhupanel':
+      chartLabel = "Suhu Panel"
+      chartData = suhuPanel
+      chartTitle = "Suhu Panel (C)"
+      break
+    case 'chart-suhulingkungan':
+      chartLabel = "Suhu Lingkungan"
+      chartData = suhuLingkungan
+      chartTitle = "Suhu Lingkungan (C)"
+      break
+    case 'chart-iradiasi':
+      chartLabel = "Iradiasi"
+      chartData = iradiasi
+      chartTitle = "Iradiasi (W/m2)"
+      break
+    case 'chart-performa':
+      chartLabel = "Performa"
+      chartData = performa
+      chartTitle = "Performa (%)"
+      break
+  }
+
+  switch(chartType){
+    case 'chart-otomatis':
+      chartOtomatis.data.datasets[0] = {
+        label: chartLabel,
+        data: chartData,
+        backgroundColor: "#767fe3",
+        borderColor: "#767fe3",
+        borderWidth: 3,
+        pointStyle: true,
+        tension: 0.2,
+      };
+    
+      chartOtomatis.config.options.scales.y.title.text = chartTitle;
+      const title = document.getElementById("dropdown-title otomatis");
+      title.innerHTML = "Grafik " + chartLabel;
+    
+      chartOtomatis.update();
+      
+      break
+    
+    case 'chart-manual':
+      chartManual.data.datasets[0] = {
+        label: chartLabel,
+        data: chartData,
+        backgroundColor: "#767fe3",
+        borderColor: "#767fe3",
+        borderWidth: 3,
+        pointStyle: true,
+        tension: 0.2,
+      };
+
+      chartManual.config.options.scales.y.title.text = chartTitle;
+      const title2 = document.getElementById("dropdown-title manual");
+      title2.innerHTML = "Grafik " + chartLabel;
+
+      chartManual.update();
+      break
+
+    case 'chart-manualOff':
+      chartManualOff.data.datasets[0] = {
+        label: chartLabel,
+        data: chartData,
+        backgroundColor: "#767fe3",
+        borderColor: "#767fe3",
+        borderWidth: 3,
+        pointStyle: true,
+        tension: 0.2,
+      };
+
+      chartManualOff.config.options.scales.y.title.text = chartTitle;
+      const title3 = document.getElementById("dropdown-title manOff");
+      title3.innerHTML = "Grafik " + chartLabel;
+      chartManualOff.update();
+      break
+
+    case 'chart-otomatisOff':
+      chartOtomatisOff.data.datasets[0] = {
+        label: chartLabel,
+        data: chartData,
+        backgroundColor: "#767fe3",
+        borderColor: "#767fe3",
+        borderWidth: 3,
+        pointStyle: true,
+        tension: 0.2,
+      }
+
+      chartOtomatisOff.config.options.scales.y.title.text = chartTitle;
+      const title4 = document.getElementById("dropdown-title otomOff");
+      title4.innerHTML = "Grafik " + chartLabel;
+      chartOtomatisOff.update();
+      break
+  }
+}
+
+const showGrid = chart => {
+  switch(chart){
+    case "chart-otomatis":
+      chartOtomatis.config.options.scales.y.grid = {
+        display: true,
+        drawOnChartArea: true,
+      }
+      chartOtomatis.config.options.scales.x.grid = {
+        display: true,
+        drawOnChartArea: true,
+      }
+      chartOtomatis.update()
+      break;
+    case "chart-manual":
+      chartManual.config.options.scales.y.grid = {
+        display: true,
+        drawOnChartArea: true,
+      }
+      chartManual.config.options.scales.x.grid = {
+        display: true,
+        drawOnChartArea: true,
+      }
+      chartManual.update()
+      break;
+    case "chart-manualOff":
+      chartManualOff.config.options.scales.y.grid = {
+        display: true,
+        drawOnChartArea: true,
+      }
+      chartManOff.config.options.scales.x.grid = {
+        display: true,
+        drawOnChartArea: true,
+      }
+      chartManualOff.update()
+      break;
+    case "chart-otomatisOff":
+      chartOtomatisOff.config.options.scales.y.grid = {
+        display: true,
+        drawOnChartArea: true,
+      }
+      chartOtomatisOff.config.options.scales.x.grid = {
+        display: true,
+        drawOnChartArea: true,
+      }
+      chartOtomatisOff.update()
+      break
+  }
+  document.getElementById("show-grid").classList.add('hide')
+  document.getElementById("hide-grid").classList.remove('hide')
+}
+
+const hideGrid = chart => {
+  switch(chart){
+    case "chart-otomatis":
+      chartOtomatis.config.options.scales.y.grid = {
+        display: false,
+        drawOnChartArea: false,
+      }
+      chartOtomatis.config.options.scales.x.grid = {
+        display: false,
+        drawOnChartArea: false,
+      }
+      chartOtomatis.update()
+      break;
+    case "chart-manual":
+      chartManual.config.options.scales.y.grid = {
+        display: false,
+        drawOnChartArea: false,
+      }
+      chartManual.config.options.scales.x.grid = {
+        display: false,
+        drawOnChartArea: false,
+      }
+      chartManual.update()
+      break;
+    case "chart-manualOff":
+      chartManualOff.config.options.scales.y.grid = {
+        display: false,
+        drawOnChartArea: false,
+      }
+      chartManOff.config.options.scales.x.grid = {
+        display: false,
+        drawOnChartArea: false,
+      }
+      chartManualOff.update()
+      break;
+    case "chart-otomatisOff":
+      chartOtomatisOff.config.options.scales.y.grid = {
+        display: false,
+        drawOnChartArea: false,
+      }
+      chartOtomatisOff.config.options.scales.x.grid = {
+        display: false,
+        drawOnChartArea: false,
+      }
+      chartOtomatisOff.update()
+      break
+  }
+  document.getElementById("hide-grid").classList.add('hide')
+  document.getElementById("show-grid").classList.remove('hide')
+}
+
+
+// ============================ End of Chart Picker ============================
+
 
 getData();

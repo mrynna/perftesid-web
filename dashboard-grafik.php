@@ -270,29 +270,42 @@
                             <div class="col-12 chart">
                                 <div class="card tegangan">
                                     <div class="card-body">
-                                        <h4 class="header-title">Chart Tegangan</h4>
+                                        <div class="dropdown">
+                                            <button class="btn btn-secondary dropdown-toggle chart-picker" type="button" id="dropdown-chartPicker" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <h4 class="header-title chart" id="dropdown-title otomatis">Grafik Tegangan</h4></button>
+                                            <ul class="dropdown-menu chartpicker" aria-labelledby="dropdown-chartPicker">
+                                                <li><a class="dropdown-item" onclick="changeChart('chart-otomatis', 'chart-tegangan')">Tegangan</a></li>
+                                                <li><a class="dropdown-item" onclick="changeChart('chart-otomatis', 'chart-arus')">Arus</a></li>
+                                                <li><a class="dropdown-item" onclick="changeChart('chart-otomatis', 'chart-suhulingkungan')">Suhu Lingkungan</a></li>
+                                                <li><a class="dropdown-item" onclick="changeChart('chart-otomatis', 'chart-suhupanel')">Suhu Panel</a></li>
+                                                <li><a class="dropdown-item" onclick="changeChart('chart-otomatis', 'chart-iradiasi')">Iradiasi</a></li>
+                                                <li><a class="dropdown-item" onclick="changeChart('chart-otomatis', 'chart-performa')">Performa</a></li>
+                                            </ul>
+                                        </div>
                                         <div dir="ltr chart">
                                             <div class="col chart-top">
                                                 <div class = "row date-picker">
-                                                    <input type="datetime-local" class="form-control form-control-light chart-date" id="timeStart" onchange="startTimeFilter('chart-tegangan', this)">
-                                                    <input type="datetime-local" class="form-control form-control-light chart-date" id="timeEnd" onchange="endTimeFilter('chart-tegangan', this)">
+                                                    <input type="datetime-local" class="form-control form-control-light chart-date" id="timeStart" onchange="startTimeFilter('chart-otomatis', this)">
+                                                    <input type="datetime-local" class="form-control form-control-light chart-date" id="timeEnd" onchange="endTimeFilter('chart-otomatis', this)">
                                                 </div>
                                                 <div class="btn-group btn-group-sm border-0"  role="group" aria-label="Small button group">
-                                                    <button type="button" class="btn btn-primary reset border-0" data-toggle="tooltip" title="Reset Zoom" onclick="zoomReset('chart-tegangan')"><i class="icon" data-feather="x"></i></button>
-                                                    <button type="button" class="btn btn-primary zoom-in border-0" data-toggle="tooltip" title="Zoom In" onclick="zoomIn('chart-tegangan')"><i class="icon" data-feather="zoom-in"></i></button>
-                                                    <button type="button" class="btn btn-primary zoom-out border-0" data-toggle="tooltip" title="Zoom Out" onclick="zoomOut('chart-tegangan')"><i class="icon" data-feather="zoom-out"></i></i></button>
+                                                    <button type="button" class="btn btn-primary reset border-0" data-toggle="tooltip" title="Reset Zoom" onclick="zoomReset('chart-otomatis')"><i class="icon" data-feather="x"></i></button>
+                                                    <button type="button" class="btn btn-primary zoom-in border-0" data-toggle="tooltip" title="Zoom In" onclick="zoomIn('chart-otomatis')"><i class="icon" data-feather="zoom-in"></i></button>
+                                                    <button type="button" class="btn btn-primary zoom-out border-0" data-toggle="tooltip" title="Zoom Out" onclick="zoomOut('chart-otomatis')"><i class="icon" data-feather="zoom-out"></i></i></button>
                                                     <div class="dropdown">
                                                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                                         </button>
                                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                                            <li><a class="dropdown-item" onclick="saveAsPNG('chart-tegangan')">Simpan PNG</a></li>
-                                                            <li><a class="dropdown-item" onclick="saveAsJPG('chart-tegangan')">Simpan JPG</a></li>
+                                                            <li><a class="dropdown-item show-grid" id="show-grid" onclick="showGrid('chart-otomatis')">Tampilkan Grid</a></li>
+                                                            <li><a class="dropdown-item hide-grid hide" id="hide-grid" onclick="hideGrid('chart-otomatis')">Sembunyikan Grid</a></li>
+                                                            <li><a class="dropdown-item" onclick="saveAsPNG('chart-otomatis')">Simpan PNG</a></li>
+                                                            <li><a class="dropdown-item" onclick="saveAsJPG('chart-otomatis')">Simpan JPG</a></li>
                                                             <li><a class="dropdown-item" id="downloadCSV">Export ke CSV</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <canvas id="chart-tegangan"></canvas> 
+                                            <canvas id="chart-otomatis"></canvas> 
                                             <div class="popup" id="popup">
                                                 <h7> Masukkan rentang waktu yang sesuai !!!</h7>
                                                 <button type="button" id ="popup-button" class="btn btn-primary popup-button">OK</button>

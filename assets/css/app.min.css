@@ -19055,6 +19055,25 @@ div.table-responsive
   }
 }
 
+.chart-picker {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-items:end !important;
+  background-color: transparent;
+  color: #6c757d;
+  border: none;
+}
+
+.chart-picker:hover {
+  background-color: #f1f3fa85;
+  color: #6c757d;
+}
+
+.chart-picker:focus {
+  background-color: #f1f3faf5;
+  color: #6c757d;
+}
+
 .col.chart-top{
   display: flex;
   flex-direction: row;
@@ -19077,40 +19096,6 @@ div.table-responsive
   width: 10rem;
   padding:0.2rem 0.2rem;
   margin-inline: 0.2rem !important;
-}
-
-@media screen and (max-width: 670px){
-  .card.tegangan {
-    width: 100%;
-    .card-body {
-      padding: 10px 10px !important;
-      padding-top: 20px !important;
-    }
-  }
-  
-  .col.chart-top{
-    display: flex;
-    flex-direction: row;
-    justify-content:space-between;
-    /* padding-right: 10px; */
-  }
-  
-  .chart-date {
-    width: 15%;
-    /* margin-left: -20px; */
-  }
-
-  .row.date-picker {
-    margin-left: -65px;
-  }
-
-  .row.date-picker input{
-    color: transparent !important;
-  }
-
-  .btn-group-sm>.btn, .btn-sm  {
-    margin-left: -100px;
-  }
 }
 
 .btn.btn-secondary.dropdown-toggle {
@@ -19197,12 +19182,59 @@ background-color: #5c636a85 !important;
   flex-direction: row;
 }
 
+@media screen and (max-width: 670px){
+  .card.tegangan {
+    width: 100%;
+    .card-body {
+      padding: 10px 10px !important;
+      padding-top: 20px !important;
+    }
+  }
+  
+  .col.chart-top{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    /* padding-right: 10px; */
+  }
+  
+  .chart-date {
+    width: 15% !important;
+    padding:0 0 !important;
+    /* margin-left: -20px; */
+  }
+
+  .row.date-picker {
+    margin-left: -65px;
+  }
+
+  .row.date-picker input{
+    color: transparent !important;
+  }
+
+  .btn-group-sm>.btn, .btn-sm  {
+    margin-left: -100px;
+  }
+}
+
+.show-grid {
+  visibility: visible;
+}
+
+.show-grid.hide {
+  display: none !important;
+}
+
+.hide-grid {
+  visibility: visible;
+}
+
+.hide-grid.hide {
+  display: none !important;
+}
+
 
 /* ====================================== End of Chart =================================== */
-
-.card.tegangan.mini {
-  width: 35%;
-}
 
 .row.table {
   display: flex;

@@ -761,7 +761,7 @@ $(document).ready(function () {
         data: { from_dateOff: from_dateOff, to_dateOff: to_dateOff },
         success: function (data) {
           // console.log(data);
-          const dataTitle = document.getElementById("dropdown-title manual").innerHTML;
+          const dataTitle = document.getElementById("dropdown-title otomatisOff").innerHTML;
           let headers = {
           };
           var datas = JSON.parse(data);
@@ -903,7 +903,7 @@ $(document).ready(function () {
         data: { from_dateManOff: from_dateManOff, to_dateManOff: to_dateManOff },
         success: function (data) {
           // console.log(data);
-          const dataTitle = document.getElementById("dropdown-title manual").innerHTML;
+          const dataTitle = document.getElementById("dropdown-title manualOff").innerHTML;
           let headers = {
           };
           var datas = JSON.parse(data);

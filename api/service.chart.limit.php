@@ -8,7 +8,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
     $data_id = $result_id->fetch_assoc();
     $id_akhir = $data_id['MAX(id)'];
     $id_awal = $id_akhir - 9;
-    $sql_asc = "SELECT * FROM tb_data WHERE token = '$token' AND id >= '$id_awal' AND id <= '$id_akhir' ORDER BY id ASC";
+    $sql_asc = "SELECT * FROM tb_data WHERE token = '$token' AND id >= '$id_awal' AND id <= '$id_akhir' ORDER BY waktu ASC";
 
     // Execute the query and fetch the results 
     $result_asc = $dbconnect->query($sql_asc);

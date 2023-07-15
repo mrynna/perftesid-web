@@ -3,7 +3,7 @@ session_start();
 if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
     require 'connection.php';
     $token = $_SESSION['user_token'];
-    $sql = "SELECT * FROM tb_dataman WHERE token = '$token' AND waktu BETWEEN '" . $_POST["from_dateMan"] . "' AND '" . $_POST["to_dateMan"] . "'";
+    $sql = "SELECT * FROM tb_dataman WHERE token = '$token' AND waktu BETWEEN '" . $_POST["from_dateMan"] . "' AND '" . $_POST["to_dateMan"] . "' ORDER BY waktu ASC" ;
     $result = $dbconnect->query($sql);
 
     // Menyimpan data dalam array

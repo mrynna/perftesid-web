@@ -80,6 +80,9 @@ function getData() {
             },
           },
           plugins: {
+            legend: {
+              display: false
+            },
             tooltip: {
               callbacks: {
                   label: (item) =>
@@ -191,6 +194,9 @@ function getDataMan() {
             },
           },
           plugins: {
+            legend: {
+              display: false
+            },
             tooltip: {
               callbacks: {
                   label: (item) =>
@@ -299,6 +305,9 @@ function getDataOff() {
             },
           },
           plugins: {
+            legend: {
+              display: false
+            },
             tooltip: {
               callbacks: {
                   label: (item) =>
@@ -407,6 +416,9 @@ function getDataManOff() {
             },
           },
           plugins: {
+            legend: {
+              display: false
+            },
             tooltip: {
               callbacks: {
                   label: (item) =>

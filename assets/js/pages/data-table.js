@@ -1,5 +1,5 @@
-$(document).ready(function () {
-  $('#filter').click(function () {
+$(document).ready(() => {
+  $('#filter').click(() => {
       var from_date = $('#from_date').val();
       var to_date = $('#to_date').val();
       if (from_date != '' && to_date != '') {

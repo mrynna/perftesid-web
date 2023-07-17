@@ -17,19 +17,6 @@
             <!-- App favicon -->
             <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
             <link rel="shortcut icon" href="assets/images/pnup.png">
-    
-            <!-- third party css -->
-            <!-- <link href="assets/css/vendor/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css"> -->
-            <!-- <script src="https://code.highcharts.com/highcharts.js"></script> -->
-            <!-- <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script> -->
-            <!-- <script>dayjs().format()</script> -->
-            <!-- third party css end -->
-
-            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js" integrity="sha512-UXumZrZNiOwnTcZSHLOfcTs0aos2MzBWHXOHOuB0J/R44QB0dwY5JgfbvljXcklVf65Gc4El6RjZ+lnwd2az2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/2.0.1/chartjs-plugin-zoom.min.js" integrity="sha512-wUYbRPLV5zs6IqvWd88HIqZU/b8TBx+I8LEioQ/UC0t5EMCLApqhIAnUg7EsAzdbhhdgW07TqYDdH3QEXRcPOQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-            <script src="https://unpkg.com/feather-icons"></script>
             
             <!-- App css -->
             <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css">
@@ -513,13 +500,6 @@
                             <div class="col-md-6">
                                 <script>document.write(new Date().getFullYear())</script> © Politeknik Negeri Ujung Pandang
                             </div>
-                            <div class="col-md-6">
-                                <div class="text-md-end footer-links d-none d-md-block">
-                                    <a href="javascript: void(0);">About</a>
-                                    <a href="javascript: void(0);">Support</a>
-                                    <a href="javascript: void(0);">Contact Us</a>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </footer>
@@ -628,24 +608,29 @@
         <div class="rightbar-overlay"></div>
         <!-- /End-bar -->
 
-        <script>
-            feather.replace()
-        </script>
 
         <!-- bundle -->
         <script src="assets/js/vendor.min.js"></script>
         <script src="assets/js/app.min.js"></script>
+        <!-- End Bundle -->
 
-        <!-- third party js -->
-        <!-- <script src="assets/js/vendor/Chart.bundle.min.js"></script> -->
-        <!-- <script src="assets/js/vendor/apexcharts.min.js"></script> -->
-        <!-- <script src="assets/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
-        <script src="assets/js/vendor/jquery-jvectormap-world-mill-en.js"></script> -->
-        <!-- third party js ends -->
+        <!-- Third party js -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js" integrity="sha512-UXumZrZNiOwnTcZSHLOfcTs0aos2MzBWHXOHOuB0J/R44QB0dwY5JgfbvljXcklVf65Gc4El6RjZ+lnwd2az2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/2.0.1/chartjs-plugin-zoom.min.js" integrity="sha512-wUYbRPLV5zs6IqvWd88HIqZU/b8TBx+I8LEioQ/UC0t5EMCLApqhIAnUg7EsAzdbhhdgW07TqYDdH3QEXRcPOQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://unpkg.com/feather-icons"></script>
+        <!-- End Third party js -->
 
-        <!-- demo app -->
+        <!-- app js -->
         <script src="assets/js/pages/chart.datagrafik.js"></script>
-        <!-- end demo js-->
+        <!-- end app js-->
+        
+        <!-- icon replace js -->
+        <script>
+            feather.replace()
+        </script>
+        <!-- end icon replace js -->
     </body>
 
 </html>

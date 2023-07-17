@@ -19061,6 +19061,8 @@ div.table-responsive
   flex-direction: row !important;
   justify-items:end !important;
   background-color: transparent;
+  margin-bottom: 10px;
+  padding-top: 10px !important;
   color: #6c757d;
   border: none;
 }
@@ -19246,10 +19248,68 @@ background-color: #5c636a85 !important;
 
 /* ====================================== End of Chart =================================== */
 
+/* ===========================Table Style========================== */
 .row.table {
   display: flex;
+  position: relative;
   width: 100%;
   align-content: center;
   padding-left: 180px;
   margin-left: -80px;
 }
+
+.col-md-3.table {
+  width: 200px;
+  height: 10px;
+  justify-self: center;
+}
+
+
+.row.date-picker.table {
+  display: flex;
+  flex-direction: column;
+  padding-left: 225px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  max-height: 30px;
+  padding-bottom: 40px;
+  margin-bottom:0%;
+}
+
+.card.body.table{
+  padding-top: 20px;
+}
+
+@media screen and (max-width: 1200px){
+  .row.table {
+    display: flex;
+    position: relative;
+    width: 100%;
+    align-content: center;
+    padding-left: 0px;
+    margin-left: 0px;
+    /* margin-left: 80px; */
+  }
+}
+
+@media screen and (max-width: 590px){
+  .col-md-3.table {
+    width: 150px;
+    height: 10px;
+    justify-self: center;
+  }
+  
+  
+  .row.date-picker.table {
+    display: flex;
+    flex-direction: column;
+    padding-left: 160px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    max-height: 30px;
+    padding-bottom: 40px;
+    margin-bottom:0%;
+  }
+}
+
+/* ============= End Of table ============== */

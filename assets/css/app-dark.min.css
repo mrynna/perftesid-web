@@ -19064,6 +19064,7 @@ div.table-responsive
 /*# sourceMappingURL=app-dark.min.css.map */
 
 /* =================================== Chart ================================ */
+
 .card.tegangan {
   width: 100%;
   .card-body {
@@ -19076,6 +19077,8 @@ div.table-responsive
   flex-direction: row !important;
   justify-items:end !important;
   background-color: transparent;
+  margin-bottom: 10px;
+  padding-top: 10px !important;
   color: #6c757d;
   border: none;
 }
@@ -19145,16 +19148,16 @@ background-color: #5c636a85 !important;
 .btn-primary {
   outline: none !important;
   box-shadow: none;
-  background-color: #404954 !important;
+  background-color: #f1f3fa !important;
 }
 
 .icon{
-  stroke: #c6ccd2;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  fill: none;
-}
+  stroke: #5c636a;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+  }
 
 .popup {
   width: 200px;
@@ -19207,7 +19210,7 @@ background-color: #5c636a85 !important;
     padding-top: 20px;
     line-height: 40px !important;
   }
-
+  
   .card.tegangan {
     width: 100%;
     .card-body {
@@ -19261,10 +19264,68 @@ background-color: #5c636a85 !important;
 
 /* ====================================== End of Chart =================================== */
 
+/* ===========================Table Style========================== */
 .row.table {
   display: flex;
+  position: relative;
   width: 100%;
   align-content: center;
   padding-left: 180px;
   margin-left: -80px;
 }
+
+.col-md-3.table {
+  width: 200px;
+  height: 10px;
+  justify-self: center;
+}
+
+
+.row.date-picker.table {
+  display: flex;
+  flex-direction: column;
+  padding-left: 225px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  max-height: 30px;
+  padding-bottom: 40px;
+  margin-bottom:0%;
+}
+
+.card.body.table{
+  padding-top: 20px;
+}
+
+@media screen and (max-width: 1200px){
+  .row.table {
+    display: flex;
+    position: relative;
+    width: 100%;
+    align-content: center;
+    padding-left: 0px;
+    margin-left: 0px;
+    /* margin-left: 80px; */
+  }
+}
+
+@media screen and (max-width: 590px){
+  .col-md-3.table {
+    width: 150px;
+    height: 10px;
+    justify-self: center;
+  }
+  
+  
+  .row.date-picker.table {
+    display: flex;
+    flex-direction: column;
+    padding-left: 160px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    max-height: 30px;
+    padding-bottom: 40px;
+    margin-bottom:0%;
+  }
+}
+
+/* ============= End Of table ============== */

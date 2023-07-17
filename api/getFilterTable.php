@@ -8,17 +8,19 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
 
      // Menyimpan data dalam array
      $output = '  
-           <table class="table table-bordered">  
-                <tr>  
-                     <th scope="col" width="5%">No</th>  
-                     <th scope="col" width="10%">Tegangan</th>  
-                     <th scope="col" width="10%">Arus</th>  
-                     <th scope="col" width="10%">Suhu Lingkungan</th>  
-                     <th scope="col" width="10%">Suhu Panel</th>  
-                     <th scope="col" width="10%">Iradiasi</th>  
-                     <th scope="col" width="10%">Performa</th>  
-                     <th scope="col" width="15%">Waktu</th>  
-                </tr>  
+           <table class="table table-bordered" id="table-otomatis">
+               <thead>  
+                    <tr>  
+                         <th scope="col" width="5%">No</th>  
+                         <th scope="col" width="10%">Tegangan</th>  
+                         <th scope="col" width="10%">Arus</th>  
+                         <th scope="col" width="10%">Suhu Lingkungan</th>  
+                         <th scope="col" width="10%">Suhu Panel</th>  
+                         <th scope="col" width="10%">Iradiasi</th>  
+                         <th scope="col" width="10%">Performa</th>  
+                         <th scope="col" width="15%">Waktu</th>  
+                    </tr> 
+                </thead> 
       ';
      if ($result->num_rows > 0) {
           $id = 1;

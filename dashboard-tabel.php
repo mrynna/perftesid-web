@@ -24,19 +24,17 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
         <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
         <link rel="shortcut icon" href="assets/images/pnup.png">
 
-        <!-- third party css -->
-        <link href="assets/css/vendor/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css">
-        <!-- third party css end -->
-
+        
         <!-- App css -->
         <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css">
         <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" id="light-style">
         <link href="assets/css/app-dark.min.css" rel="stylesheet" type="text/css" id="dark-style">
 
-        <!-- Script -->
-        <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
-
+        <!-- third party css -->
+        <link href="assets/vendor/DataTables/datatables.min.css" rel="stylesheet"/>
+        <!-- third party css end -->
+        
     </head>
 
 
@@ -258,8 +256,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
 
                     <!-- Start Content-->
                     <div class="container-fluid">
-
-                        <!-- start page title -->
+                            <!-- start page title -->
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box">
@@ -276,69 +273,76 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
                             </div>
                         </div>
                         <!-- end page title -->
-
-                        <div class="row table">
-                            <div class="col-md-3">
-                                <input type="datetime-local" name="from_date" id="from_date" class="form-control form-control-light"
-                                    placeholder="From Date" />
-                            </div>
-                            <div class="col-md-3">
-                                <input type="datetime-local" name="to_date" id="to_date" class="form-control form-control-light"
-                                    placeholder="To Date" />
-                            </div>
-                            <div class="col-md-5">
-                                <input type="button" name="filter" id="filter" value="Filter" class="btn btn-info" />
-                            </div>
-                            <div style="clear:both"></div>
-                            <br />
-                            <div id="order_table">
-                                <table class="table table-bordered" id="table-otomatis">
-                                    <tr>
-                                        <th scope="col" width="5%">No</th>  
-                                        <th scope="col" width="10%">Tegangan</th>  
-                                        <th scope="col" width="10%">Arus</th>  
-                                        <th scope="col" width="10%">Suhu Lingkungan</th>  
-                                        <th scope="col" width="10%">Suhu Panel</th>  
-                                        <th scope="col" width="10%">Iradiasi</th>  
-                                        <th scope="col" width="10%">Performa</th>  
-                                        <th scope="col" width="15%">Waktu</th>  
-                                    </tr>
-                                    <?php
-                                    while ($row = $result->fetch_assoc()) {
-                                        ?>
-                                        <tr>
-                                            <td>
-                                                <?php echo $row["id"]; ?>
-                                            </td>
-                                            <td>
-                                                <?php echo $row["tegangan"]; ?> V
-                                            </td>
-                                            <td>
-                                                <?php echo $row["arus"]; ?> A
-                                            </td>
-                                            <td>
-                                                <?php echo $row["suhuLingkungan"]; ?> C
-                                            </td>
-                                            <td>
-                                                <?php echo $row["suhuPanel"]; ?> C
-                                            </td>
-                                            <td>
-                                                <?php echo $row["iradiasi"]; ?> w/m2
-                                            </td>
-                                            <td>
-                                                <?php echo $row["performa"]; ?> %
-                                            </td>
-                                            <td>
-                                                <?php echo $row["waktu"]; ?>
-                                            </td>
-                                        </tr>
+                        <div class="card body table">
+                            <div class="row table">
+                                <div class="row date-picker table">
+                                    <div class="col-md-3 table">
+                                        <input type="datetime-local" name="from_date" id="from_date" class="form-control form-control-light"
+                                            placeholder="From Date" />
+                                    </div>
+                                    <div class="col-md-3 table">
+                                        <input type="datetime-local" name="to_date" id="to_date" class="form-control form-control-light"
+                                            placeholder="To Date" />
+                                    </div>
+                                    <div class="col-md-5 table">
+                                        <input type="button" name="filter" id="filter" value="Filter" class="btn btn-info" />
+                                    </div>
+                                </div>
+                                <div style="clear:both"></div>
+                                <br />
+                                <div id="order_table">
+                                    <table class="table table-bordered" id="table-otomatis">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" width="5%">No</th>  
+                                                <th scope="col" width="10%">Tegangann (V)</th>  
+                                                <th scope="col" width="10%">Arus (A)</th>  
+                                                <th scope="col" width="10%">Suhu Lingkungan (°C)</th>  
+                                                <th scope="col" width="10%">Suhu Panel (°C)</th>  
+                                                <th scope="col" width="10%">Iradiasi (W/m²)</th>  
+                                                <th scope="col" width="10%">Performa (%)</th>  
+                                                <th scope="col" width="15%">Waktu</th>  
+                                            </tr>
+                                        </thead>
+                                        <tbody>
                                         <?php
-                                    }
-                                    ?>
-                                </table>
+                                        while ($row = $result->fetch_assoc()) {
+                                            ?>
+                                            <tr>
+                                                <td>
+                                                    <?php echo $row["id"]; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row["tegangan"]; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row["arus"]; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row["suhuLingkungan"]; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row["suhuPanel"]; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row["iradiasi"]; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row["performa"]; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row["waktu"]; ?>
+                                                </td>
+                                            </tr>
+                                            <?php
+                                        }
+                                        ?>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
+                            <!-- end row -->
                         </div>
-                        <!-- end row -->
                     </div> <!-- container -->
                 </div> <!-- content -->
 
@@ -475,13 +479,26 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
         <!-- bundle -->
         <script src="assets/js/vendor.min.js"></script>
         <script src="assets/js/app.min.js"></script>
-        <!-- <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/js/vendor/jquery.dataTables.min.js"></script>
-        <script src="assets/js/vendor/dataTables.bootstrap5.js"></script> -->
-
-        <!-- main app -->
+        <!-- End Bundle -->
+        
+        <!-- Third Party -->
+        <script src="assets/vendor/DataTables/datatables.min.js"></script>
+        <!-- end Third Party` -->
+        
+        <!-- js script -->
         <script src="assets/js/pages/data-table.js"></script>
-        <!-- end demo js-->
+        <!-- end js-->
+
+        <script>
+            $(document).ready(function() {
+                var table = $("#table-otomatis").DataTable({
+                    scrollY: 600,
+                    // scroller: true,
+                    responsive: true
+                })
+            })
+        </script>
+        <script></script>
     </body>
 
     </html>

@@ -3,7 +3,7 @@ session_start();
 if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
      require 'connection.php';
      $token = $_SESSION['user_token'];
-     $sql = "SELECT * FROM tb_data WHERE token = '$token' AND waktu BETWEEN '" . $_POST["from_date"] . "' AND '" . $_POST["to_date"] . "'";
+     $sql = "SELECT * FROM tb_dataman WHERE token = '$token' AND waktu BETWEEN '" . $_POST["from_date"] . "' AND '" . $_POST["to_date"] . "'";
      $result = $dbconnect->query($sql);
 
      // Menyimpan data dalam array
@@ -41,7 +41,14 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
      } else {
           $output .= '  
                          <tr>  
-                              <td colspan="8">No Order Found</td>  
+                              <td>-</td>  
+                              <td>-</td>  
+                              <td>-</td>  
+                              <td>-</td>  
+                              <td>-</td>  
+                              <td>-</td>  
+                              <td>-</td>  
+                              <td>-</td>  
                          </tr>  
                     ';
      }

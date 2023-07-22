@@ -276,16 +276,18 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
                         <div class="card body table">
                             <div class="row table">
                                 <div class="row date-picker table">
-                                    <div class="col-md-3 table">
-                                        <input type="datetime-local" name="from_date" id="from_date" class="form-control form-control-light"
-                                            placeholder="From Date" />
+                                    <div class="container date-picker-field">
+                                        <div class="col-md-3 table date-picker filter">
+                                            <input type="datetime-local" name="from_date" id="from_date" class="form-control form-control-light"
+                                                placeholder="From Date" />
+                                        </div>
+                                        <div class="col-md-3 table date-picker filter">
+                                            <input type="datetime-local" name="to_date" id="to_date" class="form-control form-control-light"
+                                                placeholder="To Date" />
+                                        </div>
                                     </div>
-                                    <div class="col-md-3 table">
-                                        <input type="datetime-local" name="to_date" id="to_date" class="form-control form-control-light"
-                                            placeholder="To Date" />
-                                    </div>
-                                    <div class="col-md-5 table">
-                                        <input type="button" name="filter" id="filter" value="Filter" class="btn btn-info" />
+                                    <div class="col-md-5 table date-picker filter-button">
+                                        <input type="button" name="filter" id="filter" value="Filter" class="btn btn-info date-picker filter" />
                                     </div>
                                 </div>
                                 <div style="clear:both"></div>
@@ -342,6 +344,10 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
                                 </div>
                             </div>
                             <!-- end row -->
+                        </div>
+                        <div class="popup" id="popup">
+                            <h7> Masukkan rentang waktu yang sesuai !!!</h7>
+                            <button type="button" id ="popup-button" class="btn btn-primary popup-button">OK</button>
                         </div>
                     </div> <!-- container -->
                 </div> <!-- content -->
@@ -489,15 +495,6 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
         <script src="assets/js/pages/data-table.js"></script>
         <!-- end js-->
 
-        <script>
-            $(document).ready(function() {
-                var table = $("#table-otomatis").DataTable({
-                    scrollY: 600,
-                    // scroller: true,
-                    responsive: true
-                })
-            })
-        </script>
         <script></script>
     </body>
 

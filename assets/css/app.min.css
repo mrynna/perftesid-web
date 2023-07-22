@@ -19264,16 +19264,39 @@ background-color: #5c636a85 !important;
   justify-self: center;
 }
 
-
 .row.date-picker.table {
   display: flex;
   flex-direction: column;
-  padding-left: 225px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  justify-content: center;
+  padding-left: 300px;
+  padding-top: 20px;
   max-height: 30px;
-  padding-bottom: 40px;
+  padding-bottom: 0px;
   margin-bottom:0%;
+}
+
+.container.date-picker-field {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  max-width: 60%;
+}
+
+.table.date-picker.filter-button {
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  padding-top: 30px;
+  padding-left: 40px;
+  margin-left: 0px;
+}
+
+.btn.btn-info.date-picker.filter {
+  background-color: #3095b2;
+  color: white;
+  width: 80px; 
+}
+.btn.btn-info.date-picker.filter:active {
+  background-color: #3dd5f3;
 }
 
 .card.body.table{
@@ -19282,34 +19305,71 @@ background-color: #5c636a85 !important;
 
 @media screen and (max-width: 1200px){
   .row.table {
-    display: flex;
-    position: relative;
-    width: 100%;
-    align-content: center;
     padding-left: 0px;
     margin-left: 0px;
     /* margin-left: 80px; */
   }
+  .table.date-picker.filter-button {
+    padding-left: 60px !important;
+  }
 }
-
-@media screen and (max-width: 590px){
+  
+@media screen and (max-width: 902px){
   .col-md-3.table {
     width: 150px;
     height: 10px;
-    justify-self: center;
+    /* justify-self: center; */
+  }
+
+  .row.date-picker.table {
+    padding-left: 250px;
+    padding-bottom: 5px;
+  }
+
+  .container.date-picker-field {
+    max-width: 40%;
+    padding-right: 125px !important;
   }
   
-  
-  .row.date-picker.table {
-    display: flex;
-    flex-direction: column;
-    padding-left: 160px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    max-height: 30px;
-    padding-bottom: 40px;
-    margin-bottom:0%;
+  .table.date-picker.filter-button {
+    padding-left: 40px;
   }
 }
+
+@media screen and (max-width: 540px){
+
+  .col-md-3.table {
+    width: 100px;
+    height: 10px;
+    /* justify-self: center; */
+  }
+
+  .row.date-picker.table {
+    padding-left: 140px;
+    padding-top: 5px;
+  }
+
+  .container.date-picker-field {
+    max-width: 40%;
+    padding-right: 70px !important;
+  }
+  
+  .table.date-picker.filter-button {
+    padding-top: 42px;
+    padding-left: 40px;
+    margin-left: 0px;
+  }
+
+  .filter{
+    padding-top: 30px !important;
+  }
+
+  .btn.filter{
+    padding-top: 0px !important;
+    /* color: white; */
+    height: 50px;
+  }
+}
+
 
 /* ============= End Of table ============== */

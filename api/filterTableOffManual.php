@@ -12,12 +12,12 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
                <thead>  
                     <tr>  
                          <th scope="col" width="5%">No</th>  
-                         <th scope="col" width="10%">Tegangan</th>  
-                         <th scope="col" width="10%">Arus</th>  
-                         <th scope="col" width="10%">Suhu Lingkungan</th>  
-                         <th scope="col" width="10%">Suhu Panel</th>  
-                         <th scope="col" width="10%">Iradiasi</th>  
-                         <th scope="col" width="10%">Performa</th>  
+                         <th scope="col" width="10%">Tegangan (V)</th>  
+                         <th scope="col" width="10%">Arus (A)</th>  
+                         <th scope="col" width="10%">Suhu Lingkungan (°C)</th>  
+                         <th scope="col" width="10%">Suhu Panel (°C)</th>  
+                         <th scope="col" width="10%">Iradiasi (W/m²)</th>  
+                         <th scope="col" width="10%">Performa (%)</th>  
                          <th scope="col" width="15%">Waktu</th>  
                     </tr> 
                 </thead> 
@@ -28,12 +28,12 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
                $output .= '  
                               <tr>  
                                    <td>' . $id++ . '</td>  
-                                   <td>' . $row["tegangan"] . ' V</td>  
-                                   <td>' . $row["arus"] . ' A</td>  
-                                   <td>' . $row["suhuLingkungan"] . ' C</td>  
-                                   <td>' . $row["suhuPanel"] . ' C</td>  
-                                   <td>' . $row["iradiasi"] . ' w/m2</td>  
-                                   <td>' . $row["performa"] . ' %</td>  
+                                   <td>' . $row["tegangan"] . '</td>  
+                                   <td>' . $row["arus"] . '</td>  
+                                   <td>' . $row["suhuLingkungan"] . '</td>  
+                                   <td>' . $row["suhuPanel"] . '</td>  
+                                   <td>' . $row["iradiasi"] . '</td>  
+                                   <td>' . $row["performa"] . '</td>  
                                    <td>' . $row["waktu"] . ' </td>  
                               </tr>  
                          ';

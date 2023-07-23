@@ -19249,6 +19249,8 @@ background-color: #5c636a85 !important;
 /* ====================================== End of Chart =================================== */
 
 /* ===========================Table Style========================== */
+
+
 .row.table {
   display: flex;
   position: relative;
@@ -19262,6 +19264,21 @@ background-color: #5c636a85 !important;
   width: 200px;
   height: 10px;
   justify-self: center;
+}
+
+.table-picker {
+  padding-left:20px;
+  .button{
+    display: flex !important;
+    flex-direction: row !important;
+    justify-items:end !important;
+    background-color: transparent;
+    margin-bottom: 10px;
+    /* padding-top: 10px !important; */
+    max-height: 50px !important;
+    color: #6c757d;
+    border: none;
+  }
 }
 
 .row.date-picker.table {
@@ -19332,7 +19349,7 @@ background-color: #5c636a85 !important;
   }
   
   .table.date-picker.filter-button {
-    padding-left: 40px;
+    padding-left: 40px !important;
   }
 }
 
@@ -19345,18 +19362,18 @@ background-color: #5c636a85 !important;
   }
 
   .row.date-picker.table {
-    padding-left: 140px;
+    padding-left: 130px;
     padding-top: 5px;
   }
 
   .container.date-picker-field {
     max-width: 40%;
-    padding-right: 70px !important;
+    padding-right: 50px !important;
   }
   
   .table.date-picker.filter-button {
     padding-top: 42px;
-    padding-left: 40px;
+    padding-left: 50px !important;
     margin-left: 0px;
   }
 

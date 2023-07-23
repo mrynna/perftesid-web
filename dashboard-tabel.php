@@ -274,6 +274,16 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
                         </div>
                         <!-- end page title -->
                         <div class="card body table">
+                            <div class="dropdown table-picker">
+                                <button class="btn btn-secondary dropdown-toggle table-picker button" type="button" id="dropdown-tablePicker" data-bs-toggle="dropdown" aria-expanded="false">
+                                <h4 class="header-title table" id="dropdown-title">Data Otomatis</h4></button>
+                                <ul class="dropdown-menu table-list" aria-labelledby="dropdown-tablePicker" id="dropdown-options">
+                                    <li><a class="dropdown-item" onclick="changeTable('otomatis')">Data Otomatis</a></li>
+                                    <li><a class="dropdown-item" onclick="changeTable('manual')">Data Manual</a></li>
+                                    <li><a class="dropdown-item" onclick="changeTable('offline-otomatis')">Data Otomatis Offline</a></li>
+                                    <li><a class="dropdown-item" onclick="changeTable('offline-manual')">Data Manual Offline</a></li>
+                                </ul>
+                            </div>
                             <div class="row table">
                                 <div class="row date-picker table">
                                     <div class="container date-picker-field">

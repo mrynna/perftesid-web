@@ -1577,6 +1577,7 @@ const hideGrid = chart => {
 
 // ============================ End of Chart Picker ============================
 
+document.getElementById("footer-year").innerHTML = new Date().getFullYear() + " © Politeknik Negeri Ujung Pandang";
 
 getData();
 getDataMan();

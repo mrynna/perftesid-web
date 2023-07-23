@@ -4,13 +4,15 @@ urlFilter = "api/filterTableOtomatis.php";
 urlExport = "api/getFilterData.php";
 title = "Data Otomatis";
 
+document.getElementById("footer-year").innerHTML = new Date().getFullYear() + " © Politeknik Negeri Ujung Pandang";
+
 $("#from_date").on("change", function () {
   from_date = $("#from_date").val();
-  console.log(from_date);
+//   console.log(from_date);
 });
 $("#to_date").on("change", function () {
   to_date = $("#to_date").val();
-  console.log(to_date);
+//   console.log(to_date);
 });
 
 $(document).ready(function () {
@@ -39,8 +41,8 @@ $(document).ready(function () {
   });
   // console.log(table)
   $("#filter").on("click", function () {
-        titles = title;
-    console.log(titles)
+    titles = title;
+    // console.log(titles);
     if (
       from_date != "" &&
       from_date != undefined &&
@@ -98,21 +100,28 @@ let dataFormatted = [];
 $(document).ready(function () {
   $("#downloadCSV").click(function () {
     if (
-      (from_date != "" &&
-        from_date != undefined &&
-        to_date != "" &&
-        to_date != undefined &&
-        from_date < to_date &&
-        from_date != to_date) && titles != "" && titles != undefined
+      from_date != "" &&
+      from_date != undefined &&
+      to_date != "" &&
+      to_date != undefined &&
+      from_date < to_date &&
+      from_date != to_date &&
+      titles != "" &&
+      titles != undefined
     ) {
       $.ajax({
         url: urlExport,
         method: "POST",
         data: { from_date: from_date, to_date: to_date },
         success: function (data) {
-            console.log(data.length);
-          if ((titles == "Data Otomatis" && data.length > 153) || ((titles == "Data Manual" || titles == "Data Otomatis Offline") && data.length > 161) || (titles == "Data Manual Offline" && data.length > 164)) {
-            console.log(data);
+        //   console.log(data.length);
+          if (
+            (titles == "Data Otomatis" && data.length > 153) ||
+            ((titles == "Data Manual" || titles == "Data Otomatis Offline") &&
+              data.length > 161) ||
+            (titles == "Data Manual Offline" && data.length > 164)
+          ) {
+            // console.log(data);
             let headers = {};
             var datas = JSON.parse(data);
             headers = {
@@ -177,20 +186,22 @@ $(document).ready(function () {
     } else {
       document.getElementById("popup-clickfilter").classList.add("active");
     }
-});
+  });
 });
 document
-.getElementById("popup-nodata-button")
-.addEventListener("click", function () {
+  .getElementById("popup-nodata-button")
+  .addEventListener("click", function () {
     document.getElementById("popup-nodata").classList.remove("active");
-});
-document.getElementById("popup-clickfilter-button").addEventListener("click", function () {
+  });
+document
+  .getElementById("popup-clickfilter-button")
+  .addEventListener("click", function () {
     document.getElementById("popup-clickfilter").classList.remove("active");
-});
+  });
 //================================================== End of Download CSV ==============================================================
 
 const changeTable = (table) => {
-    titles = "";
+  titles = "";
   switch (table) {
     case "otomatis":
       title = "Data Otomatis";

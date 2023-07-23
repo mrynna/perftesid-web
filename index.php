@@ -367,8 +367,11 @@
                 <footer class="footer">
                     <div class="container-fluid">
                         <div class="row">
+                            <div class="col-md-6" id="footer-year"></div>
                             <div class="col-md-6">
-                                <script>document.write(new Date().getFullYear())</script> © Politeknik Negeri Ujung Pandang
+                                <div class="text-md-end footer-links d-none d-md-block">
+                                    <a href="landing-page.php">Tentang</a>
+                                </div>
                             </div>
                         </div>
                     </div>

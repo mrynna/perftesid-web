@@ -19336,6 +19336,76 @@ background-color: #5c636a85 !important;
   padding-top: 20px;
 }
 
+.popup-nodata {
+  width: 200px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  background: #313a46;
+  border-radius: 6px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 15px 30px 30px;
+  /* padding-top: 30px; */
+  color: #ffffff;
+  visibility: hidden;
+}
+
+.popup-nodata.active {
+  visibility: visible;
+  position: fixed;
+}
+
+.popup-nodata-button{
+  align-self: center;
+  text-justify: auto;
+  align-content: center;
+  width: 60%;
+  height: 50%;
+  margin-top: 10px;
+  background-color: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.popup-clickfilter {
+  width: 200px;
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  background: #313a46;
+  border-radius: 6px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 15px 30px 30px;
+  /* padding-top: 30px; */
+  color: #ffffff;
+  visibility: hidden;
+}
+
+.popup-clickfilter.active {
+  visibility: visible;
+  position: fixed;
+}
+
+.popup-clickfilter-button{
+  align-self: center;
+  text-justify: auto;
+  align-content: center;
+  width: 60%;
+  height: 50%;
+  margin-top: 10px;
+  background-color: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 @media screen and (max-width: 1200px){
   .row.table {
     padding-left: 0px;

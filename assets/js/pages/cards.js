@@ -1,3 +1,5 @@
+document.getElementById("footer-year").innerHTML = new Date().getFullYear() + " © Politeknik Negeri Ujung Pandang";
+
 async function getDataFromDatabase() {
     // Make a request to the server to get the data from the database
     fetch('api/service.data.php')
@@ -8,7 +10,7 @@ async function getDataFromDatabase() {
         })
         .catch(error => {
         // Handle any errors that occur during the request
-        console.error(error);
+        // console.error(error);
         });
 }
   

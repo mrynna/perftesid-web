@@ -298,6 +298,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
                                     </div>
                                     <div class="col-md-5 table date-picker filter-button">
                                         <input type="button" name="filter" id="filter" value="Filter" class="btn btn-info date-picker filter" />
+                                        <input type="button" name="export" id="downloadCSV" value="export" class="btn btn-info date-picker export" />
                                     </div>
                                 </div>
                                 <div style="clear:both"></div>
@@ -358,6 +359,14 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
                         <div class="popup" id="popup">
                             <h7> Masukkan rentang waktu yang sesuai !!!</h7>
                             <button type="button" id ="popup-button" class="btn btn-primary popup-button">OK</button>
+                        </div>
+                        <div class="popup-nodata" id="popup-nodata">
+                            <h7> Tidak ada data dalam rentang waktu yang dipilih !!!</h7>
+                            <button type="button" id ="popup-nodata-button" class="btn btn-primary popup-button">OK</button>
+                        </div>
+                        <div class="popup-clickfilter" id="popup-clickfilter">
+                            <h7> Lakukan Filter terlebih dahulu !!!</h7>
+                            <button type="button" id ="popup-clickfilter-button" class="btn btn-primary popup-button">OK</button>
                         </div>
                     </div> <!-- container -->
                 </div> <!-- content -->

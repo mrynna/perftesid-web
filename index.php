@@ -266,25 +266,7 @@
                         <!-- card data -->
                         <div class="container card-data" id="card-data"></div>
                         <!-- end of card data -->
-
-                        <script>
-                            function loadXMLDoc(){
-                                var card = new XMLHttpRequest();
-                                card.onreadystatechange = function() {
-                                    if (this.readyState == 4 && this.status == 200) {
-                                    // Typical action to be performed when the document is ready:
-                                    document.getElementById("card-data").innerHTML = card.responseText;
-                                    }
-                                };
-                                card.open("GET", "assets/data/cards.php", true);
-                                card.send();
-                            }
-                            setInterval(function(){
-                                loadXMLDoc();
-                            }, 1000);
-                            window.onload = loadXMLDoc();
-                        </script>
-                        
+    
                         <div class="row" style="justify-content: center">
                             <div class="col-lg-8">
                                 <div class="card">
@@ -507,6 +489,7 @@
         <!-- third party js ends -->
 
         <!-- js scripts -->
+        <script src="assets/js/pages/cards.js"></script>
         <script src="assets/js/pages/chart.data.js"></script>
         <!-- end js scripts -->
         

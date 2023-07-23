@@ -18,24 +18,8 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
 
     // Fetch the last record from the desc order, only to obtain its two values fields (arus & suhu)
     $row_desc = $result_desc->fetch_assoc();
-    $tegangan = $row_desc['tegangan'];
-    $arus = $row_desc['arus'];
-    $suhuPanel = $row_desc['suhuPanel'];
-    $suhuLingkungan = $row_desc['suhuLingkungan'];
-    $iradiasi = $row_desc['iradiasi'];
-    $performa = $row_desc['performa'];
 
-    // Initialize two arrays to hold the result of our iteration over the asc ordered dataset
-    // $arrayData = [];
-    // if ($result_asc->num_rows > 0) {
-    //     while ($row_asc = $result_asc->fetch_assoc()) {
-    //         $arrayData[] = $row_asc;
-    //     }  
-    // }
-    // if($echoData === true){
-    //     // echo json_encode($arrayData);
-    // }
-
+    echo json_encode($row_desc);
     $dbconnect->close();
 } else {
     echo "Login untuk dapat menampilkan Data";

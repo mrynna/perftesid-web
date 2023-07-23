@@ -22,7 +22,7 @@ $(document).ready(function() {
                     })
                 },
                 error: function () {
-                    alert("Error");
+                    alert("Data not ready, try refresh the page");
                 }
             });
         }

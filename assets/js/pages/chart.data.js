@@ -77,6 +77,7 @@ function getData() {
               borderWidth: 3,
               pointStyle: false,
               tension: 0.2,
+              yAxisID: "Arus",
             },
           ],
         },
@@ -94,7 +95,22 @@ function getData() {
               grid: {
                 display: false,
               },
+              title: {
+                display : true,
+                text: "Tegangan (V)",
+              },
             },
+            Arus: {
+              beginAtZero: true,
+              grid: {
+                display: false,
+              },
+              position: "right",
+              title: {
+                display : true,
+                text: "Arus (A)",
+              },
+            }
           },
           plugins: {
             zoom: {
@@ -140,6 +156,7 @@ function getData() {
               borderWidth: 3,
               pointStyle: false,
               tension: 0.2,
+              yAxisID: "Iradiasi",
             },
           ],
         },
@@ -157,7 +174,22 @@ function getData() {
               grid: {
                 display: false,
               },
+              title: {
+                display : true,
+                text: "Arus (A)",
+              },
             },
+            Iradiasi: {
+              beginAtZero: true,
+              grid: {
+                display: false,
+              },
+              position: "right",
+              title: {
+                display : true,
+                text: "Iradiasi (W/m²)",
+              },
+            }
           },
           plugins: {
             zoom: {
@@ -203,6 +235,7 @@ function getData() {
               borderWidth: 3,
               pointStyle: false,
               tension: 0.2,
+              yAxisID: "SuhuLingkungan",
             },
           ],
         },
@@ -220,7 +253,22 @@ function getData() {
               grid: {
                 display: false,
               },
+              title: {
+                display : true,
+                text: "Suhu Panel (°C)",
+              },
             },
+            SuhuLingkungan: {
+              beginAtZero: true,
+              grid: {
+                display: false,
+              },
+              position: "right",
+              title: {
+                display : true,
+                text: "Suhu Lingkungan (°C)",
+              },
+            }
           },
           plugins: {
             zoom: {
@@ -266,6 +314,7 @@ function getData() {
               borderWidth: 3,
               pointStyle: false,
               tension: 0.2,
+              yAxisID: "SuhuPanel",
             },
             {
               label: "Suhu Lingkungan",
@@ -275,6 +324,7 @@ function getData() {
               borderWidth: 3,
               pointStyle: false,
               tension: 0.2,
+              yAxisID: "SuhuLingkungan",
             },
           ],
         },
@@ -292,7 +342,29 @@ function getData() {
               grid: {
                 display: false,
               },
+              title: {
+                display : true,
+                text: "Tegangan (V)",
+              },
             },
+            SuhuPanel: {
+              beginAtZero: true,
+              grid: {
+                display: false,
+              },
+              position: "right",
+            },
+            SuhuLingkungan: {
+              beginAtZero: true,
+              grid: {
+                display: false,
+              },
+              position: "right",
+              title: {
+                display : true,
+                text: "Suhu (°C)",
+              },
+            }
           },
           plugins: {
             zoom: {
@@ -345,6 +417,10 @@ function getData() {
               beginAtZero: true,
               grid: {
                 display: false,
+              },
+              title: {
+                display : true,
+                text: "Performa (%)",
               },
             },
           },
@@ -406,13 +482,17 @@ function getData() {
               grid: {
                 display: false,
               },
+              title: {
+                display : true,
+                text: "Iradiasi (W/m²)",
+              },
             },
           },
           plugins: {
             tooltip: {
               callbacks: {
                   label: (item) =>
-                      `${item.dataset.label}: ${item.formattedValue} w/m2`,
+                      `${item.dataset.label}: ${item.formattedValue} W/m²`,
               },
             },
             zoom: {

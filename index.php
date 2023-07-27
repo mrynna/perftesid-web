@@ -192,7 +192,22 @@
                         <!-- card data -->
                         <div class="container card-data" id="card-data"></div>
                         <!-- end of card data -->
-    
+                        
+                        <div class="row" style="justify-content: center">
+                            <div class="col-lg-8">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="header-title mb-3">Grafik Performa Panel</h4>
+
+                                        <div dir="ltr">
+                                            <canvas id="perfChart"></canvas>
+                                        </div>
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col-->
+                        </div>
+                        <!-- end row -->
+
                         <div class="row" style="justify-content: center">
                             <div class="col-lg-8">
                                 <div class="card">
@@ -213,39 +228,10 @@
                             <div class="col-lg-8">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="header-title mb-3">Grafik Suhu</h4>
-                                        <div dir="ltr">
-                                            <canvas id="suhuChart"></canvas>
-                                        </div>
-                                    </div> <!-- end card-body-->
-                                </div> <!-- end card-->
-                            </div> <!-- end col-->
-                        </div>
-                        <!-- end row -->
-                        
-                        <div class="row" style="justify-content: center">
-                            <div class="col-lg-8">
-                                <div class="card">
-                                    <div class="card-body">
                                         <h4 class="header-title mb-3">Grafik Iradiasi Matahari</h4>
 
                                         <div dir="ltr">
                                             <canvas id="iradChart"></canvas>
-                                        </div>
-                                    </div> <!-- end card-body-->
-                                </div> <!-- end card-->
-                            </div> <!-- end col-->
-                        </div>
-                        <!-- end row -->
-
-                        <div class="row" style="justify-content: center">
-                            <div class="col-lg-8">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="header-title mb-3">Grafik Performa Panel</h4>
-
-                                        <div dir="ltr">
-                                            <canvas id="perfChart"></canvas>
                                         </div>
                                     </div> <!-- end card-body-->
                                 </div> <!-- end card-->
@@ -276,6 +262,20 @@
 
                                         <div dir="ltr">
                                             <canvas id="vocSuhuChart"></canvas>
+                                        </div>
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col-->
+                        </div>
+                        <!-- end row -->
+                        
+                        <div class="row" style="justify-content: center">
+                            <div class="col-lg-8">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="header-title mb-3">Grafik Suhu</h4>
+                                        <div dir="ltr">
+                                            <canvas id="suhuChart"></canvas>
                                         </div>
                                     </div> <!-- end card-body-->
                                 </div> <!-- end card-->

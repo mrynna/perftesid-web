@@ -436,7 +436,7 @@ function getData() {
       });
     }
   };
-  xhttp.open("GET", "api/service.chart.limit.php", true);
+  xhttp.open("GET", "api/service.chart.php", true);
   xhttp.send();
 }
 

@@ -3,7 +3,7 @@ session_start();
 if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
     require 'connection.php';
     $token = $_SESSION['user_token'];
-    $sql_asc = "SELECT * FROM tb_dataoffline WHERE token = '$token' ORDER BY waktu ASC";
+    $sql_asc = "SELECT * FROM tb_dataoffline WHERE token = '$token'";
 
     // Execute the query and fetch the results 
     $result_asc = $dbconnect->query($sql_asc);

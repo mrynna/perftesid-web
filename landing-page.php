@@ -99,8 +99,8 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
               <div class="d-flex justify-content-center justify-content-between">
                 <button type="submit" class="btn btn-primary">LOGIN
                 </button>
-                <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i
-                    class="bi bi-play-circle"></i><span>Watch Video</span></a>
+                <a href="https://youtu.be/I-mZHo0-b_s" class="glightbox btn-watch-video"><i
+                    class="bi bi-play-circle"></i><span>Lihat Video</span></a>
               </div>
             </form>
           </div>

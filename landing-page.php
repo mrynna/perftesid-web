@@ -112,8 +112,9 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
                 <h2 class="pr-2 pb-0">Hai <?php echo $user_username ?>!  </h2>
                 <a onclick="window.location.href = 'logout.php';" class="glightbox btn-watch-video logout"><h4>Logout</h4><i class="bi bi-box-arrow-right"></i></a>
               </div>
-              <div class="d-flex justify-content-center justify-content-between">
+              <div class="d-flex justify-content-start">
                 <a href="index.php" class="btn btn-primary dashboard"><span>Dashboard  </span><i class="bi bi-graph-up-arrow"></i></a>
+                <a href="https://youtu.be/I-mZHo0-b_s" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Lihat Video</span></a>
               </div>
             </div>
           <?php
@@ -397,6 +398,18 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
             </p>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="container footer-bottom clearfix" style="color: rgb(232, 230, 227); padding-top: 10px; padding-bottom: 10px; max-width: 720px; font-size: 14px;">
+      <div class="copyright" style="float: left;">
+        © Copyright <strong><span>Arsha</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits" style="font-size: 13px; float:right;">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
     </div>
 

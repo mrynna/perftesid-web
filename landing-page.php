@@ -46,7 +46,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="landing-page.php">PERFTESTID</a></h1>
+      <h1 class="logo me-auto"><a href="landing-page.php">PERFTESID</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 

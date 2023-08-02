@@ -193,8 +193,18 @@
                         <div class="container card-data" id="card-data"></div>
                         <!-- end of card data -->
                         
+
                         <div class="row" style="justify-content: center">
                             <div class="col-lg-8">
+                            <div class="dropdown limit-picker pt">
+                                <button class="btn btn-secondary dropdown-toggle limit-picker button" style="display: flex; flex-direction: row; margin-bottom: 10px; width: 200px; justify-content:center; " type="button" id="dropdown-limitPicker" data-bs-toggle="dropdown" aria-expanded="false">
+                                <h4 class="header-title limit" id="dropdown-title">Semua data</h4></button>
+                                <ul class="dropdown-menu limit-list" aria-labelledby="dropdown-limitPicker" id="dropdown-options">
+                                    <li><a class="dropdown-item" onclick="changeLimit('nolimit')">Tampilkan semua data</a></li>
+                                    <li><a class="dropdown-item" onclick="changeLimit('limit')">10 data terakhir</a></li>
+                                    <li><a class="dropdown-item" onclick="changeLimit('today')">Data Hari ini</a></li>
+                                </ul>
+                            </div>
                                 <div class="card">
                                     <div class="card-body">
                                         <h4 class="header-title mb-3">Grafik Performa Panel</h4>

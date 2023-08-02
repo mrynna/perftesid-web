@@ -4,6 +4,8 @@ var perf = document.getElementById("perfChart").getContext("2d");
 var irad = document.getElementById("iradChart").getContext("2d");
 var vocSuhu = document.getElementById("vocSuhuChart").getContext("2d");
 var iscIrad = document.getElementById("iscIradiasiChart").getContext("2d");
+let url = "api/service.chart.php";
+let title = "Semua data";
 var chartVoc;
 var chartSuhu;
 var chartPerf;
@@ -66,7 +68,7 @@ function getData() {
               backgroundColor: "#767fe3", // Warna latar belakang
               borderColor: "#767fe3", // Warna garis
               borderWidth: 3,
-              pointStyle: false,
+              pointStyle: true,
               tension: 0.2,
             },
             {
@@ -75,7 +77,7 @@ function getData() {
               backgroundColor: "#30d5a5",
               borderColor: "#30d5a5",
               borderWidth: 3,
-              pointStyle: false,
+              pointStyle: true,
               tension: 0.2,
               yAxisID: "Arus",
             },
@@ -145,7 +147,7 @@ function getData() {
               backgroundColor: "#767fe3",
               borderColor: "#767fe3",
               borderWidth: 3,
-              pointStyle: false,
+              pointStyle: true,
               tension: 0.2,
             },
             {
@@ -154,7 +156,7 @@ function getData() {
               backgroundColor: "#30d5a5",
               borderColor: "#30d5a5",
               borderWidth: 3,
-              pointStyle: false,
+              pointStyle: true,
               tension: 0.2,
               yAxisID: "Iradiasi",
             },
@@ -224,7 +226,7 @@ function getData() {
               backgroundColor: "#767fe3",
               borderColor: "#767fe3",
               borderWidth: 3,
-              pointStyle: false,
+              pointStyle: true,
               tension: 0.2,
             },
             {
@@ -233,7 +235,7 @@ function getData() {
               backgroundColor: "#30d5a5",
               borderColor: "#30d5a5",
               borderWidth: 3,
-              pointStyle: false,
+              pointStyle: true,
               tension: 0.2,
               yAxisID: "SuhuLingkungan",
             },
@@ -303,7 +305,7 @@ function getData() {
               backgroundColor: "#767fe3",
               borderColor: "#767fe3",
               borderWidth: 3,
-              pointStyle: false,
+              pointStyle: true,
               tension: 0.2,
             },
             {
@@ -312,7 +314,7 @@ function getData() {
               backgroundColor: "#30d5a5",
               borderColor: "#30d5a5",
               borderWidth: 3,
-              pointStyle: false,
+              pointStyle: true,
               tension: 0.2,
               yAxisID: "SuhuPanel",
             },
@@ -399,7 +401,7 @@ function getData() {
               backgroundColor: "#767fe3",
               borderColor: "#767fe3",
               borderWidth: 3,
-              pointStyle: false,
+              pointStyle: true,
               tension: 0.2,
             },
           ],
@@ -463,7 +465,7 @@ function getData() {
               backgroundColor: "#30d5a5",
               borderColor: "#30d5a5",
               borderWidth: 3,
-              pointStyle: false,
+              pointStyle: true,
               tension: 0.2,
             },
           ],
@@ -516,9 +518,29 @@ function getData() {
       });
     }
   };
-  xhttp.open("GET", "api/service.chart.php", true);
+  xhttp.open("GET", url, true);
   xhttp.send();
 }
+
+const changeLimit = (limit) => {
+  switch (limit) {
+    case "nolimit":
+      url = "api/service.chart.php";
+      title = "Semua data";
+      break;
+    case "limit":
+      url = "api/service.chart.limit.php";
+      title = "10 data terakhir";
+      break;
+    case "today":
+      url = "api/service.chart.today.php";
+      title = "Data hari ini";
+    default:
+      break;
+  }
+  document.getElementById("dropdown-title").innerHTML = title;
+  getData();
+};
 
 getData();
 setInterval(getData, 15000); // Mengambil data setiap 5 detik

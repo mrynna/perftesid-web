@@ -40,7 +40,7 @@
             <div class="leftside-menu">
     
                 <!-- LOGO -->
-                <a href="index.php" class="logo text-center logo-light">
+                <a href="index" class="logo text-center logo-light">
                     <span class="logo-lg">
                         <img src="assets/images/pnup.png" alt="" height="55">
                     </span>
@@ -50,7 +50,7 @@
                 </a>
 
                 <!-- LOGO -->
-                <a href="index.php" class="logo text-center logo-dark">
+                <a href="index" class="logo text-center logo-dark">
                     <span class="logo-lg">
                         <img src="assets/images/pnup.png" alt="" height="16">
                     </span>
@@ -77,13 +77,13 @@
                             <div class="collapse" id="sidebarDashboards">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="index.php">Home</a>
+                                        <a href="index">Home</a>
                                     </li>
                                     <li>
-                                        <a href="dashboard-grafik.php">Data Grafik</a>
+                                        <a href="dashboard-grafik">Data Grafik</a>
                                     </li>
                                     <li>
-                                        <a href="dashboard-tabel.php">Data Tabel</a>
+                                        <a href="dashboard-tabel">Data Tabel</a>
                                     </li>
                                 </ul>
                             </div>
@@ -101,7 +101,7 @@
                             <div class="collapse" id="sidebarMaps">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="landing-page.php">Tentang</a>
+                                        <a href="landing-page">Tentang</a>
                                     </li>
                                 </ul>
                             </div>
@@ -296,7 +296,7 @@
                             <div class="col-md-6" id="footer-year"></div>
                             <div class="col-md-6">
                                 <div class="text-md-end footer-links d-none d-md-block">
-                                    <a href="landing-page.php">Tentang</a>
+                                    <a href="landing-page">Tentang</a>
                                 </div>
                             </div>
                         </div>
@@ -426,6 +426,6 @@
 </html>
 <?php 
 }else {
-    header("Location: landing-page.php");
+    header("Location: landing-page");
 }
 ?>

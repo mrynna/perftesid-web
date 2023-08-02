@@ -46,7 +46,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="landing-page.php">PERFTESID</a></h1>
+      <h1 class="logo me-auto"><a href="landing-page">PERFTESID</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -113,7 +113,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
                 <a onclick="window.location.href = 'logout.php';" class="glightbox btn-watch-video logout"><h4>Logout</h4><i class="bi bi-box-arrow-right"></i></a>
               </div>
               <div class="d-flex justify-content-start">
-                <a href="index.php" class="btn btn-primary dashboard"><span>Dashboard  </span><i class="bi bi-graph-up-arrow"></i></a>
+                <a href="index" class="btn btn-primary dashboard"><span>Dashboard  </span><i class="bi bi-graph-up-arrow"></i></a>
                 <a href="https://youtu.be/I-mZHo0-b_s" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Lihat Video</span></a>
               </div>
             </div>

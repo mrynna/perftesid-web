@@ -2,6 +2,7 @@
 session_start();
 if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
     require 'connection.php';
+    date_default_timezone_set("Asia/Hong_Kong");
     $date = date('Y-m-d 00:00:00');
     $date2 = date('Y-m-d 23:59:59');
     $token = $_SESSION['user_token'];
